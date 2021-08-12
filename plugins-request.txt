@@ -1,0 +1,12 @@
+build-blocker-plugin:1.7.7
+docker-workflow:1.26
+envinject:2.4.0
+folder-properties:1.2.1
+job-dsl:1.77
+kubernetes-credentials-provider:0.20
+oic-auth:1.8
+pipeline-utility-steps:2.8.0
+role-strategy:3.2.0
+ssh-slaves:1.32.0
+view-job-filters:2.3
+workflow-support:3.8

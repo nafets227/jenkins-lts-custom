@@ -1,0 +1,2 @@
+# intentionally left empty, to be filled by github action based on 
+# plugins-request.txt
