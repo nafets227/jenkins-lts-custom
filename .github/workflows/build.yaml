@@ -5,9 +5,8 @@ on:
   push:
     branches: 
       - '*'
-  # disable schedule until this action is stable
-  # schedule:
-  #   - cron: "*/15 * * * *"
+  schedule:
+    - cron: "0 * * * *"
 
 jobs:
   main:
