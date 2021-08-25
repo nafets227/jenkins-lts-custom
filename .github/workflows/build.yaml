@@ -31,7 +31,7 @@ jobs:
       - name: Define Jenkins Version Docker Tag
         id: defineJenkinsTag
         run: |
-          SUFFIX=lts-jdk11
+          SUFFIX=jdk11
           FULL_VERSION=jenkins/jenkins:${{ steps.findLatestJenkins.outputs.jenkins_version }}-${SUFFIX}
           echo "::set-output name=fullversion::$FULL_VERSION"
           echo "::set-output name=suffix::$SUFFIX"
