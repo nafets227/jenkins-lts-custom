@@ -2,7 +2,7 @@ ace-editor:1.1
 apache-httpcomponents-client-4-api:4.5.13-1.0
 authentication-tokens:1.4
 bootstrap4-api:4.6.0-3
-bootstrap5-api:5.1.0-2
+bootstrap5-api:5.1.0-3
 bouncycastle-api:2.23
 branch-api:2.6.5
 build-blocker-plugin:1.7.7
@@ -19,7 +19,7 @@ echarts-api:5.1.2-11
 envinject:2.4.0
 envinject-api:1.7
 folder-properties:1.2.1
-font-awesome-api:5.15.3-4
+font-awesome-api:5.15.4-1
 git-client:3.9.0
 git-server:1.10
 jackson2-api:2.12.4
