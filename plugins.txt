@@ -34,11 +34,11 @@ matrix-auth:2.6.8
 matrix-project:1.19
 oic-auth:1.8
 pipeline-input-step:2.12
-pipeline-model-api:1.9.1
-pipeline-model-definition:1.9.1
-pipeline-model-extensions:1.9.1
+pipeline-model-api:1.9.2
+pipeline-model-definition:1.9.2
+pipeline-model-extensions:1.9.2
 pipeline-stage-step:2.5
-pipeline-stage-tags-metadata:1.9.1
+pipeline-stage-tags-metadata:1.9.2
 pipeline-utility-steps:2.8.0
 plain-credentials:1.7
 plugin-util-api:2.4.0
