@@ -41,7 +41,7 @@ pipeline-stage-step:2.5
 pipeline-stage-tags-metadata:1.9.2
 pipeline-utility-steps:2.8.0
 plain-credentials:1.7
-plugin-util-api:2.4.0
+plugin-util-api:2.5.0
 popper-api:1.16.1-2
 popper2-api:2.10.1-1
 role-strategy:3.2.0
