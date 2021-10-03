@@ -82,12 +82,28 @@ jobs:
           git add plugins.txt
           git commit -m "Update Plugins"
 
-      - name: Git Push
-        if: |
-          ${{ steps.diff-plugins.outputs.changed == 'true' || 
-          steps.diff-jenkins.outputs.changed == 'true' }}
+      - name: Merge helm chart
         run: |
-          git push
+          git remote add upstream-chart https://github.com/jenkinsci/helm-charts.git
+          git fetch upstream-chart
+          git merge --no-commit upstream-chart/main
+          git reset -- .github $(find . -type f -depth 1)
+
+      - name: Check if helm chart has changed
+        id: diff-chart
+        run: |
+          git diff
+
+          if [[ $(git diff --stat) != '' ]]; then
+            echo "::set-output name=changed::true"
+          else
+            echo "::set-output name=changed::false"
+          fi
+
+      - name: Commit helm chart
+        if: ${{ steps.diff-plugins.outputs.changed == 'true' }}
+        run: |
+          git commit -m "Merge jenkinsci/charts"
 
       - name: Check if Build necessary
         id: ifbuild
@@ -95,6 +111,7 @@ jobs:
           if \
               [ "${{ steps.diff-plugins.outputs.changed }}" != 'true' ] &&
               [ "${{ steps.diff-jenkins.outputs.changed }}" != 'true' ] &&
+              [ "${{ steps.diff-chart.outputs.changes }}" != "true" ] &&
               [ "${{ github.event_name }}" != "push" ] ; then
             echo "nothing changed -> skip build"
             echo "::set-output name=build::false"
@@ -119,6 +136,34 @@ jobs:
             echo "::set-output name=tags::"
             echo "::set-output name=latest::false"
           fi
+
+      - name: Update helm chart to latest version
+        if: ${{ steps.diff-plugins.outputs.changed == 'true' ||
+          steps.diff-jenkins.outputs.changed == 'true' ||
+          steps.diff-chart.outputs.changed == 'true' }}
+        run: |
+          sudo apt-get install jq
+          sudo pip3 install yq
+          # update version in Chart.yaml
+          VERTAG="{{ steps.ifbuild.tags }}"
+          sed -i \
+            -e "s#\(image: nafets227/jenkins-lts-custom:\).*#\1$VERTAG#" \
+            -e "s#\(version: [0-9.]*\).*#\1-$VERTAG#" \
+            -e "s#\(appVersion: [0-9.]*\).*#\1-$VERTAG#" \
+            charts/jenkins/Chart.yaml
+          yq -Y \
+            ".controller.tag |= \"$VERTAG\"" \
+             charts/jenkins/values.yaml \
+             | sponge charts/jenkins/values.yaml
+          git commit -m "updated version tag to $VERTAG"
+
+      - name: Git Push
+        if: |
+          ${{ steps.diff-plugins.outputs.changed == 'true' || 
+          steps.diff-jenkins.outputs.changed == 'true' ||
+          steps.diff-chart.outputs.changed == 'true' }}
+        run: |
+          git push
 
       # Extract metadata (tags, labels) for Docker
       # https://github.com/docker/metadata-action
@@ -153,3 +198,15 @@ jobs:
           push: ${{ github.ref == 'refs/heads/main' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Install Helm
+        if: ${{ steps.diff-plugins.outputs.changed == 'true' }}
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.4.0
+
+      - name: Release helm chart
+        if: ${{ steps.diff-plugins.outputs.changed == 'true' }}
+        uses: helm/chart-releaser-action@v1.2.1
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
