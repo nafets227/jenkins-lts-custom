@@ -9,7 +9,7 @@ on:
     - cron: "0 0 * * *"
 
 jobs:
-  main:
+  jenkins-lts-custom:
     runs-on: ubuntu-latest
     steps:
       - name: Check out source code
