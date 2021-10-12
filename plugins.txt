@@ -55,7 +55,7 @@ structs:1.23
 trilead-api:1.0.13
 variant:1.4
 view-job-filters:2.3
-workflow-api:2.46
+workflow-api:2.47
 workflow-basic-steps:2.24
 workflow-cps:2.94
 workflow-cps-global-lib:2.21
