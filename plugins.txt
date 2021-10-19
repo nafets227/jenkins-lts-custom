@@ -22,7 +22,7 @@ folder-properties:1.2.1
 font-awesome-api:5.15.4-1
 git-client:3.10.0
 git-server:1.10
-jackson2-api:2.13.0-226.v0c5dd2d2fd2a
+jackson2-api:2.13.0-230.v59243c64b0a5
 job-dsl:1.77
 jquery3-api:3.6.0-2
 jsch:0.1.55.2
