@@ -22,79 +22,120 @@ jobs:
           git config user.name "JenkinsUpdater[bot]"
           git config user.email "132197+jenkinsupdater[bot]@users.noreply.github.com"
 
-      - name: Find latest Jenkins LTS version
-        id: findLatestJenkins
-        uses: jenkins-infra/jenkins-version@0.2.0
-        with:
-          version-identifier: lts
+      - name: Setup build machine
+        id: setupBuildMachine
+        run: pip3 install yq
+        # important to install from pip3, since preinstalled
+        # is another implementation of yq that is incompatible.
 
-      - name: Define Jenkins Version Docker Tag
-        id: defineJenkinsTag
+      - name: Analyse Jenkins Helm chart versions (actual and latest from internet)
+        id: findLatestHelm
         run: |
-          SUFFIX=jdk11
-          FULL_VERSION=jenkins/jenkins:${{ steps.findLatestJenkins.outputs.jenkins_version }}-${SUFFIX}
-          echo "::set-output name=fullversion::$FULL_VERSION"
-          echo "::set-output name=suffix::$SUFFIX"
-          echo "$FULL_VERSION"
-          sed -i 's|FROM .*|FROM '"${FULL_VERSION}"'|' Dockerfile
+          # get latest version from helm chart repository
+          helmchartjson=$(curl https://charts.jenkins.io/index.yaml 2>/dev/null |
+            yq '.entries.jenkins | max_by(.version | split("."))'
+            )
+          helmver=$(jq -r '.version' - <<<$helmchartjson)
+          helmurl=$(jq -r '.urls[0]' - <<<$helmchartjson)
+            # as described in https://github.com/helm/helm/issues/7314 only first value of urls
 
-      - name: Check if Jenkins Version has changed
-        id: diff-jenkins
-        run: |
-          git diff
-
-          if [[ $(git diff --stat) != '' ]]; then
-            echo "::set-output name=changed::true"
+          # get current version from our source code
+          if [ -f charts/jenkins/Chart.yaml ] ; then
+            helmactver=$(yq -r '.version' charts/jenkins/Chart.yaml)
           else
-            echo "::set-output name=changed::false"
+            helmactver="0.0.0"
           fi
 
-      - name: Commit Jenkins Version
-        if: ${{ steps.diff-jenkins.outputs.changed == 'true' }}
-        run: |
-          git add Dockerfile
-          git commit -m "Bump to Jenkins LTS ${{ steps.findLatestJenkins.outputs.jenkins_version}}"
+          echo "::set-output name=helmver::$helmver" &&
+          echo "::set-output name=helmurl::$helmurl" &&
+          echo "::set-output name=helmactver::$helmactver" &&
+
+          echo "::notice::Found jenkins chart $helmactver locally, $helmver in Internet at $helmurl"
+
+      - name: Update to latest Helm Chart, applying our patches on top
+        id: updateHelm
+        if: ${{ steps.findLatestHelm.outputs.helmver != steps.findLatestHelm.outputs.helmactver }}
+        run : |
+          [ -d charts/jenkins-lts-custom ] && rm -rf charts/jenkins-lts-custom
+          # do NOT check RC here!
+          mkdir -p charts &&
+          curl -L ${{ steps.findLatestHelm.outputs.helmurl}} 2>/dev/null |
+            tar xz -C charts &&
+          mv charts/jenkins charts/jenkins-lts-custom &&
+
+          origimage=$( \
+            helm template -g charts/jenkins-lts-custom \
+            | yq -r '.
+              | select( .kind == "StatefulSet" )
+              | .spec.template.spec.containers[]
+              | select( .name == "jenkins" )
+              | .image '
+            ) &&
+          echo "origimage=$origimage"
+          sed -i "s|FROM .*|FROM $origimage|" Dockerfile &&
+
+          ./.github/workflows/autoupdate.sh &&
+
+          git add charts/jenkins-lts-custom Dockerfile &&
+          git commit -m "Bump to Jenkins Helm chart ${{ steps.findLatestHelm.outputs.helmver}}" &&
+
+          helmver="${{ steps.findLatestHelm.outputs.helmver }}" &&
+          echo "::notice::Updated to jenkins chart $helmver based on image $origimage"
 
       - name: Generate Plugins Versions List plugins.txt from plugins-request.txt
         run: |
-          set -eo pipefail
+          set -eo pipefail &&
+          IMG=$(sed -n "s|FROM \(.*\)|\1|p" <Dockerfile) &&
+
           docker run \
             -v $(pwd)/plugins-request.txt:/plugins-request.txt \
-            "${{ steps.defineJenkinsTag.outputs.fullversion }}" \
+            "$IMG" \
             jenkins-plugin-cli --no-download --list -f /plugins-request.txt \
             | sed -e '1,/Resulting plugin list:/d' -e '$d' -e 's/ /:/' \
-            >plugins.txt
+            >plugins.txt &&
+          true || exit 1
 
-      - name: Check if Plugin versions have changed
-        id: diff-plugins
-        run: |
-          git diff
-
-          if [[ $(git diff --stat) != '' ]]; then
-            echo "::set-output name=changed::true"
+          if [[ $(git diff --stat) != '' ]] ; then
+            git add plugins.txt &&
+            git commit -m "Update Plugins" &&
+            echo "::notice::Updated Plugins"
           else
-            echo "::set-output name=changed::false"
+            echo "::notice::No plugins to update"
           fi
 
-      - name: Commit Plugins
-        if: ${{ steps.diff-plugins.outputs.changed == 'true' }}
-        run: |
-          git add plugins.txt
-          git commit -m "Update Plugins"
+      - name: Prepare Release
+        run: echo "to be implement"
+        # ??? how to identify if to increase version or not???
+          # read version from Chart.yaml.
+          # if tag with that name does NOT exist
+          #   --> use tag as is
+          # else
+          #   --> increase tag
+        # update version in chart (Chart.yaml and values.yaml)
+        # tag version
+        #
+        # after push make sure to trigger the tag / release action
+        # that should build the image, push it and push the chart
 
       - name: Git Push
-        if: |
-          ${{ steps.diff-plugins.outputs.changed == 'true' || 
-          steps.diff-jenkins.outputs.changed == 'true' }}
         run: |
-          git push
+          if [[ $(git diff ${{ github.sha }} --stat) != '' ]] ; then
+            echo "would execute git push"
+            echo "::notice::Pushed updates to github repo"
+          else
+            echo "::notice::No updates to push"
+          fi
+        # remember to trigger the tag / release action
+        # as described above
 
+
+      # the remaining actions should be moved to tag / release action
       - name: Check if Build necessary
         id: ifbuild
         run: |
           if \
               [ "${{ steps.diff-plugins.outputs.changed }}" != 'true' ] &&
-              [ "${{ steps.diff-jenkins.outputs.changed }}" != 'true' ] &&
+              [ "${{ steps.getImageNameTags.outputs.changed }}" != 'true' ] &&
               [ "${{ github.event_name }}" != "push" ] ; then
             echo "nothing changed -> skip build"
             echo "::set-output name=build::false"
