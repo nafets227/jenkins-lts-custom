@@ -1,3 +1,0 @@
-[submodule "jenkinsci_helm-charts"]
-	path = jenkinsci_helm-charts
-	url = https://github.com/jenkinsci/helm-charts.git
