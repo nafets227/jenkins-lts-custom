@@ -51,7 +51,7 @@ snakeyaml-api:1.29.1
 ssh-credentials:1.19
 ssh-slaves:1.32.0
 sshd:3.1.0
-structs:1.24
+structs:308.v852b473a2b8c
 trilead-api:1.0.13
 variant:1.4
 view-job-filters:2.3
