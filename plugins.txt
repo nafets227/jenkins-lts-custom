@@ -9,7 +9,7 @@ build-blocker-plugin:1.7.7
 caffeine-api:2.9.2-29.v717aac953ff3
 checks-api:1.7.2
 cloudbees-folder:6.16
-credentials:2.6.1
+credentials:2.6.2
 credentials-binding:1.27
 display-url-api:2.3.5
 docker-commons:1.17
