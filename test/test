@@ -51,7 +51,7 @@ done
 testset_init || exit 1
 test_init || exit 1
 
-test_1
+test_emptyhelm
 test_reset ; test_2
 test_reset ; test_build
 
