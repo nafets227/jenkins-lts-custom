@@ -1,0 +1,15 @@
+---
+name: alert on manual tagging
+on:
+  create
+jobs:
+  alertOnManualTagging:
+    runs-on: ubuntu-latest
+    steps:
+      - name: alert by failing
+        if: github.ref_type == "tag"
+        run: |
+          echo "::error::Not allowed to manually tag ${{github.ref_name}}."
+          echo "::error::update Chart.yaml instead."
+          exit 1
+
