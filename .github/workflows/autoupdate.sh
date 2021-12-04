@@ -6,6 +6,9 @@
 
 ##### helmupdate #############################################################
 function patchHelm {
+	local DIR annImages imgVer orighelmver annImages 
+	# global origimage
+	DIR=charts/jenkins-lts-custom
 
 	annImages=$(
 		yq -r ".annotations.\"artifacthub.io/images\"" $DIR/Chart.yaml
@@ -16,31 +19,49 @@ function patchHelm {
 		" - <<<"$annImages"
 		) &&
 	imgVer=${imgVer%%*:} &&
+	origimage=$(
+		helm template -g $DIR \
+			| yq -r ".
+				| select( .kind == \"StatefulSet\" )
+				| .spec.template.spec.containers[]
+				| select( .name == \"jenkins\" )
+				| .image
+				"
+		) &&
+	orighelmver=$(yq -r ".version" $DIR/Chart.yaml) &&
 	annImages=$(yq -Y ".
 		| ( .[]
 			| select(.name == \"jenkins\")
 			| .image )
-		|=\"ghcr.io/nafets227/jenkins-lts-custom:$imgVer\"
+		|=\"ghcr.io/nafets227/jenkins-lts-custom:$ouractver\"
 		" - <<<"$annImages"
 		) &&
 	annImages=$(jq -aRs <<<"$annImages") &&
 
 	yq -Y -i ".
 		| .name |= \"jenkins-lts-custom\"
+		| .version |= \"$ouractver\"
 		| .home |= \"https://github.com/nafets227/jenkins-lts-custom\"
 		| .sources += [ \"https://github.com/nafets227/jenkins-lts-custom\" ]
 		| .maintainers |= [{\"name\": \"nafets227\", \"email\": \"nafets227@users.noreply.github.com\"}]
 		| .annotations.\"artifacthub.io/links\" |= \"https://github.com/nafets227/jenkinsci-lts-custom/helm-charts/tree/main/charts/jenkins\"
 		| .annotations.\"artifacthub.io/images\" |= $annImages
+		| .annotations.\"nafets227.github.com/basechart\" |= \"$orighelmver\"
+		| .annotations.\"nafets227.github.com/baseimage\" |= \"$origimage\"
 		" \
 		$DIR/Chart.yaml &&
 
-	yq -Y -i "
-		.controller.image |= \"ghcr.io/nafets227/jenkins-lts-custom\"
+	yq -Y -i ". 
+		| .controller.image |= \"ghcr.io/nafets227/jenkins-lts-custom\"
+		| .controller.tag |= \"\${.chart.version}\"
 		" \
 		$DIR/values.yaml &&
 
+	sed -i -e "s|FROM .*|FROM $origimage|" Dockerfile &&
+
 	true || return 1
+
+	return 0
 }
 
 ##### findLatestHelm #########################################################
@@ -54,16 +75,15 @@ function findLatestHelm {
 	helmver=$(jq -r '.version' - <<<$helmchartjson) &&
 	helmurl=$(jq -r '.urls[0]' - <<<$helmchartjson) &&
 	# as described in https://github.com/helm/helm/issues/7314 only first value of urls
-	true || return 1
 
-	# get current version from our source code
-	if [ -f charts/jenkins/Chart.yaml ] ; then
-		helmactver=$(yq -r '.version' charts/jenkins/Chart.yaml) || return 1
-	else
-		helmactver="0.0.0"
-	fi
+	helmactver=$(yq -r '.annotations."nafets227.github.com/basechart"' \
+		charts/jenkins-lts-custom/Chart.yaml) &&
+	ouractver=$(yq -r '.version' \
+		charts/jenkins-lts-custom/Chart.yaml) &&
+	ourrelver=$(git tag --list 'v*' | cut -c '2-' | sort -r --version-sort | head -1) &&
+	true || return 1
 
-	echo "::notice::Found jenkins chart $helmactver locally, $helmver in Internet at $helmurl"
+	echo "::notice::Found jenkins chart $ouractver (released=$ourrelver) based on $helmactver locally, $helmver in Internet at $helmurl"
 
 	return 0
 }
@@ -84,22 +104,11 @@ function updateHelm {
 	curl -L "$helmurl" 2>/dev/null | tar xz -C charts &&
 	mv charts/jenkins charts/jenkins-lts-custom &&
 
-	local origimage &&
-	origimage=$( \
-		helm template -g charts/jenkins-lts-custom 
-			| yq -r '.
-				| select( .kind == "StatefulSet" )
-				| .spec.template.spec.containers[]
-				| select( .name == "jenkins" )
-				| .image '
-		) &&
-
-	sed -i "s|FROM .*|FROM $origimage|" Dockerfile &&
-
 	patchHelm &&
 
 	git add charts/jenkins-lts-custom Dockerfile &&
 	git commit -m "Bump to Jenkins Helm chart $helmver" &&
+	true || return 1
 
 	echo "::notice::Updated to jenkins chart $helmver based on image $origimage"
 
@@ -188,8 +197,9 @@ function publish {
 }
 
 ##### Main ###################################################################
-DIR=$(dirname $0)/charts/jenkins-lts-custom &&
+rc=0
 
+pushd $(dirname ${BASH_SOURCE:=$0})/../.. >/dev/null &&
 # setup build machine by installing yq
 # important to install from pip3, since preinstalled
 # is another implementation of yq that is incompatible.
@@ -198,6 +208,8 @@ updateHelm &&
 updatePluginVersions &&
 publish &&
 
-true || exit 1
+true || rc=1
 
-exit 0
+popd >/dev/null
+
+exit $rc

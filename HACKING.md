@@ -9,6 +9,12 @@ do the magic:
 - if something changed, create a new version of the helm chart
 
 # Versioning compliant with semver2
+This project uses semver v2 (https://semver.org) for namings its releases. 
+Remember that the versions are versions of this project and are not the same
+as the jenkins helm chart version or jenkins software version.
+
+tagging in git is done with a leading "v", e.g. v1.0.0
+
 ## new Patch releases are created automatically by github actions
 the automatism in .github/workflow/jenkins-lts-custom.yaml will create new patch
 versions major.minor.(patch+1) if any updates appear on our dependent sites:
