@@ -1,0 +1,8 @@
+# this is just a minimum Chart.yaml to start the auto-update
+# of nafets227/jenkins-lts-latest
+apiVersion: v2
+description: Minimum chart to start auto-update of nafets227/jenkins-lts-latest
+name: jenkins
+version: 0.0.1
+annotations:
+  nafets227.github.com/basechart: "v0.0.0-bootstrap"
