@@ -53,7 +53,6 @@ function patchHelm {
 
 	yq -Y -i ". 
 		| .controller.image |= \"ghcr.io/nafets227/jenkins-lts-custom\"
-		| .controller.tag |= \"\${.chart.version}\"
 		" \
 		$DIR/values.yaml &&
 
@@ -140,58 +139,151 @@ function updatePluginVersions {
 	return 0
 }
 
+##### calcNewVersion ##########################################################
+function calcNewVersion {
+	if git describe --tags --exact-match --match 'v*' >/dev/null 2>&1 ; then
+		printf "::notice::No updates. Staying on %s\n" \
+			"$(git describe --tags --exact-match --match 'v*' 2>/dev/null)"
+		newVersion=""
+		return 0
+	elif [ "$GITHUB_REF" == "" ] ; then
+		echo "::notice::Not publishing in test Mode (GITHUB_REF unset)"
+		newVersion=""
+		return 0
+	elif [ "${GITHUB_REF#refs/heads/}" == "$GITHUB_REF" ] ; then
+		echo "::notice::Not publishing since $GITHUB_REF is no branch"
+		newVersion=""
+		return 0
+	fi
+
+	local helmver helmversem helmver_main helmver_suffix gittag branchname
+
+	# ouractver has been previously set to the version tag in 
+	# charts/jenkins-lts-custom/Chart.yaml
+	helmver="$ouractver" &&
+	helmversem=( ${helmver//./ } ) &&
+	helmver_main=${helmver##-*} &&
+	helmver_main=${helmver_main##+*} &&
+	helmver_suffix=${helmver:${#helmver_main}} &&
+
+	gittag=$(git describe --tags --match 'v*' --abbrev=0 2>/dev/null | cut -c "2-" ) &&
+
+	branchname="${GITHUB_REF##refs/heads/}" &&
+	true || return 1
+
+	if	[ -z "$helmver" ] ||
+		[ -z "$helmver_main" ] ||
+		[ -z "$gittag" ] ||
+		[ -z "$branchname" ]
+	then
+		echo -n "Internal error in calcNewVersion."
+		echo -n " helmver=$helmver helmver_main=$helmver_main"
+		echo    " gittag=$gittag branchname=$branchname"
+		return 1
+	fi
+
+	if	 [ "$GITHUB_REF" != 'refs/heads/main' ] &&
+	     [ "$helmver_suffix" != '' ]
+	then
+		#if !main and helmver contains pre-release/build-info
+		#	use major.minor.patch from helmtag and add suffix -<branchname>.<timestamp>
+		newVersion="${helmversem[0]}.${helmversem[1]}.${helmversem[2]}"
+		newVersion+="-${branchname//[!0-9A-Za-z-]/-}.$(date '+%Y%m%d%H%M%S')"
+		return 0
+	elif [ "$GITHUB_REF" != 'refs/heads/main' ] &&
+	     [ "$helmver_suffix" == '' ]
+	then
+		#if !main and helmver does not contain pre-release/buildinfo
+		#	use major,minor from helmver
+		#	use patch from helmver, increase it
+		#	add suffix -<branchname>.<timestamp>
+		newVersion="${helmversem[0]}.${helmversem[1]}.$((${helmversem[2]} + 1))"
+		newVersion+="-${branchname//[!0-9A-Za-z-]/-}.$(date '+%Y%m%d%H%M%S')"
+		return 0
+	elif [ "$GITHUB_REF" == 'refs/heads/main' ] &&
+	     [ "$helmver_suffix" != '' ]
+	then
+		#if main and semver pre-release (-...) and/or semver build-info (+...)
+		#	cowardly stop.
+		echo -n "::notice::Cowardly refusing to define and publish a version"
+		echo    " based on helmver=$helmver and gittag=$gittag on main branch"
+		newVersion=""
+		return 0
+	elif [ "$GITHUB_REF" == 'refs/heads/main' ] &&
+	     [ "$helmver_suffix" == '' ] &&
+		 [ "$helmver" == "$gittag" ]
+	then
+		#if main, no pre-release/build-info, gittag==helmver
+		#	increase patch
+		newVersion="${helmversem[0]}.${helmversem[1]}.$((${helmversem[2]} + 1))"
+		return 0
+	elif [ "$GITHUB_REF" == 'refs/heads/main' ] &&
+	     [ "$helmver_suffix" == '' ] &&
+		 [ "$helmver" < "$gittag" ]
+	then
+		#if main, no pre-release/build-info, gittag>helmver
+		#	cowardly stop (we might be overwriting something)
+		echo -n "::notice::Cowardly refusing to define and publish a version"
+		echo    " based on helmver=$helmver and gittag=$gittag on main branch"
+		newVersion=""
+		return 0
+	elif [ "$GITHUB_REF" == 'refs/heads/main' ] &&
+	     [ "$helmver_suffix" == '' ] &&
+		 [ "$helmver" > "$gittag" ]
+	then
+		#if main, no pre-release/build-info, gittag<helmver
+		#	use helmtag (probably it has been manually set to increase major or minor)
+		newVersion="$helmtag"
+		return 0
+	fi 
+
+	echo -n "::notice::reaching uncovered condition when defining newVersion"
+	echo    "helmver=$helmver gittag=$gittag branch=$branchname"
+	return 1 # should never end here
+}
+
 ##### publish ################################################################
 function publish {
-	# Prepare Release 
-	# @TODO to be implemented
-		# ??? how to identify if to increase version or not???
-		  # read version from Chart.yaml.
-		  # if tag with that name does NOT exist
-		  #   --> use tag as is
-		  # else
-		  #   --> increase tag
-		# update version in chart (Chart.yaml and values.yaml)
-		# tag version
-		#
-		# after push make sure to trigger the tag / release action
-		# that should build the image, push it and push the chart
-
-	if [[ $(git diff ${{ github.sha }} --stat) != '' ]] ; then
-		echo "would execute git push"
-		echo "::notice::Pushed updates to github repo"
-	else
-		echo "::notice::No updates to push"
+	# input: variable newVersion contains the version (without leading v)
+	local newVersion="$1"
+	if [ -z "$newVersion" ] ; then
+		printf "Error: version to publish not set.\n"
+		return 1
 	fi
 
-	# Check if Build necessary
-	if \
-		[ "\${{ steps.diff-plugins.outputs.changed }}" != 'true' ] &&
-		[ "\${{ steps.getImageNameTags.outputs.changed }}" != 'true' ] &&
-		[ "\${{ github.event_name }}" != "push" ]
-	then
-		echo "nothing changed -> skip build"
-		echo "::set-output name=build::false"
-	elif [ "\${{ github.ref }}" == 'refs/heads/main' ] ; then
-		echo "Building on main branch -> push with version+date"
-		VERTAG="r"
-		VERTAG+="$(git rev-list --count HEAD)"
-		VERTAG+="."
-		VERTAG+="$(git rev-parse --short HEAD)"
-		echo "::set-output name=build::true"
-		echo "::set-output name=tags::$VERTAG-$(date '+%Y%m%d%H%M')"
-		echo "::set-output name=latest::true"
-	elif [ "${GITHUB_REF#refs/heads/}" != "$GITHUB_REF" ] ; then
-		echo "Building on non-main branch -> push with branchname"
-		VERTAG="${GITHUB_REF#refs/heads/}"
-		echo "::set-output name=build::true"
-		echo "::set-output name=tags::$VERTAG"
-		echo "::set-output name=latest::false"
-	else
-		echo "not building on a branch -> dont push"
-		echo "::set-output name=build::true"
-		echo "::set-output name=tags::"
-		echo "::set-output name=latest::false"
-	fi
+	local annImages
+	annImages=$(
+		yq -r ".annotations.\"artifacthub.io/images\"" charts/jenkins-lts-custom/Chart.yaml
+		) &&
+	annImages=$(yq -Y ".
+		| ( .[]
+			| select(.name == \"jenkins\")
+			| .image )
+		|=\"ghcr.io/nafets227/jenkins-lts-custom:$newVersion\"
+		" - <<<"$annImages"
+		) &&
+	annImages=$(jq -aRs <<<"$annImages") &&
+	yq -Y -i ".
+		| .version |= \"$newVersion\"
+		| .annotations.\"artifacthub.io/images\" |= $annImages
+		" \
+		charts/jenkins-lts-custom/Chart.yaml &&
+
+	yq -Y -i ". 
+		| .controller.tag |= \"$newVersion\"
+		" \
+		charts/jenkins-lts-custom/values.yaml &&
+
+	git add \
+		charts/jenkins-lts-custom/Chart.yaml \
+		charts/jenkins-lts-custom/values.yaml \
+		&&
+	git commit -m "Prepare release $newVersion" &&
+	git tag "v$newVersion" &&
+	git push origin refs/tags/v$newVersion "$GITHUB_REF" &&
+	true || return 1
+
+	echo "::notice::Pushed updates to github repo"
 
 	return 0
 }
@@ -206,9 +298,13 @@ pushd $(dirname ${BASH_SOURCE:=$0})/../.. >/dev/null &&
 findLatestHelm &&
 updateHelm &&
 updatePluginVersions &&
-publish &&
-
+calcNewVersion && # sets newVersion!!!
 true || rc=1
+
+if [ "$rc" == "0" ] && [ ! -z "$newVersion" ] ; then
+	publish "$newVersion" || rc=1
+	echo "::set-output name=newVersion::$newVersion"
+fi
 
 popd >/dev/null
 
