@@ -59,3 +59,34 @@ jobs:
           push: ${{ github.ref == 'refs/heads/main' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Set up Helm
+        if: ${{ steps.autoupdate.outputs.newVersion != '' }}
+        uses: azure/setup-helm@v1
+
+      - uses: actions/setup-python@v2
+        if: ${{ steps.autoupdate.outputs.newVersion != '' }}
+        #with:
+        #  python-version: 3.7
+
+      - name: Set up chart-testing
+        if: ${{ steps.autoupdate.outputs.newVersion != '' }}
+        uses: helm/chart-testing-action@v2.1.0
+
+      - name: Run chart-testing (lint)
+        if: ${{ steps.autoupdate.outputs.newVersion != '' }}
+        run: ct lint --all
+
+      - name: Create kind cluster
+        if: ${{ steps.autoupdate.outputs.newVersion != '' }}
+        uses: helm/kind-action@v1.2.0
+
+      - name: Run chart-testing (install)
+        if: ${{ steps.autoupdate.outputs.newVersion != '' }}
+        run: ct install --all
+        
+      - name: Publish chart
+        if: ${{ steps.autoupdate.outputs.newVersion != '' }}
+        uses: helm/chart-releaser-action@v1.1.0
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
