@@ -53,6 +53,7 @@ function patchHelm {
 
 	yq -Y -i ". 
 		| .controller.image |= \"ghcr.io/nafets227/jenkins-lts-custom\"
+		| .controller.installPlugins |= false
 		" \
 		$DIR/values.yaml &&
 
