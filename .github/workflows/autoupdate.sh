@@ -51,6 +51,14 @@ function patchHelm {
 		" \
 		$DIR/Chart.yaml &&
 
+	local sedregex &&
+	sedregex="s#" &&
+	sedregex+="image: {{ .Values.controller.image }}:{{ .Chart.AppVersion }}-{{ .Values.controller.tagLabel }}" &&
+	sedregex+="#" &&
+	sedregex+="image: \"{{ .Values.controller.image }}:{{- include \"controller.tag\" . -}}\"" &&
+	sedregex+="#" &&
+	sed -i -e "$sedregex" $DIR/templates/tests/jenkins-test.yaml &&
+
 	yq -Y -i ". 
 		| .controller.image |= \"ghcr.io/nafets227/jenkins-lts-custom\"
 		| .controller.installPlugins |= false
