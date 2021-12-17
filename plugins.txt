@@ -41,7 +41,7 @@ pipeline-stage-step:2.5
 pipeline-stage-tags-metadata:1.9.3
 pipeline-utility-steps:2.8.0
 plain-credentials:1.7
-plugin-util-api:2.6.0
+plugin-util-api:2.7.0
 popper-api:1.16.1-2
 popper2-api:2.10.2-1
 role-strategy:3.2.0
@@ -55,13 +55,13 @@ structs:308.v852b473a2b8c
 trilead-api:1.0.13
 variant:1.4
 view-job-filters:2.3
-workflow-api:1105.v3de5e2efac97
+workflow-api:1106.v6a04bac22f47
 workflow-basic-steps:2.24
 workflow-cps:2644.v29a793dac95a
 workflow-cps-global-lib:552.vd9cc05b8a2e1
 workflow-durable-task-step:1102.v9c8d2f466adb
-workflow-job:2.42
+workflow-job:1145.v7f2433caa07f
 workflow-multibranch:2.26
 workflow-scm-step:2.13
-workflow-step-api:613.v375732a042b1
+workflow-step-api:615.vb09dac339255
 workflow-support:3.8
