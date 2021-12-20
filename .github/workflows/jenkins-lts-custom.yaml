@@ -87,6 +87,24 @@ jobs:
         
       - name: Publish chart
         if: ${{ steps.autoupdate.outputs.newVersion != '' }}
-        uses: helm/chart-releaser-action@v1.1.0
-        env:
-          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        run: |
+          rm -rf .cr-release-packages .cr-index # ignore error!
+          .github/workflows/setup-chart-releaser.sh &&
+          mkdir -p .cr-release-packages .cr-index &&
+          cr package \
+            charts/jenkins-lts-custom \
+            --package-path .cr-release-packages \
+            &&
+          cr upload \
+            -o ${GITHUB_REPOSITORY%%/*} \
+            -r ${GITHUB_REPOSITORY##*/} \
+            -t "${{ secrets.GITHUB_TOKEN }}" \
+            -c "$(git rev-parse HEAD)" \
+            --release-name-template "v{{ .Version }}" \
+            &&
+          cr index \
+            -o ${GITHUB_REPOSITORY%%/*} \
+            -r ${GITHUB_REPOSITORY##*/} \
+            -c "https://nafets227.github.io/jenkins-lts-custom" \
+            --release-name-template "v{{ .Version }}" \
+            --push
