@@ -103,12 +103,15 @@ function findLatestHelm {
 function updateHelm {
 	# Update to latest Helm Chart, applying our patches on top
 
-	if [ "$helmver" == "$helmactver" ] && [ "$1" != "--force" ]; then
+	if [ "$1" != "--force" ]; then
+		msgCommit="Forced recreating Jenkins Helm chart $helmver based on image $origimage"
+	elif [ "$helmver" == "$helmactver" ] ; then
 		echo "::notice::Not updating helm chart"
 		return 0
 	elif [ -d charts/jenkins-lts-custom ] ; then
 		rm -rf charts/jenkins-lts-custom
 		# do NOT check RC here!
+		msgCommit="Bump to Jenkins Helm chart $helmver based on image $origimage"
 	fi
 
 	mkdir -p charts &&
@@ -118,10 +121,10 @@ function updateHelm {
 	patchHelm &&
 
 	git add -A charts/jenkins-lts-custom Dockerfile &&
-	git commit -m "Bump to Jenkins Helm chart $helmver" &&
+	git commit -m "$msgCommit" &&
 	true || return 1
 
-	echo "::notice::Updated to jenkins chart $helmver based on image $origimage"
+	echo "::notice::$msgCommit"
 
 	return 0
 }
