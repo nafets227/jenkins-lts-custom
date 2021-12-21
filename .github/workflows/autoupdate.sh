@@ -68,6 +68,8 @@ function patchHelm {
 
 	sed -i -e "s|FROM .*|FROM $origimage|" Dockerfile &&
 
+	rm CHANGELOG.md README.md &&
+
 	true || return 1
 
 	return 0
