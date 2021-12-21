@@ -4,6 +4,39 @@ entries:
   - annotations:
       artifacthub.io/images: |
         - name: jenkins
+          image: ghcr.io/nafets227/jenkins-lts-custom:0.0.6-chartsubmodule.20211221194337
+        - name: k8s-sidecar
+          image: kiwigrid/k8s-sidecar:1.14.2
+        - name: inbound-agent
+          image: jenkins/inbound-agent:4.11-1
+        - name: backup
+          image: maorfr/kube-tasks:0.2.0
+      artifacthub.io/links: https://github.com/nafets227/jenkinsci-lts-custom/helm-charts/tree/main/charts/jenkins
+      nafets227.github.com/basechart: 3.9.4
+      nafets227.github.com/baseimage: jenkins/jenkins:2.319.1-jdk11
+    apiVersion: v2
+    appVersion: 2.319.1
+    created: "2021-12-21T19:46:48.893455535Z"
+    description: Jenkins with custom plugins autoupdated
+    digest: c00ec53de1cda58d5bec096103b0744e34f4704a81273640f11225e3f74db17c
+    home: https://github.com/nafets227/jenkins-lts-custom
+    icon: https://get.jenkins.io/art/jenkins-logo/logo.svg
+    maintainers:
+    - email: nafets227@users.noreply.github.com
+      name: nafets227
+    name: jenkins-lts-custom
+    sources:
+    - https://github.com/jenkinsci/jenkins
+    - https://github.com/jenkinsci/docker-inbound-agent
+    - https://github.com/maorfr/kube-tasks
+    - https://github.com/jenkinsci/configuration-as-code-plugin
+    - https://github.com/nafets227/jenkins-lts-custom
+    urls:
+    - https://github.com/nafets227/jenkins-lts-custom/releases/download/v0.0.6-chartsubmodule.20211221194337/jenkins-lts-custom-0.0.6-chartsubmodule.20211221194337.tgz
+    version: 0.0.6-chartsubmodule.20211221194337
+  - annotations:
+      artifacthub.io/images: |
+        - name: jenkins
           image: ghcr.io/nafets227/jenkins-lts-custom:0.0.5-chartsubmodule.20211221193427
         - name: k8s-sidecar
           image: kiwigrid/k8s-sidecar:1.14.2
@@ -102,4 +135,4 @@ entries:
     urls:
     - https://github.com/nafets227/jenkins-lts-custom/releases/download/v0.0.3-chartsubmodule.20211221175834/jenkins-lts-custom-0.0.3-chartsubmodule.20211221175834.tgz
     version: 0.0.3-chartsubmodule.20211221175834
-generated: "2021-12-21T19:37:37.1692702Z"
+generated: "2021-12-21T19:46:48.893493635Z"
