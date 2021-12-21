@@ -8,7 +8,7 @@ branch-api:2.7.0
 build-blocker-plugin:1.7.7
 caffeine-api:2.9.2-29.v717aac953ff3
 checks-api:1.7.2
-cloudbees-folder:6.16
+cloudbees-folder:6.17
 credentials:1055.v1346ba467ba1
 credentials-binding:1.27
 display-url-api:2.3.5
