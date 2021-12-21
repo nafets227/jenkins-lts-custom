@@ -6,7 +6,7 @@
 
 ##### helmupdate #############################################################
 function patchHelm {
-	local DIR annImages imgVer orighelmver annImages 
+	local DIR annImages imgVer orighelmver annImages
 	# global origimage
 	DIR=charts/jenkins-lts-custom
 
@@ -59,7 +59,7 @@ function patchHelm {
 	sedregex+="#" &&
 	sed -i -e "$sedregex" $DIR/templates/tests/jenkins-test.yaml &&
 
-	yq -Y -i ". 
+	yq -Y -i ".
 		| .controller.image |= \"ghcr.io/nafets227/jenkins-lts-custom\"
 		| .controller.installPlugins |= false
 		" \
@@ -167,7 +167,7 @@ function calcNewVersion {
 
 	local helmver helmversem helmver_main helmver_suffix gittag branchname
 
-	# ouractver has been previously set to the version tag in 
+	# ouractver has been previously set to the version tag in
 	# charts/jenkins-lts-custom/Chart.yaml
 	helmver="$ouractver" &&
 	helmversem=( ${helmver//./ } ) &&
@@ -244,7 +244,7 @@ function calcNewVersion {
 		#	use helmtag (probably it has been manually set to increase major or minor)
 		newVersion="$helmtag"
 		return 0
-	fi 
+	fi
 
 	echo -n "::notice::reaching uncovered condition when defining newVersion"
 	echo    "helmver=$helmver gittag=$gittag branch=$branchname"
@@ -278,7 +278,7 @@ function publish {
 		" \
 		charts/jenkins-lts-custom/Chart.yaml &&
 
-	yq -Y -i ". 
+	yq -Y -i ".
 		| .controller.tag |= \"$newVersion\"
 		" \
 		charts/jenkins-lts-custom/values.yaml &&
