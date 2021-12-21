@@ -103,7 +103,7 @@ function findLatestHelm {
 function updateHelm {
 	# Update to latest Helm Chart, applying our patches on top
 
-	if [ "$1" != "--force" ]; then
+	if [ "$1" == "--force" ]; then
 		msgCommit="Forced recreating Jenkins Helm chart $helmver based on image $origimage"
 	elif [ "$helmver" == "$helmactver" ] ; then
 		echo "::notice::Not updating helm chart"
