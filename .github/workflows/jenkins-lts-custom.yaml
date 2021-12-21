@@ -3,7 +3,7 @@ name: Build with latest Jenkins+Plugins Version
 
 on:
   push:
-    branches: 
+    branches:
       - '*'
   schedule:
     - cron: "0 0 * * *"
@@ -84,7 +84,7 @@ jobs:
       - name: Run chart-testing (install)
         if: ${{ steps.autoupdate.outputs.newVersion != '' }}
         run: ct install --all
-        
+
       - name: Publish chart
         if: ${{ steps.autoupdate.outputs.newVersion != '' }}
         run: |
