@@ -108,10 +108,13 @@ function updateHelm {
 	elif [ "$helmver" == "$helmactver" ] ; then
 		echo "::notice::Not updating helm chart"
 		return 0
-	elif [ -d charts/jenkins-lts-custom ] ; then
+	else
+		msgCommit="Bump to Jenkins Helm chart $helmver based on image $origimage"
+	fi
+
+	if [ -d charts/jenkins-lts-custom ] ; then
 		rm -rf charts/jenkins-lts-custom
 		# do NOT check RC here!
-		msgCommit="Bump to Jenkins Helm chart $helmver based on image $origimage"
 	fi
 
 	mkdir -p charts &&
