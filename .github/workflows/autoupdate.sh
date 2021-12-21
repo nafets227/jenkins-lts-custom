@@ -103,10 +103,16 @@ function findLatestHelm {
 function updateHelm {
 	# Update to latest Helm Chart, applying our patches on top
 
-	if [ "$helmver" == "$helmactver" ] ; then
+	if [ "$1" == "--force" ]; then
+		msgCommit="Forced recreating Jenkins Helm chart $helmver based on image $origimage"
+	elif [ "$helmver" == "$helmactver" ] ; then
 		echo "::notice::Not updating helm chart"
 		return 0
-	elif [ -d charts/jenkins-lts-custom ] ; then
+	else
+		msgCommit="Bump to Jenkins Helm chart $helmver based on image $origimage"
+	fi
+
+	if [ -d charts/jenkins-lts-custom ] ; then
 		rm -rf charts/jenkins-lts-custom
 		# do NOT check RC here!
 	fi
@@ -118,10 +124,10 @@ function updateHelm {
 	patchHelm &&
 
 	git add -A charts/jenkins-lts-custom Dockerfile &&
-	git commit -m "Bump to Jenkins Helm chart $helmver" &&
+	git commit -m "$msgCommit" &&
 	true || return 1
 
-	echo "::notice::Updated to jenkins chart $helmver based on image $origimage"
+	echo "::notice::$msgCommit"
 
 	return 0
 }
@@ -302,11 +308,15 @@ function publish {
 rc=0
 
 pushd $(dirname ${BASH_SOURCE:=$0})/../.. >/dev/null &&
-# setup build machine by installing yq
-# important to install from pip3, since preinstalled
-# is another implementation of yq that is incompatible.
+
+if [ "$1" == "--force" ] ; then
+	updParm="--force"
+else
+	updParm=""
+fi
+
 findLatestHelm &&
-updateHelm &&
+updateHelm $updParm &&
 updatePluginVersions &&
 calcNewVersion && # sets newVersion!!!
 true || rc=1
