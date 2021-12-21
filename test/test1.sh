@@ -22,12 +22,7 @@ function test_bootstrap {
     test_exec_simple "mkdir -p charts/jenkins-lts-custom"
     test_exec_simple "cp -a $BASEDIR/jenkins-lts-custom.bootstrap/* charts/jenkins-lts-custom"
     test_exec_simple ".github/workflows/autoupdate.sh" &&
-        test_lastoutput_contains "::set-output name=newVersion::0.0.2-chartsubmodule-localtest+$(date "+%Y%m%d")"
-    local gittag
-    gittag=$(git tag -l v0.0.2-chartsubmodule-localtest+$(date "+%Y%m%d")'*')
-    test_expect_value "$?" "0"
-    test_expect_value "${#gittag}" "46"
-    test_exec_simple "git tag -d $gittag"
+        test_lastoutput_contains "::set-output name=newVersion::0.0.2-chartsubmodule-localtest.$(date "+%Y%m%d")"
     export GITHUB_REF=
 
     return 0
