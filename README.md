@@ -1,4 +1,5 @@
 # jenkins-lts-custom
+Jenkins with custom plugins autoupdated. It consists of 
 Helm Chart and docker image for jenkins with custom plugins.
 Used primarily at out site.
 
