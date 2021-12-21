@@ -40,6 +40,7 @@ function patchHelm {
 
 	yq -Y -i ".
 		| .name |= \"jenkins-lts-custom\"
+		| .description |= \"Jenkins with custom plugins autoupdated\"
 		| .version |= \"$ouractver\"
 		| .home |= \"https://github.com/nafets227/jenkins-lts-custom\"
 		| .sources += [ \"https://github.com/nafets227/jenkins-lts-custom\" ]
