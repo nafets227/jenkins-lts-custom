@@ -26,7 +26,7 @@ function test_bootstrap {
     local gittag
     gittag=$(git tag -l v0.0.2-chartsubmodule-localtest+$(date "+%Y%m%d")'*')
     test_expect_value "$?" "0"
-    test_expect_value "${#gittag}" "46" 
+    test_expect_value "${#gittag}" "46"
     test_exec_simple "git tag -d $gittag"
     export GITHUB_REF=
 

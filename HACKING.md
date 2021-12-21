@@ -1,5 +1,5 @@
 # hacking of nafets227/jenkins-lts-custom
-As you can read in README.md, 
+As you can read in README.md,
 the github action described in .github/workflow/jenkins-lts-custom.yaml will
 do the magic:
 - update to latest Jenkins helm chart release
@@ -9,7 +9,7 @@ do the magic:
 - if something changed, create a new version of the helm chart
 
 # Versioning compliant with semver2
-This project uses semver v2 (https://semver.org) for namings its releases. 
+This project uses semver v2 (https://semver.org) for namings its releases.
 Remember that the versions are versions of this project and are not the same
 as the jenkins helm chart version or jenkins software version.
 
@@ -29,13 +29,12 @@ the github action will incorporate updates from dependent sites if any (see abov
 and release a new patch version
 
 ## Manual Major or Minor releases
-New major or minor versions MAJOR.MINOR.0 are created manually by editing 
+New major or minor versions MAJOR.MINOR.0 are created manually by editing
 charts/jenkins-lts-custom/Chart.yaml and pushing.
 
 # tagging
-Tagging should only be done by github action, manual pushing a tag will 
+Tagging should only be done by github action, manual pushing a tag will
 probably result in the automatism stopping or creating unpredictable results
 
 # updating github actions by dependabot
 dependabot is configured to auto-update actions used in github actions.
-

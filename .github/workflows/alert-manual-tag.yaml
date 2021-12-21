@@ -12,4 +12,3 @@ jobs:
           echo "::error::Not allowed to manually tag ${{github.ref_name}}."
           echo "::error::update Chart.yaml instead."
           exit 1
-
