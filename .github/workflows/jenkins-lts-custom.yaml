@@ -25,8 +25,16 @@ jobs:
       - name: Auto Update our components
         id: autoupdate
         run: |
+          if [ "${{ github.event_name }}" == 'push' ] ; then
+            parm="--force"
+          else
+            parm=""
+          fi
+          # setup build machine by installing yq
+          # important to install from pip3, since preinstalled
+          # is another implementation of yq that is incompatible.
           pip3 install yq &&
-          .github/workflows/autoupdate.sh &&
+          .github/workflows/autoupdate.sh $parm &&
           git push origin "$GITHUB_REF"
 
       # Extract metadata (tags, labels) for Docker

@@ -103,7 +103,7 @@ function findLatestHelm {
 function updateHelm {
 	# Update to latest Helm Chart, applying our patches on top
 
-	if [ "$helmver" == "$helmactver" ] ; then
+	if [ "$helmver" == "$helmactver" ] && [ "$1" != "--force" ]; then
 		echo "::notice::Not updating helm chart"
 		return 0
 	elif [ -d charts/jenkins-lts-custom ] ; then
@@ -302,11 +302,15 @@ function publish {
 rc=0
 
 pushd $(dirname ${BASH_SOURCE:=$0})/../.. >/dev/null &&
-# setup build machine by installing yq
-# important to install from pip3, since preinstalled
-# is another implementation of yq that is incompatible.
+
+if [ "$1" == "--force" ] ; then
+	updParm="--force"
+else
+	updParm=""
+fi
+
 findLatestHelm &&
-updateHelm &&
+updateHelm $updParm &&
 updatePluginVersions &&
 calcNewVersion && # sets newVersion!!!
 true || rc=1
