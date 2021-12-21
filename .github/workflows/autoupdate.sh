@@ -288,12 +288,9 @@ function publish {
 		charts/jenkins-lts-custom/values.yaml \
 		&&
 	git commit -m "Prepare release $newVersion" &&
-	# git tag "v$newVersion" &&
-	# git push origin refs/tags/v$newVersion "$GITHUB_REF" &&
-	git push origin "$GITHUB_REF" &&
 	true || return 1
 
-	echo "::notice::Pushed updates to github repo"
+	echo "::notice::Updated chart version to $newVersion"
 
 	return 0
 }

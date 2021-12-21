@@ -26,7 +26,8 @@ jobs:
         id: autoupdate
         run: |
           pip3 install yq &&
-          .github/workflows/autoupdate.sh
+          .github/workflows/autoupdate.sh &&
+          git push origin "$GITHUB_REF"
 
       # Extract metadata (tags, labels) for Docker
       # https://github.com/docker/metadata-action
