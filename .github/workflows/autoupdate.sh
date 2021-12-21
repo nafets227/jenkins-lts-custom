@@ -114,7 +114,7 @@ function updateHelm {
 
 	patchHelm &&
 
-	git add charts/jenkins-lts-custom Dockerfile &&
+	git add -A charts/jenkins-lts-custom Dockerfile &&
 	git commit -m "Bump to Jenkins Helm chart $helmver" &&
 	true || return 1
 
