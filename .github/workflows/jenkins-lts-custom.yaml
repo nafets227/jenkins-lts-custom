@@ -23,6 +23,12 @@ jobs:
           git config user.name "JenkinsUpdater[bot]"
           git config user.email "132197+jenkinsupdater[bot]@users.noreply.github.com"
 
+      # setup build machine by installing yq
+      # important to install from pip3, since preinstalled
+      # is another implementation of yq that is incompatible.
+      - name: Install yq
+        run: "pip3 install yq"
+
       - name: Test autoupdate
         run: "bash -c 'set -x ; . test/test'"
 
@@ -34,10 +40,6 @@ jobs:
           else
             parm=""
           fi
-          # setup build machine by installing yq
-          # important to install from pip3, since preinstalled
-          # is another implementation of yq that is incompatible.
-          pip3 install yq &&
           .github/workflows/autoupdate.sh $parm &&
           git push origin "$GITHUB_REF"
 
