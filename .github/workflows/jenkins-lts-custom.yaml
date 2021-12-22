@@ -24,7 +24,7 @@ jobs:
           git config user.email "132197+jenkinsupdater[bot]@users.noreply.github.com"
 
       - name: Test autoupdate
-        run: test/test
+        run: "bash -c 'set -x ; . test/test'"
 
       - name: Auto Update our components
         id: autoupdate
