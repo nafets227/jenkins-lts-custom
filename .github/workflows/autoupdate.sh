@@ -172,6 +172,10 @@ function calcNewVersion {
 		echo "::notice::Not publishing since $GITHUB_REF is no branch"
 		newVersion=""
 		return 0
+	elif ! git describe --tags --match 'v*' --abbrev=0 >/dev/null 2>&1 ; then
+		echo "::error::No tag v* exists yet"
+		newVersion=""
+		return 1
 	fi
 
 	local helmver helmversem helmver_main helmver_suffix gittag branchname
