@@ -10,6 +10,8 @@
 ##### test_init ##############################################################
 function test_init {
 	git init -b testmain . >/dev/null &&
+	git config user.email "nobody@nafets.de" &&
+	git config user.name "Testbot for autoupdate" &&
 
 	mkdir -p .github/workflows charts/jenkins-lts-custom &&
 
