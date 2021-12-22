@@ -9,11 +9,39 @@
 
 ##### test_init ##############################################################
 function test_init {
-	git diff-index --quiet HEAD --
-	test_assert "$?" "Cannot run tests with uncommitted changes" || return 1
+	git init -b testmain . >/dev/null &&
 
-	origbranch=$(git rev-parse --abbrev-ref HEAD) &&
-	git checkout --quiet -b "$origbranch-localtest" &&
+	mkdir -p .github/workflows charts/jenkins-lts-custom &&
+
+	cp -a \
+		$BASEDIR/../.github/workflows/autoupdate.sh \
+		.github/workflows/autoupdate.sh \
+		&&
+	git add .github/workflows/autoupdate.sh &&
+	git commit -m "Add our autoupdate.sh" >/dev/null &&
+
+	cp -a \
+		$BASEDIR/jenkins-lts-custom.bootstrap/* \
+		charts/jenkins-lts-custom/ \
+		&&
+	git add charts/jenkins-lts-custom &&
+	git commit -m "Add bootstrap Chart jenkins-lts-custom" >/dev/null &&
+
+	cp -a \
+		$BASEDIR/../plugins-request.txt \
+		plugins-request.txt \
+		&&
+	git add plugins-request.txt &&
+	git commit -m "Add plugins-request" >/dev/null &&
+	
+	cat >Dockerfile <<-EOF &&
+		FROM dummy
+		EOF
+	git add Dockerfile &&
+	git commit -m "Add Dockerfile" >/dev/null &&
+
+	git tag "v0.0.0-bootstrap" &&
+
 	true || return 1
 
 	return 0
@@ -21,7 +49,7 @@ function test_init {
 
 ##### test_reset #############################################################
 function test_reset {
-	git reset --hard $origbranch --quiet &&
+	git reset --hard testmain --quiet &&
 	git clean -fd --quiet &&
 	git restore --quiet . &&
 	true || return 1
@@ -29,33 +57,36 @@ function test_reset {
 	return 0
 }
 
-##### test_deinit ############################################################
-function test_deinit {
-	git checkout --quiet $origbranch &&
-	git clean -fd --quiet &&
-	git restore --quiet . &&
-	git branch --quiet -D $origbranch-localtest
-	test_assert "$?" "Error switching back to original git branch" \
-		|| return 1
+##### test_all ###############################################################
+function test_all {
+	test_init || return 1
+
+	test_emptyhelm
+	test_reset ; test_nopluginsreq
+	test_reset ; test_nodockerfile
+	test_reset ; test_bootstrap
+	test_reset ; test_build
 
 	return 0
 }
 
 ##### Main ###################################################################
-BASEDIR=$(dirname $BASH_SOURCE)
+BASEDIR=$(realpath $(dirname $BASH_SOURCE))
 . $BASEDIR/../util/test-functions.sh || exit 1
 for f in $BASEDIR/*.sh ; do
 	. $f || exit 1
 done
 
 testset_init || exit 1
-test_init || exit 1
 
-test_emptyhelm
-test_reset ; test_bootstrap
-test_reset ; test_build
+[ ! -z $TESTSETDIR ] &&
+mkdir -p $TESTSETDIR/gittestrepo &&
+pushd $TESTSETDIR/gittestrepo >/dev/null || exit 1
 
-test_deinit
+test_all
+
+popd >/dev/null
+
 testset_summary
 
 exit $?
