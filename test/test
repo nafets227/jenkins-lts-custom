@@ -65,6 +65,7 @@ function test_all {
 	test_reset ; test_nopluginsreq
 	test_reset ; test_nodockerfile
 	test_reset ; test_bootstrap
+	test_reset ; test_mainbranch
 	test_reset ; test_build
 
 	return 0
