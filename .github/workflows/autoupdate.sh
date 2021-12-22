@@ -58,7 +58,12 @@ function patchHelm {
 	sedregex+="#" &&
 	sedregex+="image: \"{{ .Values.controller.image }}:{{- include \"controller.tag\" . -}}\"" &&
 	sedregex+="#" &&
-	sed -i -e "$sedregex" $DIR/templates/tests/jenkins-test.yaml &&
+	sed -e "$sedregex" \
+		<$DIR/templates/tests/jenkins-test.yaml \
+		>$DIR/templates/tests/jenkins-test.yaml.new &&
+	mv \
+		$DIR/templates/tests/jenkins-test.yaml.new \
+		$DIR/templates/tests/jenkins-test.yaml &&
 
 	yq -Y -i ".
 		| .controller.image |= \"ghcr.io/nafets227/jenkins-lts-custom\"
@@ -66,7 +71,8 @@ function patchHelm {
 		" \
 		$DIR/values.yaml &&
 
-	sed -i -e "s|FROM .*|FROM $origimage|" Dockerfile &&
+	sed -e "s|FROM .*|FROM $origimage|" <Dockerfile >Dockerfile.new &&
+	mv Dockerfile.new Dockerfile &&
 
 	rm $DIR/CHANGELOG.md $DIR/README.md &&
 
