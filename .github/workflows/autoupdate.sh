@@ -146,7 +146,7 @@ function updatePluginVersions {
 		>plugins.txt &&
 	true || exit 1
 
-	if [[ $(git diff --stat) != '' ]] ; then
+	if [[ $(git status --porcelain plugins.txt) != '' ]] ; then
 		git add plugins.txt &&
 		git commit -m "Update Plugins" &&
 		echo "::notice::Updated Plugins"
