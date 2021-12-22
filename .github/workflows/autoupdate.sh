@@ -4,6 +4,25 @@
 # starting from jenkinsci/helm-charts that are in submodule with same name
 #
 
+##### util_semver_islt #######################################################
+function util_semver_islt {
+	local min
+	min=$( printf "%s\n%s" "$1" "$2" \
+		| sort --version-sort \
+		| head -1
+		)
+	if [ "$min" == "$1" ] ; then
+		return 0 #true
+	elif [ "$min" == "$2" ] ; then
+		return 1 #false
+	else
+		printf "ERROR\n"
+		return 255
+	fi
+
+	return 99 # should never be reached
+}
+
 ##### helmupdate #############################################################
 function patchHelm {
 	local DIR annImages imgVer orighelmver annImages
@@ -247,7 +266,7 @@ function calcNewVersion {
 		return 0
 	elif [ "$GITHUB_REF" == 'refs/heads/main' ] &&
 	     [ "$helmver_suffix" == '' ] &&
-		 [ "$helmver" < "$gittag" ]
+		 util_semver_islt "$helmver" "$gittag"
 	then
 		#if main, no pre-release/build-info, gittag>helmver
 		#	cowardly stop (we might be overwriting something)
@@ -257,11 +276,11 @@ function calcNewVersion {
 		return 0
 	elif [ "$GITHUB_REF" == 'refs/heads/main' ] &&
 	     [ "$helmver_suffix" == '' ] &&
-		 [ "$helmver" > "$gittag" ]
+		 util_semver_islt "$gittag" "$helmver"
 	then
 		#if main, no pre-release/build-info, gittag<helmver
 		#	use helmtag (probably it has been manually set to increase major or minor)
-		newVersion="$helmtag"
+		newVersion="$helmver"
 		return 0
 	fi
 
