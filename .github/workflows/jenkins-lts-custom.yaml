@@ -30,7 +30,7 @@ jobs:
         run: "pip3 install yq"
 
       - name: Test autoupdate
-        run: "bash -c 'set -x ; . test/test'"
+        run: test/test
 
       - name: Auto Update our components
         id: autoupdate
