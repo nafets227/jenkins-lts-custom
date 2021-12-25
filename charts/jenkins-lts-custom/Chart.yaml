@@ -1,7 +1,7 @@
 annotations:
   artifacthub.io/images: |
     - name: jenkins
-      image: ghcr.io/nafets227/jenkins-lts-custom:0.0.1
+      image: ghcr.io/nafets227/jenkins-lts-custom:0.0.2-chartsubmodule.20211225213142
     - name: k8s-sidecar
       image: kiwigrid/k8s-sidecar:1.14.2
     - name: inbound-agent
@@ -27,4 +27,4 @@ sources:
   - https://github.com/maorfr/kube-tasks
   - https://github.com/jenkinsci/configuration-as-code-plugin
   - https://github.com/nafets227/jenkins-lts-custom
-version: 0.0.1
+version: 0.0.2-chartsubmodule.20211225213142
