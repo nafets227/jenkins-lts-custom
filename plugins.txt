@@ -20,7 +20,7 @@ envinject:2.4.0
 envinject-api:1.8
 folder-properties:1.2.1
 font-awesome-api:5.15.4-5
-git-client:3.10.0
+git-client:3.10.1
 git-server:1.10
 jackson2-api:2.13.1-242.v1a45bad25ceb
 job-dsl:1.77
