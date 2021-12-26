@@ -187,26 +187,25 @@ function updatePluginVersions {
 
 ##### calcNewVersion ##########################################################
 function calcNewVersion {
-	if git describe --tags --exact-match --match 'v*' >/dev/null 2>&1 ; then
-		printf "::notice::No updates. Staying on %s\n" \
-			"$(git describe --tags --exact-match --match 'v*' 2>/dev/null)"
+	local gitbasecommit gitactcommit
+	gitbasecommit="$1"
+	gitactcommit="$(git rev-parse --verify HEAD)"
+
+	if [ "$gitbasecommit" == "$gitactcommit" ] ; then
+		echo "::notice::Not publishing without changes"
 		newVersion=""
 		return 0
 	elif [ "$GITHUB_REF" == "" ] ; then
 		echo "::notice::Not publishing in test Mode (GITHUB_REF unset)"
 		newVersion=""
-		return 0
+		return 1
 	elif [ "${GITHUB_REF#refs/heads/}" == "$GITHUB_REF" ] ; then
 		echo "::notice::Not publishing since $GITHUB_REF is no branch"
-		newVersion=""
-		return 0
-	elif ! git describe --tags --match 'v*' --abbrev=0 >/dev/null 2>&1 ; then
-		echo "::error::No tag v* exists yet"
 		newVersion=""
 		return 1
 	fi
 
-	local curver curversem curvermain curversuffix gittag branchname
+	local curver curversem curvermain curversuffix branchname
 
 	curver="$(yq -r '.version' \
 		charts/jenkins-lts-custom/Chart.yaml)" &&
@@ -215,19 +214,16 @@ function calcNewVersion {
 	curvermain=${curvermain##+*} &&
 	curversuffix=${curver:${#curvermain}} &&
 
-	gittag=$(git describe --tags --match 'v*' --abbrev=0 2>/dev/null | cut -c "2-" ) &&
-
 	branchname="${GITHUB_REF##refs/heads/}" &&
 	true || return 1
 
 	if	[ -z "$curver" ] ||
 		[ -z "$curvermain" ] ||
-		[ -z "$gittag" ] ||
 		[ -z "$branchname" ]
 	then
 		echo -n "Internal error in calcNewVersion."
 		echo -n " curver=$curver curvermain=$curvermain"
-		echo    " gittag=$gittag branchname=$branchname"
+		echo    " branchname=$branchname"
 		return 1
 	fi
 
@@ -255,39 +251,20 @@ function calcNewVersion {
 		#if main and semver pre-release (-...) and/or semver build-info (+...)
 		#	cowardly stop.
 		echo -n "::notice::Cowardly refusing to define and publish a version"
-		echo    " based on curver=$curver and gittag=$gittag on main branch"
+		echo    " based on pre-release curver=$curver on main branch"
 		newVersion=""
 		return 0
 	elif [ "$GITHUB_REF" == 'refs/heads/main' ] &&
-	     [ "$curversuffix" == '' ] &&
-		 [ "$curver" == "$gittag" ]
+	     [ "$curversuffix" == '' ]
 	then
-		#if main, no pre-release/build-info, gittag==curver
+		#if main, no pre-release/build-info
 		#	increase patch
 		newVersion="${curversem[0]}.${curversem[1]}.$((${curversem[2]} + 1))"
-		return 0
-	elif [ "$GITHUB_REF" == 'refs/heads/main' ] &&
-	     [ "$curversuffix" == '' ] &&
-		 util_semver_islt "$curver" "$gittag"
-	then
-		#if main, no pre-release/build-info, gittag>curver
-		#	cowardly stop (we might be overwriting something)
-		echo -n "::notice::Cowardly refusing to define and publish a version"
-		echo    " based on curver=$curver and gittag=$gittag on main branch"
-		newVersion=""
-		return 0
-	elif [ "$GITHUB_REF" == 'refs/heads/main' ] &&
-	     [ "$curversuffix" == '' ] &&
-		 util_semver_islt "$gittag" "$curver"
-	then
-		#if main, no pre-release/build-info, gittag<curver
-		#	use helmtag (probably it has been manually set to increase major or minor)
-		newVersion="$curver"
 		return 0
 	fi
 
 	echo -n "::notice::reaching uncovered condition when defining newVersion"
-	echo    "curver=$curver gittag=$gittag branch=$branchname"
+	echo    "curver=$curver branch=$branchname"
 	return 1 # should never end here
 }
 
@@ -342,17 +319,21 @@ pushd $(dirname ${BASH_SOURCE:=$0})/../.. >/dev/null &&
 
 if [ "$1" == "--force" ] ; then
 	updParm="--force"
+	updBase=""
 else
 	updParm=""
+	updBase="$(git rev-parse --verify HEAD)" || exit 1
 fi
 
 updateHelm $updParm &&
 updatePluginVersions &&
-calcNewVersion && # sets newVersion!!!
+calcNewVersion "$updBase" && # sets newVersion!!!
 true || rc=1
 
-if [ "$rc" == "0" ] && [ ! -z "$newVersion" ] ; then
-	publish "$newVersion" || rc=1
+if [ "$rc" == "0" ] ; then
+	if [ ! -z "$newVersion" ] ; then
+		publish "$newVersion" || rc=1
+	fi
 	echo "::set-output name=newVersion::$newVersion"
 fi
 

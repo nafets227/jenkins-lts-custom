@@ -42,8 +42,6 @@ function test_init {
 	git add Dockerfile &&
 	git commit -m "Add Dockerfile" >/dev/null &&
 
-	git tag "v0.0.0-bootstrap" &&
-
 	true || return 1
 
 	return 0
