@@ -206,89 +206,88 @@ function calcNewVersion {
 		return 1
 	fi
 
-	local helmver helmversem helmver_main helmver_suffix gittag branchname ouractver
+	local curver curversem curvermain curversuffix gittag branchname
 
-	ouractver=$(yq -r '.version' \
-		charts/jenkins-lts-custom/Chart.yaml) &&
-	helmver="$ouractver" &&
-	helmversem=( ${helmver//./ } ) &&
-	helmver_main=${helmver##-*} &&
-	helmver_main=${helmver_main##+*} &&
-	helmver_suffix=${helmver:${#helmver_main}} &&
+	curver="$(yq -r '.version' \
+		charts/jenkins-lts-custom/Chart.yaml)" &&
+	curversem=( ${curver//./ } ) &&
+	curvermain=${curver##-*} &&
+	curvermain=${curvermain##+*} &&
+	curversuffix=${curver:${#curvermain}} &&
 
 	gittag=$(git describe --tags --match 'v*' --abbrev=0 2>/dev/null | cut -c "2-" ) &&
 
 	branchname="${GITHUB_REF##refs/heads/}" &&
 	true || return 1
 
-	if	[ -z "$helmver" ] ||
-		[ -z "$helmver_main" ] ||
+	if	[ -z "$curver" ] ||
+		[ -z "$curvermain" ] ||
 		[ -z "$gittag" ] ||
 		[ -z "$branchname" ]
 	then
 		echo -n "Internal error in calcNewVersion."
-		echo -n " helmver=$helmver helmver_main=$helmver_main"
+		echo -n " curver=$curver curvermain=$curvermain"
 		echo    " gittag=$gittag branchname=$branchname"
 		return 1
 	fi
 
 	if	 [ "$GITHUB_REF" != 'refs/heads/main' ] &&
-	     [ "$helmver_suffix" != '' ]
+	     [ "$curversuffix" != '' ]
 	then
-		#if !main and helmver contains pre-release/build-info
+		#if !main and curver contains pre-release/build-info
 		#	use major.minor.patch from helmtag and add suffix -<branchname>.<timestamp>
-		newVersion="${helmversem[0]}.${helmversem[1]}.${helmversem[2]}"
+		newVersion="${curversem[0]}.${curversem[1]}.${curversem[2]}"
 		newVersion+="-${branchname//[!0-9A-Za-z-]/-}.$(date '+%Y%m%d%H%M%S')"
 		return 0
 	elif [ "$GITHUB_REF" != 'refs/heads/main' ] &&
-	     [ "$helmver_suffix" == '' ]
+	     [ "$curversuffix" == '' ]
 	then
-		#if !main and helmver does not contain pre-release/buildinfo
-		#	use major,minor from helmver
-		#	use patch from helmver, increase it
+		#if !main and curver does not contain pre-release/buildinfo
+		#	use major,minor from curver
+		#	use patch from curver, increase it
 		#	add suffix -<branchname>.<timestamp>
-		newVersion="${helmversem[0]}.${helmversem[1]}.$((${helmversem[2]} + 1))"
+		newVersion="${curversem[0]}.${curversem[1]}.$((${curversem[2]} + 1))"
 		newVersion+="-${branchname//[!0-9A-Za-z-]/-}.$(date '+%Y%m%d%H%M%S')"
 		return 0
 	elif [ "$GITHUB_REF" == 'refs/heads/main' ] &&
-	     [ "$helmver_suffix" != '' ]
+	     [ "$curversuffix" != '' ]
 	then
 		#if main and semver pre-release (-...) and/or semver build-info (+...)
 		#	cowardly stop.
 		echo -n "::notice::Cowardly refusing to define and publish a version"
-		echo    " based on helmver=$helmver and gittag=$gittag on main branch"
+		echo    " based on curver=$curver and gittag=$gittag on main branch"
 		newVersion=""
 		return 0
 	elif [ "$GITHUB_REF" == 'refs/heads/main' ] &&
-	     [ "$helmver_suffix" == '' ] &&
-		 [ "$helmver" == "$gittag" ]
+	     [ "$curversuffix" == '' ] &&
+		 [ "$curver" == "$gittag" ]
 	then
-		#if main, no pre-release/build-info, gittag==helmver
+		#if main, no pre-release/build-info, gittag==curver
 		#	increase patch
-		newVersion="${helmversem[0]}.${helmversem[1]}.$((${helmversem[2]} + 1))"
+		newVersion="${curversem[0]}.${curversem[1]}.$((${curversem[2]} + 1))"
 		return 0
 	elif [ "$GITHUB_REF" == 'refs/heads/main' ] &&
-	     [ "$helmver_suffix" == '' ] &&
-		 util_semver_islt "$helmver" "$gittag"
+	     [ "$curversuffix" == '' ] &&
+		 util_semver_islt "$curver" "$gittag"
 	then
-		#if main, no pre-release/build-info, gittag>helmver
+		#if main, no pre-release/build-info, gittag>curver
 		#	cowardly stop (we might be overwriting something)
 		echo -n "::notice::Cowardly refusing to define and publish a version"
-		echo    " based on helmver=$helmver and gittag=$gittag on main branch"
+		echo    " based on curver=$curver and gittag=$gittag on main branch"
 		newVersion=""
 		return 0
 	elif [ "$GITHUB_REF" == 'refs/heads/main' ] &&
-	     [ "$helmver_suffix" == '' ] &&
-		 util_semver_islt "$gittag" "$helmver"
+	     [ "$curversuffix" == '' ] &&
+		 util_semver_islt "$gittag" "$curver"
 	then
-		#if main, no pre-release/build-info, gittag<helmver
+		#if main, no pre-release/build-info, gittag<curver
 		#	use helmtag (probably it has been manually set to increase major or minor)
-		newVersion="$helmver"
+		newVersion="$curver"
 		return 0
 	fi
 
 	echo -n "::notice::reaching uncovered condition when defining newVersion"
-	echo    "helmver=$helmver gittag=$gittag branch=$branchname"
+	echo    "curver=$curver gittag=$gittag branch=$branchname"
 	return 1 # should never end here
 }
 
