@@ -25,8 +25,7 @@ function util_semver_islt {
 
 ##### helmupdate #############################################################
 function patchHelm {
-	local DIR annImages imgVer orighelmver annImages
-	# global origimage
+	local DIR annImages imgVer orighelmver annImages origimage
 	DIR=charts/jenkins-lts-custom
 
 	annImages=$(
@@ -114,12 +113,9 @@ function findLatestHelm {
 
 	helmactver=$(yq -r '.annotations."nafets227.github.com/basechart"' \
 		charts/jenkins-lts-custom/Chart.yaml) &&
-	ouractver=$(yq -r '.version' \
-		charts/jenkins-lts-custom/Chart.yaml) &&
-	ourrelver=$(git tag --list 'v*' | cut -c '2-' | sort -r --version-sort | head -1) &&
 	true || return 1
 
-	echo "::notice::Found jenkins chart $ouractver (released=$ourrelver) based on $helmactver locally, $helmver in Internet at $helmurl"
+	echo "::notice::Found jenkins chart based on $helmactver locally, $helmver in Internet at $helmurl"
 
 	return 0
 }
@@ -128,13 +124,17 @@ function findLatestHelm {
 function updateHelm {
 	# Update to latest Helm Chart, applying our patches on top
 
+	local msgCommit image
+
+	findLatestHelm || return 1
+
 	if [ "$1" == "--force" ]; then
-		msgCommit="Forced recreating Jenkins Helm chart $helmver based on image $origimage"
+		msgCommit="Recreated helm chart jenkins:$helmver"
 	elif [ "$helmver" == "$helmactver" ] ; then
-		echo "::notice::Not updating helm chart"
+		echo "::notice::Not updating helm chart, already at jenkins:$helmver"
 		return 0
 	else
-		msgCommit="Bump to Jenkins Helm chart $helmver based on image $origimage"
+		msgCommit="Bump to helm chart jenkins:$helmver"
 	fi
 
 	if [ -d charts/jenkins-lts-custom ] ; then
@@ -148,8 +148,9 @@ function updateHelm {
 
 	patchHelm &&
 
+	image=$(sed -n "s|FROM \(.*\)|\1|p" <Dockerfile) &&
 	git add -A charts/jenkins-lts-custom Dockerfile &&
-	git commit -m "$msgCommit" &&
+	git commit -m "$msgCommit based on image $image" &&
 	true || return 1
 
 	echo "::notice::$msgCommit"
@@ -160,12 +161,13 @@ function updateHelm {
 ##### updatePluginVersions ###################################################
 function updatePluginVersions {
 	# name: Generate Plugins Versions List plugins.txt from plugins-request.txt
+	local image && 
 	set -eo pipefail &&
-	IMG=$(sed -n "s|FROM \(.*\)|\1|p" <Dockerfile) &&
+	image=$(sed -n "s|FROM \(.*\)|\1|p" <Dockerfile) &&
 
 	docker run \
 		-v $(pwd)/plugins-request.txt:/plugins-request.txt \
-		"$IMG" \
+		"$image" \
 		jenkins-plugin-cli --no-download --list -f /plugins-request.txt \
 	| sed -e '1,/Resulting plugin list:/d' -e '$d' -e 's/ /:/' \
 		>plugins.txt &&
@@ -203,10 +205,10 @@ function calcNewVersion {
 		return 1
 	fi
 
-	local helmver helmversem helmver_main helmver_suffix gittag branchname
+	local helmver helmversem helmver_main helmver_suffix gittag branchname ouractver
 
-	# ouractver has been previously set to the version tag in
-	# charts/jenkins-lts-custom/Chart.yaml
+	ouractver=$(yq -r '.version' \
+		charts/jenkins-lts-custom/Chart.yaml) &&
 	helmver="$ouractver" &&
 	helmversem=( ${helmver//./ } ) &&
 	helmver_main=${helmver##-*} &&
@@ -344,7 +346,6 @@ else
 	updParm=""
 fi
 
-findLatestHelm &&
 updateHelm $updParm &&
 updatePluginVersions &&
 calcNewVersion && # sets newVersion!!!
