@@ -72,13 +72,36 @@ function test_mainbranch {
     git checkout -q -b "main" &&
     export GITHUB_REF="refs/heads/$(git branch --show-current)" &&
     test_exec_simple ".github/workflows/autoupdate.sh" &&
-        test_lastoutput_contains_line "::set-output name=newVersion::0.0.1" &&
+        test_lastoutput_contains "::set-output name=newVersion::0.0.1" "" "-x" "set-output name=newVersion" &&
         test_expect_files "gittestrepo" "6" &&
         test_expect_value "$(git status --porcelain)" "" &&
     test_exec_simple "git log testmain..HEAD --oneline" &&
-        test_lastoutput_contains "Prepare release 0.0.1$" &&
+        test_lastoutput_contains "Prepare release 0.0.1" "" "" "Prepare release" &&
         test_lastoutput_contains "Update Plugins" &&
         test_lastoutput_contains "Bump to Jenkins Helm chart" &&
+
+    # next update should produce no new version
+    # (intended for scheduled job with no updates)
+    test_exec_simple ".github/workflows/autoupdate.sh" &&
+        test_lastoutput_contains "::set-output name=newVersion::" "" "-x" "set-output name=newVersion" &&
+        test_expect_files "gittestrepo" "6" &&
+        test_expect_value "$(git status --porcelain)" "" &&
+    test_exec_simple "git log testmain..HEAD --oneline" &&
+        test_lastoutput_contains "Prepare release 0.0.1" "" "" "Prepare release" &&
+        test_lastoutput_contains "Update Plugins" &&
+        test_lastoutput_contains "Bump to Jenkins Helm chart" &&
+
+    # forced update should create new version with incremented patch
+    # (intended for push)
+    test_exec_simple ".github/workflows/autoupdate.sh --force" &&
+        test_lastoutput_contains "::set-output name=newVersion::0.0.2" "" "-x" "set-output name=newVersion" &&
+        test_expect_files "gittestrepo" "6" &&
+        test_expect_value "$(git status --porcelain)" "" &&
+    test_exec_simple "git log testmain..HEAD --oneline" &&
+        test_lastoutput_contains "Prepare release 0.0.2" "" "" "Prepare release" &&
+
+        # try should fail!!
+        test_lastoutput_contains "Prepare release 0.0.3" "" "" "Prepare release" &&
 
     export GITHUB_REF= &&
 
