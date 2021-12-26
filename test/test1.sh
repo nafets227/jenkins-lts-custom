@@ -71,7 +71,7 @@ function test_mainbranch {
     # autoupdate with just bootstrap helm chart should work
     git checkout -q -b "main" &&
     export GITHUB_REF="refs/heads/$(git branch --show-current)" &&
-    test_exec_simple "bash -c 'set -x ; . .github/workflows/autoupdate.sh'" &&
+    test_exec_simple ".github/workflows/autoupdate.sh" &&
         test_lastoutput_contains_line "::set-output name=newVersion::0.0.1" &&
         test_expect_files "gittestrepo" "6" &&
         test_expect_value "$(git status --porcelain)" "" &&
