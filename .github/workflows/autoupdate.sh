@@ -25,18 +25,16 @@ function util_semver_islt {
 
 ##### helmupdate #############################################################
 function patchHelm {
-	local DIR annImages imgVer orighelmver annImages origimage
+	local DIR annimages helmver orighelmver origannimages origimage sedregex
+
+	helmver="$1"
+	if [ -z "$helmver" ] ; then
+		printf "Internal Error: Parm1 cannot be null\n"
+		return 1
+	fi
+
 	DIR=charts/jenkins-lts-custom
 
-	annImages=$(
-		yq -r ".annotations.\"artifacthub.io/images\"" $DIR/Chart.yaml
-		) &&
-	imgVer=$(yq -r ".[]
-		| select(.name == \"jenkins\")
-		| .image
-		" - <<<"$annImages"
-		) &&
-	imgVer=${imgVer%%*:} &&
 	origimage=$(
 		helm template -g $DIR \
 			| yq -r ".
@@ -47,30 +45,32 @@ function patchHelm {
 				"
 		) &&
 	orighelmver=$(yq -r ".version" $DIR/Chart.yaml) &&
-	annImages=$(yq -Y ".
+	origannimages=$(
+		yq -r ".annotations.\"artifacthub.io/images\"" $DIR/Chart.yaml
+		) &&
+	annimages=$(yq -Y ".
 		| ( .[]
 			| select(.name == \"jenkins\")
 			| .image )
-		|=\"ghcr.io/nafets227/jenkins-lts-custom:$ouractver\"
-		" - <<<"$annImages"
+		|=\"ghcr.io/nafets227/jenkins-lts-custom:$helmver\"
+		" - <<<"$origAnnImages"
 		) &&
-	annImages=$(jq -aRs <<<"$annImages") &&
+	annimages=$(jq -aRs <<<"$annImages") &&
 
 	yq -Y -i ".
 		| .name |= \"jenkins-lts-custom\"
 		| .description |= \"Jenkins with custom plugins autoupdated\"
-		| .version |= \"$ouractver\"
+		| .version |= \"$helmver\"
 		| .home |= \"https://github.com/nafets227/jenkins-lts-custom\"
 		| .sources += [ \"https://github.com/nafets227/jenkins-lts-custom\" ]
 		| .maintainers |= [{\"name\": \"nafets227\", \"email\": \"nafets227@users.noreply.github.com\"}]
 		| .annotations.\"artifacthub.io/links\" |= \"https://github.com/nafets227/jenkinsci-lts-custom/helm-charts/tree/main/charts/jenkins\"
-		| .annotations.\"artifacthub.io/images\" |= $annImages
+		| .annotations.\"artifacthub.io/images\" |= $annimages
 		| .annotations.\"nafets227.github.com/basechart\" |= \"$orighelmver\"
 		| .annotations.\"nafets227.github.com/baseimage\" |= \"$origimage\"
 		" \
 		$DIR/Chart.yaml &&
 
-	local sedregex &&
 	sedregex="s#" &&
 	sedregex+="image: {{ .Values.controller.image }}:{{ .Chart.AppVersion }}-{{ .Values.controller.tagLabel }}" &&
 	sedregex+="#" &&
@@ -85,6 +85,7 @@ function patchHelm {
 
 	yq -Y -i ".
 		| .controller.image |= \"ghcr.io/nafets227/jenkins-lts-custom\"
+		| .controller.tag |= \"$helmver\"
 		| .controller.installPlugins |= false
 		" \
 		$DIR/values.yaml &&
@@ -146,7 +147,7 @@ function updateHelm {
 	curl -L "$helmurl" 2>/dev/null | tar xz -C charts &&
 	mv charts/jenkins charts/jenkins-lts-custom &&
 
-	patchHelm &&
+	patchHelm "$helmactver" &&
 
 	image=$(sed -n "s|FROM \(.*\)|\1|p" <Dockerfile) &&
 	git add -A charts/jenkins-lts-custom Dockerfile &&
