@@ -35,7 +35,16 @@ function test_nopluginsreq {
 
 function test_nodockerfile {
     git checkout -q -b "$FUNCNAME" &&
-    :
+
+    test_exec_simple "rm -rf Dockerfile" "0" &&
+        test_expect_file_missing "Dockerfile" &&
+        true || return 1
+
+    # autoupdate without plugins-request.txt should fail
+    test_exec_simple ".github/workflows/autoupdate.sh" "1" &&
+        test_expect_file_missing "Dockerfile" &&
+
+    return 0
 }
 
 function test_bootstrap {
