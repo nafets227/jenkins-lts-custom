@@ -23,7 +23,7 @@ function util_semver_islt {
 	return 99 # should never be reached
 }
 
-##### helmupdate #############################################################
+##### patchHelm ##############################################################
 function patchHelm {
 	local DIR annimages helmver orighelmver origannimages origimage sedregex
 
@@ -256,7 +256,7 @@ function calcNewVersion {
 		echo -n "::notice::Cowardly refusing to define and publish a version"
 		echo    " based on pre-release curver=$curver on main branch"
 		newVersion=""
-		return 0
+		return 1
 	elif [ "$GITHUB_REF" == 'refs/heads/main' ] &&
 	     [ "$curversuffix" == '' ]
 	then
