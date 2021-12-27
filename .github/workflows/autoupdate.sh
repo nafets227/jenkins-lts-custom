@@ -212,10 +212,10 @@ function calcNewVersion {
 
 	curver="$(yq -r '.version' \
 		charts/jenkins-lts-custom/Chart.yaml)" &&
-	curversem=( ${curver//./ } ) &&
-	curvermain=${curver##-*} &&
-	curvermain=${curvermain##+*} &&
+	curvermain=${curver%%-*} &&
+	curvermain=${curvermain%%+*} &&
 	curversuffix=${curver:${#curvermain}} &&
+	curversem=( ${curvermain//./ } ) &&
 
 	branchname="${GITHUB_REF##refs/heads/}" &&
 	true || return 1
