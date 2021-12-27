@@ -52,13 +52,15 @@ function test_bootstrap {
     git checkout -q -b "$FUNCNAME" &&
     export GITHUB_REF="refs/heads/$(git branch --show-current)" &&
     test_exec_simple ".github/workflows/autoupdate.sh" &&
-        test_lastoutput_contains "::set-output name=newVersion::0.0.2-test-bootstrap.$(date "+%Y%m%d")" &&
+        test_lastoutput_contains "::set-output name=newVersion::0.0.1-test-bootstrap.$(date "+%Y%m%d")" \
+            "" "" "::set-output name=newVersion" &&
         test_expect_files "gittestrepo" "6" &&
         test_expect_value "$(git status --porcelain)" "" &&
     test_exec_simple "git log testmain..HEAD --oneline" &&
-        test_lastoutput_contains "Prepare release 0.0.2-test-bootstrap" &&
+        test_lastoutput_contains "Prepare release 0.0.1-test-bootstrap" \
+            "" "" "Prepare release" &&
         test_lastoutput_contains "Update Plugins" &&
-        test_lastoutput_contains "Bump to Jenkins Helm chart" &&
+        test_lastoutput_contains "Bump to helm chart jenkins:" &&
 
     export GITHUB_REF= &&
 

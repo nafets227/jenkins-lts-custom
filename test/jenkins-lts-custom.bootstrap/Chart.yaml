@@ -3,6 +3,6 @@
 apiVersion: v2
 description: Minimum chart to start auto-update of nafets227/jenkins-lts-latest
 name: jenkins
-version: 0.0.1
+version: 0.0.1-bootstrap.jenkins-lts-custom
 annotations:
-  nafets227.github.com/basechart: "v0.0.0-bootstrap"
+  nafets227.github.com/basechart: "0.0.0-bootstrap.jenkins"
