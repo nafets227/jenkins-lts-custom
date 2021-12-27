@@ -80,7 +80,7 @@ function test_mainbranch {
     test_exec_simple "git log testmain..HEAD --oneline" &&
         test_lastoutput_contains "Prepare release 0.0.1" "" "" "Prepare release" &&
         test_lastoutput_contains "Update Plugins" &&
-        test_lastoutput_contains "Bump to Jenkins Helm chart" &&
+        test_lastoutput_contains "Bump to helm chart jenkins:" &&
 
     # next update should produce no new version
     # (intended for scheduled job with no updates)
@@ -91,7 +91,7 @@ function test_mainbranch {
     test_exec_simple "git log testmain..HEAD --oneline" &&
         test_lastoutput_contains "Prepare release 0.0.1" "" "" "Prepare release" &&
         test_lastoutput_contains "Update Plugins" &&
-        test_lastoutput_contains "Bump to Jenkins Helm chart" &&
+        test_lastoutput_contains "Bump to helm chart jenkins:" &&
 
     # forced update should create new version with incremented patch
     # (intended for push)
