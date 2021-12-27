@@ -37,8 +37,11 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" == 'push' ] ; then
             parm="--force"
-          else
+          elif [ "${{ github.event_name }}" == 'schedule' ] ; then
             parm=""
+          else
+            printf "Invalid event_name %s\n" "${{ github.event_name }}"
+            exit 1
           fi
           .github/workflows/autoupdate.sh $parm &&
           git push origin "$GITHUB_REF"
