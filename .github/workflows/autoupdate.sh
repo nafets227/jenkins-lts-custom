@@ -138,6 +138,9 @@ function updateHelm {
 		msgCommit="Bump to helm chart jenkins:$helmver"
 	fi
 
+	curver="$(yq -r '.version' \
+		charts/jenkins-lts-custom/Chart.yaml)" &&
+
 	if [ -d charts/jenkins-lts-custom ] ; then
 		rm -rf charts/jenkins-lts-custom
 		# do NOT check RC here!
@@ -147,7 +150,7 @@ function updateHelm {
 	curl -L "$helmurl" 2>/dev/null | tar xz -C charts &&
 	mv charts/jenkins charts/jenkins-lts-custom &&
 
-	patchHelm "$helmactver" &&
+	patchHelm "$curver" &&
 
 	image=$(sed -n "s|FROM \(.*\)|\1|p" <Dockerfile) &&
 	git add -A charts/jenkins-lts-custom Dockerfile &&
