@@ -9,7 +9,7 @@ build-blocker-plugin:1.7.7
 caffeine-api:2.9.2-29.v717aac953ff3
 checks-api:1.7.2
 cloudbees-folder:6.17
-credentials:1055.v1346ba467ba1
+credentials:1061.vb_1fceb_58fa_18
 credentials-binding:1.27
 display-url-api:2.3.5
 docker-commons:1.17
@@ -22,7 +22,7 @@ folder-properties:1.2.1
 font-awesome-api:5.15.4-5
 git-client:3.11.0
 git-server:1.10
-jackson2-api:2.13.1-244.v773c36c5b330
+jackson2-api:2.13.1-246.va8a9f3eaf46a
 job-dsl:1.77
 jquery3-api:3.6.0-2
 jsch:0.1.55.2
@@ -41,7 +41,7 @@ pipeline-stage-step:291.vf0a8a7aeeb50
 pipeline-stage-tags-metadata:1.9.3
 pipeline-utility-steps:2.8.0
 plain-credentials:1.7
-plugin-util-api:2.10.0
+plugin-util-api:2.12.0
 popper-api:1.16.1-2
 popper2-api:2.11.0-1
 role-strategy:3.2.0
