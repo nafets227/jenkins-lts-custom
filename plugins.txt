@@ -9,7 +9,7 @@ build-blocker-plugin:1.7.7
 caffeine-api:2.9.2-29.v717aac953ff3
 checks-api:1.7.2
 cloudbees-folder:6.17
-credentials:1061.vb_1fceb_58fa_18
+credentials:1074.v60e6c29b_b_44b_
 credentials-binding:1.27
 display-url-api:2.3.5
 docker-commons:1.17
@@ -27,7 +27,7 @@ job-dsl:1.77
 jquery3-api:3.6.0-2
 jsch:0.1.55.2
 junit:1.53
-kubernetes-client-api:5.11.1-179.v12037658df90
+kubernetes-client-api:5.11.2-182.v0f1cf4c5904e
 kubernetes-credentials-provider:0.20
 mailer:391.ve4a_38c1b_cf4b_
 matrix-auth:3.0
@@ -45,8 +45,8 @@ plugin-util-api:2.12.0
 popper-api:1.16.1-2
 popper2-api:2.11.0-1
 role-strategy:3.2.0
-scm-api:2.6.5
-script-security:1118.vba21ca2e3286
+scm-api:595.vd5a_df5eb_0e39
+script-security:1131.v8b_b_5eda_c328e
 snakeyaml-api:1.29.1
 ssh-credentials:1.19
 ssh-slaves:1.32.0
