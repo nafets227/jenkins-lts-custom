@@ -12,7 +12,7 @@ cloudbees-folder:6.17
 credentials:1074.v60e6c29b_b_44b_
 credentials-binding:1.27.1
 display-url-api:2.3.5
-docker-commons:1.18
+docker-commons:1.19
 docker-workflow:1.27
 durable-task:493.v195aefbb0ff2
 echarts-api:5.2.2-2
