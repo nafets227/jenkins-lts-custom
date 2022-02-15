@@ -19,7 +19,7 @@ echarts-api:5.2.2-2
 envinject:2.4.0
 envinject-api:1.8
 folder-properties:1.2.1
-font-awesome-api:5.15.4-5
+font-awesome-api:6.0.0-1
 git-client:3.11.0
 git-server:1.10
 jackson2-api:2.13.1-246.va8a9f3eaf46a
