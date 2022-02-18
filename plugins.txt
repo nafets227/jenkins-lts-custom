@@ -8,7 +8,7 @@ branch-api:2.7.0
 build-blocker-plugin:1.7.8
 caffeine-api:2.9.2-29.v717aac953ff3
 checks-api:1.7.2
-cloudbees-folder:6.18
+cloudbees-folder:6.688.vfc7a_a_69059e0
 credentials:1074.v60e6c29b_b_44b_
 credentials-binding:1.27.1
 display-url-api:2.3.5
@@ -59,8 +59,8 @@ variant:1.4
 view-job-filters:2.3
 workflow-api:1138.v619fd5201b_2f
 workflow-basic-steps:2.24
-workflow-cps:2656.vf7a_e7b_75a_457
-workflow-cps-global-lib:561.va_ce0de3c2d69
+workflow-cps:2659.v52d3de6044d0
+workflow-cps-global-lib:564.ve62a_4eb_b_e039
 workflow-durable-task-step:1121.va_65b_d2701486
 workflow-job:1145.v7f2433caa07f
 workflow-multibranch:707.v71c3f0a_6ccdb_
