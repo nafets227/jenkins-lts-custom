@@ -48,7 +48,7 @@ popper-api:1.16.1-2
 popper2-api:2.11.2-1
 role-strategy:3.2.0
 scm-api:595.vd5a_df5eb_0e39
-script-security:1131.v8b_b_5eda_c328e
+script-security:1138.v8e727069a_025
 snakeyaml-api:1.29.1
 ssh-credentials:1.19
 ssh-slaves:1.33.0
