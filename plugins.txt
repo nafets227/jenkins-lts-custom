@@ -32,7 +32,7 @@ junit:1.54
 kubernetes-client-api:5.11.2-182.v0f1cf4c5904e
 kubernetes-credentials-provider:0.20
 mailer:408.vd726a_1130320
-matrix-auth:3.0.1
+matrix-auth:3.1
 matrix-project:1.20
 oic-auth:1.8
 pipeline-input-step:446.vf27b_0b_83500e
