@@ -69,8 +69,6 @@ function test_all {
 	test_reset && test_mainbranch_prerelease &&
 	test_reset && test_mainbranch_release &&
 
-	test_build &&
-
 	true || return 1
 	return 0
 }

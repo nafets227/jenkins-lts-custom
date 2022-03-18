@@ -143,16 +143,3 @@ function test_mainbranch_release {
 
 	return 0
 }
-
-##### Test Build #############################################################
-function test_build {
-
-	# Compile / Build docker
-	test_exec_simple \
-		"docker build -t nafets227/jenkins-lts-custom:test $BASEDIR/.." \
-		0
-
-	[ $TESTRC -eq 0 ] || return 1
-
-	return 0
-}
