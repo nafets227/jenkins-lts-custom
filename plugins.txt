@@ -29,7 +29,7 @@ job-dsl:1.78.3
 jquery3-api:3.6.0-2
 jsch:0.1.55.2
 junit:1.56
-kubernetes-client-api:5.11.2-182.v0f1cf4c5904e
+kubernetes-client-api:5.12.1-187.v577c3e368fb_6
 kubernetes-credentials-provider:0.20
 mailer:408.vd726a_1130320
 matrix-auth:3.1
