@@ -62,6 +62,11 @@ function test_bootstrap {
         test_lastoutput_contains "Update Plugins" &&
         test_lastoutput_contains "Bump to helm chart jenkins:" &&
 
+	# Compile / Build docker
+	test_exec_simple \
+		"docker build -t nafets227/jenkins-lts-custom:test $BASEDIR/.." \
+		0
+
     export GITHUB_REF= &&
 
     true || return 1
@@ -69,16 +74,41 @@ function test_bootstrap {
     return 0
 }
 
-function test_mainbranch {
-    # autoupdate with just bootstrap helm chart should work
+function test_mainbranch_prerelease {
+    # autoupdate with just bootstrap helm chart should fail (no release version)
     git checkout -q -b "main" &&
     export GITHUB_REF="refs/heads/$(git branch --show-current)" &&
+    test_exec_simple ".github/workflows/autoupdate.sh" "1" &&
+        test_lastoutput_contains "Cowardly refusing to define and publish a version based on pre-release" &&
+
+    export GITHUB_REF= &&
+
+    true || return 1
+
+    return 0
+}
+
+function test_mainbranch_release {
+    # Autoupdate with release version 1.0.0 schould work
+    git branch --quiet -d main &&
+    git checkout --quiet -b "main" &&
+    rm charts/jenkins-lts-custom/* &&
+	cp -a \
+		$BASEDIR/jenkins-lts-custom.release/* \
+		charts/jenkins-lts-custom/ \
+		&&
+	git add --update charts/jenkins-lts-custom &&
+	git commit -m "update to release jenkins-lts-custom" >/dev/null &&
+    export GITHUB_REF="refs/heads/$(git branch --show-current)" &&
+    true || return 1
+
+    # Autoupdate with release version 1.0.0 schould work
     test_exec_simple ".github/workflows/autoupdate.sh" &&
-        test_lastoutput_contains "::set-output name=newVersion::0.0.1" "" "-x" "set-output name=newVersion" &&
+        test_lastoutput_contains "::set-output name=newVersion::1.0.1" "" "-x" "set-output name=newVersion" &&
         test_expect_files "gittestrepo" "6" &&
         test_expect_value "$(git status --porcelain)" "" &&
     test_exec_simple "git log testmain..HEAD --oneline" &&
-        test_lastoutput_contains "Prepare release 0.0.1" "" "" "Prepare release" &&
+        test_lastoutput_contains "Prepare release 1.0.1" "" "" "Prepare release" &&
         test_lastoutput_contains "Update Plugins" &&
         test_lastoutput_contains "Bump to helm chart jenkins:" &&
 
@@ -89,21 +119,23 @@ function test_mainbranch {
         test_expect_files "gittestrepo" "6" &&
         test_expect_value "$(git status --porcelain)" "" &&
     test_exec_simple "git log testmain..HEAD --oneline" &&
-        test_lastoutput_contains "Prepare release 0.0.1" "" "" "Prepare release" &&
+        test_lastoutput_contains "Prepare release 1.0.1" "" "" "Prepare release" &&
         test_lastoutput_contains "Update Plugins" &&
         test_lastoutput_contains "Bump to helm chart jenkins:" &&
 
     # forced update should create new version with incremented patch
     # (intended for push)
     test_exec_simple ".github/workflows/autoupdate.sh --force" &&
-        test_lastoutput_contains "::set-output name=newVersion::0.0.2" "" "-x" "set-output name=newVersion" &&
+        test_lastoutput_contains "::set-output name=newVersion::1.0.2" "" "-x" "set-output name=newVersion" &&
         test_expect_files "gittestrepo" "6" &&
         test_expect_value "$(git status --porcelain)" "" &&
     test_exec_simple "git log testmain..HEAD --oneline" &&
-        test_lastoutput_contains "Prepare release 0.0.2" "" "" "Prepare release" &&
+        test_lastoutput_contains "Prepare release 1.0.2" "" "" "Prepare release" &&
 
-        # try should fail!!
-        test_lastoutput_contains "Prepare release 0.0.3" "" "" "Prepare release" &&
+	# Compile / Build docker
+	test_exec_simple \
+		"docker build -t nafets227/jenkins-lts-custom:test $BASEDIR/.." \
+		0
 
     export GITHUB_REF= &&
 
