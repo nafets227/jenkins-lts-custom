@@ -140,6 +140,7 @@ function updateHelm {
 
 	curver="$(yq -r '.version' \
 		charts/jenkins-lts-custom/Chart.yaml)" &&
+	true || return 1
 
 	if [ -d charts/jenkins-lts-custom ] ; then
 		rm -rf charts/jenkins-lts-custom
@@ -154,8 +155,13 @@ function updateHelm {
 
 	image=$(sed -n "s|FROM \(.*\)|\1|p" <Dockerfile) &&
 	git add -A charts/jenkins-lts-custom Dockerfile &&
-	git commit -m "$msgCommit based on image $image" &&
 	true || return 1
+
+	if ! git diff-index --quiet HEAD ; then
+		# something has been modified -> commit it
+		git commit -m "$msgCommit based on image $image" &&
+		true || return 1
+		fi
 
 	echo "::notice::$msgCommit"
 
