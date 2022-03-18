@@ -64,7 +64,7 @@ function test_bootstrap {
 
 	# Compile / Build docker
 	test_exec_simple \
-		"docker build -t nafets227/jenkins-lts-custom:test $BASEDIR/.." \
+		"docker build -t nafets227/jenkins-lts-custom:test ." \
 		0
 
 	export GITHUB_REF= &&
@@ -134,7 +134,7 @@ function test_mainbranch_release {
 
 	# Compile / Build docker
 	test_exec_simple \
-		"docker build -t nafets227/jenkins-lts-custom:test $BASEDIR/.." \
+		"docker build -t nafets227/jenkins-lts-custom:test ." \
 		0
 
 	export GITHUB_REF= &&
