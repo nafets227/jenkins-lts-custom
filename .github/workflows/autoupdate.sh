@@ -107,7 +107,7 @@ function findLatestHelm {
 	# get latest version from helm chart repository
 	local helmchartjson
 	helmchartjson=$(curl https://charts.jenkins.io/index.yaml 2>/dev/null |
-		yq '.entries.jenkins | max_by(.version | split("."))'
+		yq '.entries.jenkins | max_by(.version | split(".") | map(tonumber))'
 		) &&
 	helmver=$(jq -r '.version' - <<<$helmchartjson) &&
 	helmurl=$(jq -r '.urls[0]' - <<<$helmchartjson) &&
