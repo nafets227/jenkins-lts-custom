@@ -1,12 +1,16 @@
 build-blocker-plugin
+configuration-as-code
 docker-workflow
 envinject
 folder-properties
+git
 job-dsl
+kubernetes
 kubernetes-credentials-provider
 oic-auth
 pipeline-utility-steps
 role-strategy
 ssh-slaves
 view-job-filters
+workflow-aggregator
 workflow-support
