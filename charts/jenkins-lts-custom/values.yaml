@@ -3,7 +3,6 @@ renderHelmLabels: true
 controller:
   componentName: "jenkins-controller"
   image: "ghcr.io/nafets227/jenkins-lts-custom"
-  tagLabel: jdk11
   imagePullPolicy: "Always"
   imagePullSecretName: null
   lifecycle: null
