@@ -105,6 +105,27 @@ function patchHelm {
 		      - updates.jenkins.io
 		EOF
 
+	sed '$d' \
+		<$DIR/templates/tests/test-config.yaml \
+		>$DIR/templates/tests/test-config.yaml.new &&
+	mv \
+		$DIR/templates/tests/test-config.yaml.new \
+		$DIR/templates/tests/test-config.yaml &&
+
+	cat >>$DIR/templates/tests/test-config.yaml <<-EOF &&
+		    @test "Download jq" {
+		      curl -L https://github.com/stedolan/jq/releases/latest/download/jq-linux64 >/tools/jq
+		      chmod +x /tools/jq
+		    }
+		    @test "download list of plugins" {
+		      curl --retry 48 --retry-delay 10 -u admin:admin {{ template "jenkins.fullname" . }}:{{ .Values.controller.servicePort }}{{ default "" .Values.controller.jenkinsUriPrefix }}/pluginManager/api/json?depth=1 | /tools/jq -r '.plugins[] | .shortName + ":" + .version' >/tools/plugins.as-is
+		    }
+		    @test "Testing all Jenkins plugins are included in image" {
+		      diff <(sort /usr/share/jenkins/ref/plugins.txt) <(sort </tools/plugins.as-is)
+		    }
+		{{- end }}
+		EOF
+
 	sed -e "s|FROM .*|FROM $origimage|" <Dockerfile >Dockerfile.new &&
 	mv Dockerfile.new Dockerfile &&
 
