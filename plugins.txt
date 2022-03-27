@@ -10,7 +10,7 @@ caffeine-api:2.9.2-29.v717aac953ff3
 checks-api:1.7.2
 cloudbees-folder:6.714.v79e858ef76a_2
 configuration-as-code:1414.v878271fc496f
-credentials:1074.v60e6c29b_b_44b_
+credentials:1087.v16065d268466
 credentials-binding:1.27.1
 display-url-api:2.3.6
 docker-commons:1.19
@@ -21,7 +21,7 @@ envinject:2.839.v52c702c10635
 envinject-api:1.180.v98d833b_27470
 folder-properties:1.2.1
 font-awesome-api:6.0.0-1
-git:4.10.3
+git:4.11.0
 git-client:3.11.0
 git-server:1.10
 jackson2-api:2.13.2-260.v43d711474c77
