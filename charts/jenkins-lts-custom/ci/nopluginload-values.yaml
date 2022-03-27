@@ -3,4 +3,4 @@
 hostAliases:
   - ip: 127.0.0.1
     hostnames:
-      - updates.jenkins.io
+     - updates.jenkins.io
