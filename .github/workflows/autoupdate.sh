@@ -91,6 +91,11 @@ function patchHelm {
 		" \
 		$DIR/values.yaml &&
 
+	mkdir -p $DIR/ci  &&
+	cat >$DIR/ci/default-values.yaml <<-EOF &&
+		# use default values
+		EOF
+
 	sed -e "s|FROM .*|FROM $origimage|" <Dockerfile >Dockerfile.new &&
 	mv Dockerfile.new Dockerfile &&
 
