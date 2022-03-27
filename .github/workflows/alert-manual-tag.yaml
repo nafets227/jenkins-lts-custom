@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: alert by failing
-        if: github.ref_type == "tag"
+        if: github.ref_type == 'tag'
         run: |
           echo "::error::Not allowed to manually tag ${{github.ref_name}}."
           echo "::error::update Chart.yaml instead."
