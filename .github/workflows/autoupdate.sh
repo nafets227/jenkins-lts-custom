@@ -102,7 +102,7 @@ function patchHelm {
 		hostAliases:
 		  - ip: 127.0.0.1
 		    hostnames:
-		     - updates.jenkins.io
+		      - updates.jenkins.io
 		EOF
 
 	sed -e "s|FROM .*|FROM $origimage|" <Dockerfile >Dockerfile.new &&
