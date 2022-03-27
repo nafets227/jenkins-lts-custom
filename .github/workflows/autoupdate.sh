@@ -91,6 +91,20 @@ function patchHelm {
 		" \
 		$DIR/values.yaml &&
 
+	mkdir -p $DIR/ci  &&
+	cat >$DIR/ci/default-values.yaml <<-EOF &&
+		# use default values
+		EOF
+
+	cat >$DIR/ci/nopluginload-values.yaml <<-EOF &&
+		# disable access to plugin store
+		# we simply reroute to localhost
+		hostAliases:
+		  - ip: 127.0.0.1
+		    hostnames:
+		      - updates.jenkins.io
+		EOF
+
 	sed -e "s|FROM .*|FROM $origimage|" <Dockerfile >Dockerfile.new &&
 	mv Dockerfile.new Dockerfile &&
 

@@ -1,0 +1,6 @@
+# disable access to plugin store
+# we simply reroute to localhost
+hostAliases:
+  - ip: 127.0.0.1
+    hostnames:
+      - updates.jenkins.io
