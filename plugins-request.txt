@@ -5,7 +5,6 @@ docker-workflow
 envinject
 folder-properties
 git
-jaxb
 jdk-tool
 job-dsl
 kubernetes
