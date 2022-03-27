@@ -1,9 +1,12 @@
 build-blocker-plugin
+command-launcher
 configuration-as-code
 docker-workflow
 envinject
 folder-properties
 git
+jaxb
+jdk-tool
 job-dsl
 kubernetes
 kubernetes-credentials-provider
