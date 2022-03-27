@@ -28,7 +28,6 @@ git-server:1.10
 jackson2-api:2.13.2-260.v43d711474c77
 javax-activation-api:1.2.0-2
 javax-mail-api:1.6.2-5
-jaxb:2.3.0.1
 jdk-tool:1.5
 job-dsl:1.78.3
 jquery3-api:3.6.0-2
