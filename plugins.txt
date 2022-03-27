@@ -9,6 +9,7 @@ build-blocker-plugin:1.7.8
 caffeine-api:2.9.2-29.v717aac953ff3
 checks-api:1.7.2
 cloudbees-folder:6.714.v79e858ef76a_2
+command-launcher:1.6
 configuration-as-code:1414.v878271fc496f
 credentials:1087.v16065d268466
 credentials-binding:1.27.1
@@ -27,6 +28,8 @@ git-server:1.10
 jackson2-api:2.13.2-260.v43d711474c77
 javax-activation-api:1.2.0-2
 javax-mail-api:1.6.2-5
+jaxb:2.3.0.1
+jdk-tool:1.5
 job-dsl:1.78.3
 jquery3-api:3.6.0-2
 jsch:0.1.55.2
