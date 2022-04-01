@@ -94,6 +94,8 @@ function patchHelm {
 	mkdir -p $DIR/ci  &&
 	cat >$DIR/ci/default-values.yaml <<-EOF &&
 		# use default values
+		controller:
+		  adminPassword: "admin"
 		EOF
 
 	cat >$DIR/ci/nopluginload-values.yaml <<-EOF &&
@@ -103,6 +105,8 @@ function patchHelm {
 		  - ip: 127.0.0.1
 		    hostnames:
 		      - updates.jenkins.io
+		controller:
+		  adminPassword: "admin"
 		EOF
 
 	sed '$d' \

@@ -1,1 +1,3 @@
 # use default values
+controller:
+  adminPassword: "admin"
