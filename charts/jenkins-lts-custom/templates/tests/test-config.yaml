@@ -6,6 +6,7 @@ metadata:
   namespace: {{ template "jenkins.namespace" . }}
   annotations:
     "helm.sh/hook": test
+    "helm.sh/hook-delete-policy": hook-succeeded,hook-failed
 data:
   run.sh: |-
     @test "Testing Jenkins UI is accessible" {
@@ -16,7 +17,7 @@ data:
       chmod +x /tools/jq
     }
     @test "download list of plugins" {
-      curl --retry 48 --retry-delay 10 -u admin:admin {{ template "jenkins.fullname" . }}:{{ .Values.controller.servicePort }}{{ default "" .Values.controller.jenkinsUriPrefix }}/pluginManager/api/json?depth=1 | /tools/jq -r '.plugins[] | .shortName + ":" + .version' >/tools/plugins.as-is
+      curl --retry 48 --retry-delay 10 --fail -u admin:admin {{ template "jenkins.fullname" . }}:{{ .Values.controller.servicePort }}{{ default "" .Values.controller.jenkinsUriPrefix }}/pluginManager/api/json?depth=1 | /tools/jq -r '.plugins[] | .shortName + ":" + .version' >/tools/plugins.as-is
     }
     @test "Testing all Jenkins plugins are included in image" {
       diff <(sort /usr/share/jenkins/ref/plugins.txt) <(sort </tools/plugins.as-is)

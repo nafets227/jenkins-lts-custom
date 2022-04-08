@@ -6,6 +6,7 @@ metadata:
   namespace: {{ template "jenkins.namespace" . }}
   annotations:
     "helm.sh/hook": test-success
+    "helm.sh/hook-delete-policy": hook-succeeded,hook-failed
 spec:
   {{- if .Values.controller.nodeSelector }}
   nodeSelector:
