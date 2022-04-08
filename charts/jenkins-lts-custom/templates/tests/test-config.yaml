@@ -6,7 +6,7 @@ metadata:
   namespace: {{ template "jenkins.namespace" . }}
   annotations:
     "helm.sh/hook": test
-    "helm.sh/hook-delete-policy": hook-succeeded,hook-failed
+    "helm.sh/hook-delete-policy": hook-succeeded
 data:
   run.sh: |-
     @test "Testing Jenkins UI is accessible" {
