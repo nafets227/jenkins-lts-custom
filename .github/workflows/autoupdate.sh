@@ -79,7 +79,7 @@ function patchHelm {
 	sedregex2="s#" &&
 	sedregex2+="^\(    \"helm.sh/hook\": .*\)\$" &&
 	sedregex2+="#" &&
-	sedregex2+="\\1\\n    \"helm.sh/hook-delete-policy\": hook-succeeded,hook-failed" &&
+	sedregex2+="\\1\\n    \"helm.sh/hook-delete-policy\": hook-succeeded" &&
 	sedregex2+="#" &&
 	sed -e "$sedregex" -e "$sedregex2" \
 		<$DIR/templates/tests/jenkins-test.yaml \
