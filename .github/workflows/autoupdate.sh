@@ -76,12 +76,23 @@ function patchHelm {
 	sedregex+="#" &&
 	sedregex+="image: \"{{ .Values.controller.image }}:{{- include \"controller.tag\" . -}}\"" &&
 	sedregex+="#" &&
-	sed -e "$sedregex" \
+	sedregex2="s#" &&
+	sedregex2+="^\(    \"helm.sh/hook\": .*\)\$" &&
+	sedregex2+="#" &&
+	sedregex2+="\\1\\n    \"helm.sh/hook-delete-policy\": before-hook-creation,hook-succeeded" &&
+	sedregex2+="#" &&
+	sed -e "$sedregex" -e "$sedregex2" \
 		<$DIR/templates/tests/jenkins-test.yaml \
 		>$DIR/templates/tests/jenkins-test.yaml.new &&
 	mv \
 		$DIR/templates/tests/jenkins-test.yaml.new \
 		$DIR/templates/tests/jenkins-test.yaml &&
+	sed -e "$sedregex2" \
+		<$DIR/templates/tests/test-config.yaml \
+		>$DIR/templates/tests/test-config.yaml.new &&
+	mv \
+		$DIR/templates/tests/test-config.yaml.new \
+		$DIR/templates/tests/test-config.yaml &&
 
 	yq -Y -i ".
 		| .controller.image |= \"ghcr.io/nafets227/jenkins-lts-custom\"
@@ -122,6 +133,7 @@ function patchHelm {
 		      chmod +x /tools/jq
 		    }
 		    @test "download list of plugins" {
+		      set -o pipefail
 		      curl --retry 48 --retry-delay 10 --fail -u admin:admin {{ template "jenkins.fullname" . }}:{{ .Values.controller.servicePort }}{{ default "" .Values.controller.jenkinsUriPrefix }}/pluginManager/api/json?depth=1 | /tools/jq -r '.plugins[] | .shortName + ":" + .version' >/tools/plugins.as-is
 		    }
 		    @test "Testing all Jenkins plugins are included in image" {
