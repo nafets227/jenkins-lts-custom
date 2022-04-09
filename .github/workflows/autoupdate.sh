@@ -99,6 +99,9 @@ function patchHelm {
 		| .controller.tag |= \"$helmver\"
 		| del(.controller.tagLabel)
 		| .controller.installPlugins |= false
+		| .controller.initializeOnce |= true
+		| .controller.overwritePlugins |= false
+		| .controller.overwritePluginsFromImage |= false
 		" \
 		$DIR/values.yaml &&
 
