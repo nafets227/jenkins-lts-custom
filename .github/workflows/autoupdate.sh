@@ -102,14 +102,23 @@ function patchHelm {
 		| .controller.initializeOnce |= true
 		| .controller.overwritePlugins |= false
 		| .controller.overwritePluginsFromImage |= false
+		| .controller.test.user |= \"\"
+		| .controller.test.token |= \"\"
 		" \
 		$DIR/values.yaml &&
 
 	mkdir -p $DIR/ci  &&
 	cat >$DIR/ci/default-values.yaml <<-EOF &&
 		# use default values
+		EOF
+
+	cat >$DIR/ci/testapiuser-values.yaml <<-EOF &&
+		# use default values
 		controller:
 		  adminPassword: "admin"
+		  test:
+		    user: "admin"
+			token: "admin"
 		EOF
 
 	cat >$DIR/ci/nopluginload-values.yaml <<-EOF &&
@@ -121,6 +130,9 @@ function patchHelm {
 		      - updates.jenkins.io
 		controller:
 		  adminPassword: "admin"
+		  test:
+		    user: "admin"
+			token: "admin"
 		EOF
 
 	sed '$d' \
@@ -131,17 +143,23 @@ function patchHelm {
 		$DIR/templates/tests/test-config.yaml &&
 
 	cat >>$DIR/templates/tests/test-config.yaml <<-EOF &&
+		    {{- if and .Values.controller.test.user .Values.controller.test.token }}
 		    @test "Download jq" {
 		      curl -L https://github.com/stedolan/jq/releases/latest/download/jq-linux64 >/tools/jq
 		      chmod +x /tools/jq
 		    }
 		    @test "download list of plugins" {
 		      set -o pipefail
-		      curl --retry 48 --retry-delay 10 --fail -u admin:admin {{ template "jenkins.fullname" . }}:{{ .Values.controller.servicePort }}{{ default "" .Values.controller.jenkinsUriPrefix }}/pluginManager/api/json?depth=1 | /tools/jq -r '.plugins[] | .shortName + ":" + .version' >/tools/plugins.as-is
+		      curl --retry 48 --retry-delay 10 --fail \
+		        -u {{ .Values.controller.test.user }}:{{ .Values.controller.test.token }} \
+		        {{ template "jenkins.fullname" . }}:{{ .Values.controller.servicePort }}{{ default "" .Values.controller.jenkinsUriPrefix }}/pluginManager/api/json?depth=1 \
+		        | /tools/jq -r '.plugins[] | .shortName + ":" + .version' \
+				>/tools/plugins.as-is
 		    }
 		    @test "Testing all Jenkins plugins are included in image" {
 		      diff <(sort /usr/share/jenkins/ref/plugins.txt) <(sort </tools/plugins.as-is)
 		    }
+		    {{- end }}
 		{{- end }}
 		EOF
 
