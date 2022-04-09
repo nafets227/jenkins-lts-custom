@@ -97,8 +97,8 @@ controller:
   installLatestPlugins: true
   installLatestSpecifiedPlugins: false
   additionalPlugins: []
-  initializeOnce: false
-  overwritePluginsFromImage: true
+  initializeOnce: true
+  overwritePluginsFromImage: false
   enableRawHtmlMarkupFormatter: false
   scriptApproval: []
   initScripts: []
@@ -231,6 +231,10 @@ controller:
       6NnqtR4gEBF0ZVlQmkycFvD4EC2boP943dLqNUvop+4R3SM1QMM6P5u8iTXtHd/VN4MwMyy1wtog
       hYAzODo1Jt59pcqqKJEas0C/lFJEB3frw4ImNx5fNlJYOpx+ijfQs9m39CevDq0=
   tag: 1.0.24
+  overwritePlugins: false
+  test:
+    user: ''
+    token: ''
 agent:
   enabled: true
   defaultsProviderTemplate: ""

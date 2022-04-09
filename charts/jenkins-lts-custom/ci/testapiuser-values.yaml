@@ -1,0 +1,6 @@
+# use default values
+controller:
+  adminPassword: "admin"
+  test:
+    user: "admin"
+token: "admin"

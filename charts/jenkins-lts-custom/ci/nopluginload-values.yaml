@@ -6,3 +6,6 @@ hostAliases:
       - updates.jenkins.io
 controller:
   adminPassword: "admin"
+  test:
+    user: "admin"
+token: "admin"
