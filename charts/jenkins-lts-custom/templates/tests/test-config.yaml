@@ -6,19 +6,23 @@ metadata:
   namespace: {{ template "jenkins.namespace" . }}
   annotations:
     "helm.sh/hook": test
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
 data:
   run.sh: |-
     @test "Testing Jenkins UI is accessible" {
       curl --retry 48 --retry-delay 10 {{ template "jenkins.fullname" . }}:{{ .Values.controller.servicePort }}{{ default "" .Values.controller.jenkinsUriPrefix }}/login
     }
+    {{- if and .Values.controller.test.user .Values.controller.test.token }}
     @test "Download jq" {
       curl -L https://github.com/stedolan/jq/releases/latest/download/jq-linux64 >/tools/jq
       chmod +x /tools/jq
     }
     @test "download list of plugins" {
-      curl --retry 48 --retry-delay 10 -u admin:admin {{ template "jenkins.fullname" . }}:{{ .Values.controller.servicePort }}{{ default "" .Values.controller.jenkinsUriPrefix }}/pluginManager/api/json?depth=1 | /tools/jq -r '.plugins[] | .shortName + ":" + .version' >/tools/plugins.as-is
+      set -o pipefail
+      curl --retry 48 --retry-delay 10 --fail 		        -u {{ .Values.controller.test.user }}:{{ .Values.controller.test.token }} 		        {{ template "jenkins.fullname" . }}:{{ .Values.controller.servicePort }}{{ default "" .Values.controller.jenkinsUriPrefix }}/pluginManager/api/json?depth=1 		        | /tools/jq -r '.plugins[] | .shortName + ":" + .version' 				>/tools/plugins.as-is
     }
     @test "Testing all Jenkins plugins are included in image" {
       diff <(sort /usr/share/jenkins/ref/plugins.txt) <(sort </tools/plugins.as-is)
     }
+    {{- end }}
 {{- end }}
