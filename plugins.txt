@@ -56,7 +56,7 @@ pipeline-utility-steps:2.12.0
 plain-credentials:1.8
 plugin-util-api:2.16.0
 popper-api:1.16.1-2
-popper2-api:2.11.4-1
+popper2-api:2.11.5-1
 role-strategy:3.2.0
 scm-api:595.vd5a_df5eb_0e39
 script-security:1145.vb_cf6cf6ed960
