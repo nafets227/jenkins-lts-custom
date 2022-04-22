@@ -280,6 +280,7 @@ agent:
   yamlMergeStrategy: "override"
   connectTimeout: 100
   annotations: {}
+  disableDefaultAgent: false
   podTemplates: {}
 additionalAgents: {}
 persistence:
