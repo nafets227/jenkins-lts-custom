@@ -5,6 +5,7 @@ docker-workflow
 envinject
 folder-properties
 git
+github
 jaxb
 jdk-tool
 job-dsl
