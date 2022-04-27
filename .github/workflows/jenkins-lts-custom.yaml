@@ -1,6 +1,8 @@
 ---
 name: Build with latest Jenkins+Plugins Version
 
+concurrency: jenkins-lts-custom
+
 on:
   push:
     branches:
