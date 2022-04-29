@@ -9,7 +9,7 @@ build-blocker-plugin:1.7.8
 caffeine-api:2.9.3-65.v6a_47d0f4d1fe
 checks-api:1.7.3
 cloudbees-folder:6.714.v79e858ef76a_2
-command-launcher:1.6
+command-launcher:81.v9c2cb_cb_db_392
 configuration-as-code:1429.v09b_044a_c93de
 credentials:1087.1089.v2f1b_9a_b_040e4
 credentials-binding:523.vd859a_4b_122e6
@@ -43,7 +43,7 @@ kubernetes-credentials-provider:0.20
 lockable-resources:2.14
 mailer:414.vcc4c33714601
 matrix-auth:3.1.1
-matrix-project:758.v7a_ea_491852f3
+matrix-project:771.v574584b_39e60
 metrics:4.1.6.2
 oic-auth:1.8
 okhttp-api:4.9.3-105.vb96869f8ac3a
