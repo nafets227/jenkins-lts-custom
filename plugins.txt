@@ -34,14 +34,14 @@ jdk-tool:1.5
 job-dsl:1.79
 jquery3-api:3.6.0-3
 jsch:0.1.55.2
-junit:1.62
+junit:1.63
 kubernetes:3580.v78271e5631dc
 kubernetes-client-api:5.12.1-187.v577c3e368fb_6
 kubernetes-credentials:0.9.0
 kubernetes-credentials-provider:0.20
 lockable-resources:2.14
 mailer:414.vcc4c33714601
-matrix-auth:3.1.1
+matrix-auth:3.1.2
 matrix-project:771.v574584b_39e60
 metrics:4.1.6.2
 oic-auth:1.8
