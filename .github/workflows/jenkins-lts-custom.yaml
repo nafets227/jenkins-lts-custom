@@ -51,7 +51,7 @@ jobs:
       - name: Extract Docker metadata
         if: ${{ steps.autoupdate.outputs.newVersion != '' }}
         id: meta
-        uses: docker/metadata-action@v3
+        uses: docker/metadata-action@v4
         with:
           images: ghcr.io/${{ github.repository }}
           flavor: |
