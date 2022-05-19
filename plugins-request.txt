@@ -11,6 +11,7 @@ jdk-tool
 job-dsl
 kubernetes
 kubernetes-credentials-provider
+lockable-resources
 oic-auth
 pipeline-utility-steps
 role-strategy
