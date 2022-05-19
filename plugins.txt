@@ -39,6 +39,7 @@ kubernetes:3580.v78271e5631dc
 kubernetes-client-api:5.12.2-193.v26a_6078f65a_9
 kubernetes-credentials:0.9.0
 kubernetes-credentials-provider:0.20
+lockable-resources:2.15
 mailer:414.vcc4c33714601
 matrix-auth:3.1.2
 matrix-project:771.v574584b_39e60
@@ -63,7 +64,7 @@ script-security:1172.v35f6a_0b_8207e
 snakeyaml-api:1.30.1
 ssh-credentials:277.v95c2fec1c047
 ssh-slaves:1.814.vc82988f54b_10
-sshd:3.228.v4c9f9e652c86
+sshd:3.236.ved5e1b_cb_50b_2
 structs:318.va_f3ccb_729b_71
 token-macro:293.v283932a_0a_b_49
 trilead-api:1.57.v6e90e07157e1
