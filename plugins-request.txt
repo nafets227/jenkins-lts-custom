@@ -6,6 +6,7 @@ envinject
 folder-properties
 git
 github
+github-branch-source
 jaxb
 jdk-tool
 job-dsl
