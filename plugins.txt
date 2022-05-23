@@ -60,7 +60,7 @@ pipeline-utility-steps:2.12.1
 plain-credentials:1.8
 plugin-util-api:2.17.0
 popper2-api:2.11.5-2
-role-strategy:3.2.0
+role-strategy:483.v17281966f5c3
 scm-api:608.vfa_f971c5a_a_e9
 script-security:1172.v35f6a_0b_8207e
 snakeyaml-api:1.30.1
