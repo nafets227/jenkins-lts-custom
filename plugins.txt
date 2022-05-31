@@ -36,7 +36,7 @@ job-dsl:1.79
 jquery3-api:3.6.0-4
 jsch:0.1.55.2
 junit:1.63
-kubernetes:3580.v78271e5631dc
+kubernetes:3600.v144b_cd192ca_a_
 kubernetes-client-api:5.12.2-193.v26a_6078f65a_9
 kubernetes-credentials:0.9.0
 kubernetes-credentials-provider:0.20
@@ -59,7 +59,7 @@ pipeline-utility-steps:2.12.1
 plain-credentials:1.8
 plugin-util-api:2.17.0
 popper2-api:2.11.5-2
-role-strategy:484.v8a_a_e4b_d785fd
+role-strategy:488.v0634ce149b_8c
 scm-api:608.vfa_f971c5a_a_e9
 script-security:1175.v4b_d517d6db_f0
 snakeyaml-api:1.30.1
