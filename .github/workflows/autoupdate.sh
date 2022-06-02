@@ -213,7 +213,7 @@ function updateHelm {
 
 	curver="$(yq -r '.version' \
 		charts/jenkins-lts-custom/Chart.yaml)" &&
-	true || return 1
+	true || return 1
 
 	if [ -d charts/jenkins-lts-custom ] ; then
 		rm -rf charts/jenkins-lts-custom
