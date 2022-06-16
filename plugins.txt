@@ -36,7 +36,7 @@ job-dsl:1.79
 jquery3-api:3.6.0-4
 jsch:0.1.55.2
 junit:1119.va_a_5e9068da_d7
-kubernetes:3636.v84b_a_1dea_6240
+kubernetes:3651.v908e7db_10d06
 kubernetes-client-api:5.12.2-193.v26a_6078f65a_9
 kubernetes-credentials:0.9.0
 kubernetes-credentials-provider:0.20
@@ -50,11 +50,11 @@ pipeline-build-step:2.18
 pipeline-groovy-lib:593.va_a_fc25d520e9
 pipeline-input-step:448.v37cea_9a_10a_70
 pipeline-milestone-step:101.vd572fef9d926
-pipeline-model-api:2.2086.v12b_420f036e5
-pipeline-model-definition:2.2086.v12b_420f036e5
-pipeline-model-extensions:2.2086.v12b_420f036e5
+pipeline-model-api:2.2097.v33db_b_de764b_e
+pipeline-model-definition:2.2097.v33db_b_de764b_e
+pipeline-model-extensions:2.2097.v33db_b_de764b_e
 pipeline-stage-step:293.v200037eefcd5
-pipeline-stage-tags-metadata:2.2086.v12b_420f036e5
+pipeline-stage-tags-metadata:2.2097.v33db_b_de764b_e
 pipeline-utility-steps:2.12.2
 plain-credentials:1.8
 plugin-util-api:2.17.0
