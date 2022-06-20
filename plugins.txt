@@ -16,7 +16,7 @@ display-url-api:2.3.6
 docker-commons:1.19
 docker-workflow:1.28
 durable-task:496.va67c6f9eefa7
-echarts-api:5.3.2-3
+echarts-api:5.3.3-1
 envinject:2.866.v5c0403e3d4df
 envinject-api:1.199.v3ce31253ed13
 folder-properties:1.2.1
