@@ -9,12 +9,14 @@ caffeine-api:2.9.3-65.v6a_47d0f4d1fe
 checks-api:1.7.4
 cloudbees-folder:6.729.v2b_9d1a_74d673
 command-launcher:84.v4a_97f2027398
-configuration-as-code:1429.v09b_044a_c93de
+commons-lang3-api:3.12.0.0
+commons-text-api:1.9-5.v7ea_44fe6061c
+configuration-as-code:1462.v069a_b_57ff5c8
 credentials:1129.vef26f5df883c
 credentials-binding:523.vd859a_4b_122e6
 display-url-api:2.3.6
 docker-commons:1.19
-docker-workflow:1.28
+docker-workflow:1.29
 durable-task:496.va67c6f9eefa7
 echarts-api:5.3.3-1
 envinject:2.866.v5c0403e3d4df
@@ -59,7 +61,7 @@ pipeline-utility-steps:2.13.0
 plain-credentials:1.8
 plugin-util-api:2.17.0
 popper2-api:2.11.5-2
-role-strategy:488.v0634ce149b_8c
+role-strategy:508.v2a_f05b_05e9d8
 scm-api:608.vfa_f971c5a_a_e9
 script-security:1175.v4b_d517d6db_f0
 snakeyaml-api:1.30.1
@@ -75,7 +77,7 @@ workflow-api:1164.v760c223ddb_32
 workflow-basic-steps:948.v2c72a_091b_b_68
 workflow-cps:2725.v7b_c717eb_12ce
 workflow-durable-task-step:1146.v1a_d2e603f929
-workflow-job:1186.v8def1a_5f3944
+workflow-job:1189.va_d37a_e9e4eda_
 workflow-multibranch:716.vc692a_e52371b_
 workflow-scm-step:400.v6b_89a_1317c9a_
 workflow-step-api:625.vd896b_f445a_f8
