@@ -11,7 +11,7 @@ cloudbees-folder:6.729.v2b_9d1a_74d673
 command-launcher:84.v4a_97f2027398
 commons-lang3-api:3.12.0.0
 commons-text-api:1.9-9.v39a_53e2e0343
-configuration-as-code:1462.v069a_b_57ff5c8
+configuration-as-code:1464.vd8507b_82e41a_
 credentials:1129.vef26f5df883c
 credentials-binding:523.vd859a_4b_122e6
 display-url-api:2.3.6
@@ -44,7 +44,7 @@ kubernetes-credentials:0.9.0
 kubernetes-credentials-provider:0.20
 lockable-resources:2.15
 mailer:414.vcc4c33714601
-matrix-project:771.v574584b_39e60
+matrix-project:772.v494f19991984
 metrics:4.1.6.2
 oic-auth:1.8
 okhttp-api:4.9.3-105.vb96869f8ac3a
@@ -61,7 +61,7 @@ pipeline-utility-steps:2.13.0
 plain-credentials:1.8
 plugin-util-api:2.17.0
 popper2-api:2.11.5-2
-role-strategy:508.v2a_f05b_05e9d8
+role-strategy:510.v909834359ec2
 scm-api:608.vfa_f971c5a_a_e9
 script-security:1175.v4b_d517d6db_f0
 snakeyaml-api:1.30.1
@@ -76,7 +76,7 @@ workflow-aggregator:581.v0c46fa_697ffd
 workflow-api:1164.v760c223ddb_32
 workflow-basic-steps:948.v2c72a_091b_b_68
 workflow-cps:2725.v7b_c717eb_12ce
-workflow-durable-task-step:1146.v1a_d2e603f929
+workflow-durable-task-step:1155.v79567b_e0a_2de
 workflow-job:1189.va_d37a_e9e4eda_
 workflow-multibranch:716.vc692a_e52371b_
 workflow-scm-step:400.v6b_89a_1317c9a_
