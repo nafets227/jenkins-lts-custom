@@ -84,7 +84,7 @@ jobs:
         if: ${{ steps.autoupdate.outputs.newVersion != '' }}
         uses: azure/setup-helm@v3.0
 
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v3
         if: ${{ steps.autoupdate.outputs.newVersion != '' }}
         #with:
         #  python-version: 3.7
