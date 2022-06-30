@@ -125,6 +125,6 @@ jobs:
           cr index \
             -o ${GITHUB_REPOSITORY%%/*} \
             -r ${GITHUB_REPOSITORY##*/} \
-            -c "https://nafets227.github.io/jenkins-lts-custom" \
+            -c "https:/github.com/nafets227/jenkins-lts-custom" \
             --release-name-template "v{{ .Version }}" \
             --push
