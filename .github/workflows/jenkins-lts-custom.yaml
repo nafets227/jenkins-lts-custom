@@ -84,10 +84,10 @@ jobs:
         if: ${{ steps.autoupdate.outputs.newVersion != '' }}
         uses: azure/setup-helm@v3.0
 
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@v4
         if: ${{ steps.autoupdate.outputs.newVersion != '' }}
-        #with:
-        #  python-version: 3.7
+        with:
+          python-version: "3.10"
 
       - name: Set up chart-testing
         if: ${{ steps.autoupdate.outputs.newVersion != '' }}
