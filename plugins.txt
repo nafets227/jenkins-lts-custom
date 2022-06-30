@@ -27,7 +27,7 @@ git:4.11.3
 git-client:3.11.0
 github:1.34.4
 github-api:1.303-400.v35c2d8258028
-github-branch-source:1637.vd833b_7ca_7654
+github-branch-source:1656.v77eddb_b_e95df
 jackson2-api:2.13.3-285.vc03c0256d517
 javax-activation-api:1.2.0-3
 javax-mail-api:1.6.2-6
@@ -64,7 +64,7 @@ popper2-api:2.11.5-2
 role-strategy:510.v909834359ec2
 scm-api:608.vfa_f971c5a_a_e9
 script-security:1175.v4b_d517d6db_f0
-snakeyaml-api:1.30.1
+snakeyaml-api:1.30.2-76.vc104f7ce9870
 ssh-credentials:291.v8211e4f8efb_c
 ssh-slaves:1.821.vd834f8a_c390e
 structs:318.va_f3ccb_729b_71
