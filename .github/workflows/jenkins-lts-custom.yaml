@@ -37,6 +37,7 @@ jobs:
       - name: Auto Update our components
         id: autoupdate
         run: |
+          set -x
           if [ "${{ github.event_name }}" == 'push' ] ; then
             parm="--force"
           elif [ "${{ github.event_name }}" == 'schedule' ] ; then
@@ -108,6 +109,7 @@ jobs:
       - name: Publish chart
         if: ${{ steps.autoupdate.outputs.newVersion != '' }}
         run: |
+          set -x
           rm -rf .cr-release-packages .cr-index # ignore error!
           .github/workflows/setup-chart-releaser.sh &&
           mkdir -p .cr-release-packages .cr-index &&
