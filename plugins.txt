@@ -11,7 +11,7 @@ cloudbees-folder:6.729.v2b_9d1a_74d673
 command-launcher:84.v4a_97f2027398
 commons-lang3-api:3.12.0.0
 commons-text-api:1.9-9.v39a_53e2e0343
-configuration-as-code:1464.vd8507b_82e41a_
+configuration-as-code:1466.v2d4119502006
 credentials:1139.veb_9579fca_33b_
 credentials-binding:523.vd859a_4b_122e6
 display-url-api:2.3.6
@@ -41,7 +41,7 @@ junit:1119.1121.vc43d0fc45561
 kubernetes:3651.v908e7db_10d06
 kubernetes-client-api:5.12.2-193.v26a_6078f65a_9
 kubernetes-credentials:0.9.0
-kubernetes-credentials-provider:0.20
+kubernetes-credentials-provider:0.21
 lockable-resources:2.15
 mailer:414.vcc4c33714601
 matrix-project:772.v494f19991984
@@ -81,4 +81,4 @@ workflow-job:1203.v7b_7023424efe
 workflow-multibranch:716.vc692a_e52371b_
 workflow-scm-step:400.v6b_89a_1317c9a_
 workflow-step-api:625.vd896b_f445a_f8
-workflow-support:827.v7ef666c4d65c
+workflow-support:833.va_1c71061486b_
