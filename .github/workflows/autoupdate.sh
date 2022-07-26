@@ -251,8 +251,7 @@ function updatePluginVersions {
 	docker run \
 		-v $(pwd)/plugins-request.txt:/plugins-request.txt \
 		"$image" \
-		jenkins-plugin-cli --no-download --list -f /plugins-request.txt 2>&1 \
-	| sed -e '1,/Resulting plugin list:/d' -e '$d' -e 's/ /:/' \
+		jenkins-plugin-cli --no-download --list -f /plugins-request.txt \
 		>plugins.txt &&
 	true || exit 1
 
