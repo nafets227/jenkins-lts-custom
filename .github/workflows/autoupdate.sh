@@ -251,13 +251,12 @@ function updatePluginVersions {
 	docker run \
 		-v $(pwd)/plugins-request.txt:/plugins-request.txt \
 		"$image" \
-		jenkins-plugin-cli --no-download --list -f /plugins-request.txt \
-	| sed -e '1,/Resulting plugin list:/d' -e '$d' -e 's/ /:/' \
-		>plugins.txt &&
+		jenkins-plugin-cli --no-download --list --output yaml -f /plugins-request.txt \
+		>plugins.yaml &&
 	true || exit 1
 
-	if [[ $(git status --porcelain plugins.txt) != '' ]] ; then
-		git add plugins.txt &&
+	if [[ $(git status --porcelain plugins.yaml) != '' ]] ; then
+		git add plugins.yaml &&
 		git commit -m "Update Plugins" &&
 		echo "::notice::Updated Plugins"
 	else
