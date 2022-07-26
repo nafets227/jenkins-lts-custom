@@ -255,7 +255,7 @@ function updatePluginVersions {
 		>plugins.yaml &&
 	true || exit 1
 
-	if [[ $(git status --porcelain plugins.txt) != '' ]] ; then
+	if [[ $(git status --porcelain plugins.yaml) != '' ]] ; then
 		git add plugins.yaml &&
 		git commit -m "Update Plugins" &&
 		echo "::notice::Updated Plugins"
