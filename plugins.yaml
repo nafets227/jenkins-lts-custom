@@ -46,7 +46,7 @@ plugins:
     version: "2.17.0"
 - artifactId: "git-client"
   source:
-    version: "3.11.0"
+    version: "3.11.1"
 - artifactId: "scm-api"
   source:
     version: "616.ve67136f6c77d"
@@ -73,10 +73,10 @@ plugins:
     version: "2.2114.v2654ca_721309"
 - artifactId: "github"
   source:
-    version: "1.34.4"
+    version: "1.34.5"
 - artifactId: "kubernetes-credentials-provider"
   source:
-    version: "0.22"
+    version: "1.196.va_55f5e31e3c2"
 - artifactId: "pipeline-groovy-lib"
   source:
     version: "598.vcd66b_a_336510"
@@ -172,7 +172,7 @@ plugins:
     version: "1.1"
 - artifactId: "git"
   source:
-    version: "4.11.3"
+    version: "4.11.4"
 - artifactId: "workflow-durable-task-step"
   source:
     version: "1199.v02b_9244f8064"
@@ -196,7 +196,7 @@ plugins:
     version: "496.va67c6f9eefa7"
 - artifactId: "workflow-basic-steps"
   source:
-    version: "980.v82219a_ed188e"
+    version: "986.v6b_9c830a_6b_37"
 - artifactId: "workflow-job"
   source:
     version: "1207.ve6191ff089f8"
@@ -217,7 +217,7 @@ plugins:
     version: "324.va_f5d6774f3a_d"
 - artifactId: "apache-httpcomponents-client-4-api"
   source:
-    version: "4.5.13-1.0"
+    version: "4.5.13-138.v4e7d9a_7b_a_e61"
 - artifactId: "workflow-cps"
   source:
     version: "2759.v87459c4eea_ca_"
