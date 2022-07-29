@@ -4,7 +4,7 @@ plugins:
     version: "3670.v6ca_059233222"
 - artifactId: "role-strategy"
   source:
-    version: "546.ve16648865996"
+    version: "548.vb_60076577ec7"
 - artifactId: "pipeline-milestone-step"
   source:
     version: "101.vd572fef9d926"
@@ -16,7 +16,7 @@ plugins:
     version: "2.0.0-3"
 - artifactId: "jdk-tool"
   source:
-    version: "1.5"
+    version: "55.v1b_32b_6ca_f9ca"
 - artifactId: "github-branch-source"
   source:
     version: "1677.v731f745ea_0cf"
@@ -151,7 +151,7 @@ plugins:
     version: "639.v6eca_cd8c04a_a_"
 - artifactId: "plain-credentials"
   source:
-    version: "1.8"
+    version: "139.ved2b_9cf7587b"
 - artifactId: "command-launcher"
   source:
     version: "84.v4a_97f2027398"
@@ -187,7 +187,7 @@ plugins:
     version: "295.vced876c18eb_4"
 - artifactId: "cloudbees-folder"
   source:
-    version: "6.736.v5f554b_b_a_52b_3"
+    version: "6.740.ve4f4ffa_dea_54"
 - artifactId: "popper2-api"
   source:
     version: "2.11.5-2"
