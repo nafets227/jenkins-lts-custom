@@ -49,7 +49,7 @@ plugins:
     version: "3.11.1"
 - artifactId: "scm-api"
   source:
-    version: "616.ve67136f6c77d"
+    version: "620.v0a_5b_1f8054c0"
 - artifactId: "variant"
   source:
     version: "59.vf075fe829ccb"
@@ -229,7 +229,7 @@ plugins:
     version: "0.11.5-77.v646c772fddb_0"
 - artifactId: "envinject"
   source:
-    version: "2.866.v5c0403e3d4df"
+    version: "2.875.v9b_9e962da_a_ec"
 - artifactId: "display-url-api"
   source:
     version: "2.3.6"
