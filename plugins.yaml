@@ -13,7 +13,7 @@ plugins:
     version: "1.8"
 - artifactId: "jakarta-activation-api"
   source:
-    version: "2.0.0-3"
+    version: "2.0.1-1"
 - artifactId: "jdk-tool"
   source:
     version: "55.v1b_32b_6ca_f9ca"
@@ -25,7 +25,7 @@ plugins:
     version: "1.30.2-76.vc104f7ce9870"
 - artifactId: "trilead-api"
   source:
-    version: "1.67.vc3938a_35172f"
+    version: "1.71.v9e7860a_67a_df"
 - artifactId: "workflow-multibranch"
   source:
     version: "716.vc692a_e52371b_"
@@ -85,7 +85,7 @@ plugins:
     version: "1512.vb_79d418d5fc8"
 - artifactId: "workflow-support"
   source:
-    version: "833.va_1c71061486b_"
+    version: "838.va_3a_087b_4055b"
 - artifactId: "mailer"
   source:
     version: "435.v79ef3972b_5c7"
@@ -124,7 +124,7 @@ plugins:
     version: "3.6.0-4"
 - artifactId: "okhttp-api"
   source:
-    version: "4.9.3-105.vb96869f8ac3a"
+    version: "4.9.3-108.v0feda04578cf"
 - artifactId: "credentials-binding"
   source:
     version: "523.vd859a_4b_122e6"
@@ -202,7 +202,7 @@ plugins:
     version: "1207.ve6191ff089f8"
 - artifactId: "jsch"
   source:
-    version: "0.1.55.2"
+    version: "0.1.55.61.va_e9ee26616e7"
 - artifactId: "github-api"
   source:
     version: "1.303-400.v35c2d8258028"
