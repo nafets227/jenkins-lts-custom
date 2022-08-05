@@ -25,7 +25,7 @@ plugins:
     version: "1.30.2-76.vc104f7ce9870"
 - artifactId: "trilead-api"
   source:
-    version: "1.71.v9e7860a_67a_df"
+    version: "1.67.vc3938a_35172f"
 - artifactId: "workflow-multibranch"
   source:
     version: "716.vc692a_e52371b_"
@@ -100,7 +100,7 @@ plugins:
     version: "400.v6b_89a_1317c9a_"
 - artifactId: "jakarta-mail-api"
   source:
-    version: "2.0.0-6"
+    version: "2.0.1-1"
 - artifactId: "pipeline-model-api"
   source:
     version: "2.2114.v2654ca_721309"
