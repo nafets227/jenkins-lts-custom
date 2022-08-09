@@ -1,7 +1,7 @@
 plugins:
 - artifactId: "kubernetes"
   source:
-    version: "3670.v6ca_059233222"
+    version: "3690.va_9ddf6635481"
 - artifactId: "role-strategy"
   source:
     version: "555.v8d194cc85b_30"
@@ -31,7 +31,7 @@ plugins:
     version: "716.vc692a_e52371b_"
 - artifactId: "docker-workflow"
   source:
-    version: "1.29"
+    version: "521.v1a_a_dd2073b_2e"
 - artifactId: "job-dsl"
   source:
     version: "1.81"
