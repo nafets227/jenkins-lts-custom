@@ -99,6 +99,7 @@ controller:
   additionalPlugins: []
   initializeOnce: true
   overwritePluginsFromImage: false
+  projectNamingStrategy: standard
   enableRawHtmlMarkupFormatter: false
   scriptApproval: []
   initScripts: []
