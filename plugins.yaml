@@ -67,7 +67,7 @@ plugins:
     version: "1.2.1"
 - artifactId: "font-awesome-api"
   source:
-    version: "6.1.1-1"
+    version: "6.1.2-1"
 - artifactId: "pipeline-model-extensions"
   source:
     version: "2.2114.v2654ca_721309"
@@ -91,7 +91,7 @@ plugins:
     version: "435.v79ef3972b_5c7"
 - artifactId: "checks-api"
   source:
-    version: "1.7.4"
+    version: "1.7.5"
 - artifactId: "jackson2-api"
   source:
     version: "2.13.3-285.vc03c0256d517"
@@ -178,7 +178,7 @@ plugins:
     version: "1199.v02b_9244f8064"
 - artifactId: "bootstrap5-api"
   source:
-    version: "5.1.3-7"
+    version: "5.2.0-1"
 - artifactId: "authentication-tokens"
   source:
     version: "1.4"
@@ -196,7 +196,7 @@ plugins:
     version: "500.v8927d9fd99d8"
 - artifactId: "workflow-basic-steps"
   source:
-    version: "986.v6b_9c830a_6b_37"
+    version: "991.v43d80fea_ff66"
 - artifactId: "workflow-job"
   source:
     version: "1207.ve6191ff089f8"
@@ -247,5 +247,5 @@ plugins:
     version: "2.3"
 - artifactId: "workflow-api"
   source:
-    version: "1188.v0016b_4f29881"
+    version: "1192.v2d0deb_19d212"
 
