@@ -92,7 +92,7 @@ jobs:
 
       - name: Set up chart-testing
         if: ${{ steps.autoupdate.outputs.newVersion != '' }}
-        uses: helm/chart-testing-action@v2.2.1
+        uses: helm/chart-testing-action@v2.3.0
 
       - name: Run chart-testing (lint)
         if: ${{ steps.autoupdate.outputs.newVersion != '' }}
