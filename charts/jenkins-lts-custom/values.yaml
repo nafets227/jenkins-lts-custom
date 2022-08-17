@@ -110,6 +110,11 @@ controller:
   JCasC:
     defaultConfig: true
     configScripts: {}
+    security:
+      apiToken:
+        creationOfLegacyTokenEnabled: false
+        tokenGenerationOnCreationEnabled: false
+        usageStatisticsEnabled: true
     securityRealm: |-
       local:
         allowsSignup: false
