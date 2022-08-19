@@ -4,7 +4,7 @@ plugins:
     version: "3697.v771155683e38"
 - artifactId: "role-strategy"
   source:
-    version: "555.v8d194cc85b_30"
+    version: "561.v9846c7351a_41"
 - artifactId: "pipeline-milestone-step"
   source:
     version: "101.vd572fef9d926"
