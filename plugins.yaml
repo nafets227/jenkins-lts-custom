@@ -61,7 +61,7 @@ plugins:
     version: "5.12.2-193.v26a_6078f65a_9"
 - artifactId: "pipeline-stage-step"
   source:
-    version: "293.v200037eefcd5"
+    version: "296.v5f6908f017a_5"
 - artifactId: "folder-properties"
   source:
     version: "1.2.1"
