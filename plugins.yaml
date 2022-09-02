@@ -184,7 +184,7 @@ plugins:
     version: "1.4"
 - artifactId: "ssh-credentials"
   source:
-    version: "295.vced876c18eb_4"
+    version: "305.v8f4381501156"
 - artifactId: "cloudbees-folder"
   source:
     version: "6.740.ve4f4ffa_dea_54"
