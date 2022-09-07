@@ -19,7 +19,7 @@ plugins:
     version: "55.v1b_32b_6ca_f9ca"
 - artifactId: "github-branch-source"
   source:
-    version: "1687.v7618247e672d"
+    version: "1694.vd46793a_c4a_57"
 - artifactId: "snakeyaml-api"
   source:
     version: "1.31-84.ve43da_fb_49d0b"
