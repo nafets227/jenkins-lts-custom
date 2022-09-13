@@ -25,7 +25,7 @@ plugins:
     version: "1.31-84.ve43da_fb_49d0b"
 - artifactId: "trilead-api"
   source:
-    version: "1.67.vc3938a_35172f"
+    version: "2.72.v2a_3236754f73"
 - artifactId: "workflow-multibranch"
   source:
     version: "716.vc692a_e52371b_"
@@ -73,7 +73,7 @@ plugins:
     version: "2.2114.v2654ca_721309"
 - artifactId: "github"
   source:
-    version: "1.34.5"
+    version: "1.35.0"
 - artifactId: "kubernetes-credentials-provider"
   source:
     version: "1.196.va_55f5e31e3c2"
@@ -88,7 +88,7 @@ plugins:
     version: "838.va_3a_087b_4055b"
 - artifactId: "mailer"
   source:
-    version: "435.v79ef3972b_5c7"
+    version: "438.v02c7f0a_12fa_4"
 - artifactId: "checks-api"
   source:
     version: "1.7.5"
@@ -146,6 +146,9 @@ plugins:
 - artifactId: "caffeine-api"
   source:
     version: "2.9.3-65.v6a_47d0f4d1fe"
+- artifactId: "instance-identity"
+  source:
+    version: "116.vf8f487400980"
 - artifactId: "workflow-step-api"
   source:
     version: "639.v6eca_cd8c04a_a_"
@@ -157,7 +160,7 @@ plugins:
     version: "84.v4a_97f2027398"
 - artifactId: "matrix-project"
   source:
-    version: "772.v494f19991984"
+    version: "785.v06b_7f47b_c631"
 - artifactId: "bouncycastle-api"
   source:
     version: "2.26"
@@ -187,7 +190,7 @@ plugins:
     version: "305.v8f4381501156"
 - artifactId: "cloudbees-folder"
   source:
-    version: "6.740.ve4f4ffa_dea_54"
+    version: "6.758.vfd75d09eea_a_1"
 - artifactId: "popper2-api"
   source:
     version: "2.11.6-1"
@@ -199,7 +202,7 @@ plugins:
     version: "994.vd57e3ca_46d24"
 - artifactId: "workflow-job"
   source:
-    version: "1207.ve6191ff089f8"
+    version: "1232.v5a_4c994312f1"
 - artifactId: "jsch"
   source:
     version: "0.1.55.61.va_e9ee26616e7"
@@ -223,7 +226,7 @@ plugins:
     version: "2759.v87459c4eea_ca_"
 - artifactId: "ssh-slaves"
   source:
-    version: "1.834.v622da_57f702c"
+    version: "2.846.v1b_70190624f5"
 - artifactId: "jjwt-api"
   source:
     version: "0.11.5-77.v646c772fddb_0"
