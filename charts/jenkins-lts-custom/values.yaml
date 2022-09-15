@@ -187,6 +187,10 @@ controller:
     alertingRulesAdditionalLabels: {}
     alertingrules: []
     prometheusRuleNamespace: ""
+  googlePodMonitor:
+    enabled: false
+    scrapeInterval: 60s
+    scrapeEndpoint: /prometheus
   testEnabled: true
   httpsKeyStore:
     jenkinsHttpsJksSecretName: ''
