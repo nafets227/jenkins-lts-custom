@@ -157,7 +157,7 @@ plugins:
     version: "139.ved2b_9cf7587b"
 - artifactId: "command-launcher"
   source:
-    version: "84.v4a_97f2027398"
+    version: "90.v669d7ccb_7c31"
 - artifactId: "matrix-project"
   source:
     version: "785.v06b_7f47b_c631"
@@ -238,7 +238,7 @@ plugins:
     version: "2.3.6"
 - artifactId: "script-security"
   source:
-    version: "1175.v4b_d517d6db_f0"
+    version: "1183.v774b_0b_0a_a_451"
 - artifactId: "envinject-api"
   source:
     version: "1.199.v3ce31253ed13"
