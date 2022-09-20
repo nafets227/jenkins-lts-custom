@@ -112,7 +112,7 @@ plugins:
     version: "2.16"
 - artifactId: "pipeline-input-step"
   source:
-    version: "449.v77f0e8b_845c4"
+    version: "451.vf1a_a_4f405289"
 - artifactId: "pipeline-utility-steps"
   source:
     version: "2.13.0"
