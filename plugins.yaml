@@ -67,7 +67,7 @@ plugins:
     version: "1.2.1"
 - artifactId: "font-awesome-api"
   source:
-    version: "6.1.2-1"
+    version: "6.2.0-1"
 - artifactId: "pipeline-model-extensions"
   source:
     version: "2.2114.v2654ca_721309"
@@ -139,7 +139,7 @@ plugins:
     version: "2.18"
 - artifactId: "credentials"
   source:
-    version: "1143.vb_e8b_b_ceee347"
+    version: "1189.vf61b_a_5e2f62e"
 - artifactId: "pipeline-model-definition"
   source:
     version: "2.2114.v2654ca_721309"
@@ -202,7 +202,7 @@ plugins:
     version: "994.vd57e3ca_46d24"
 - artifactId: "workflow-job"
   source:
-    version: "1232.v5a_4c994312f1"
+    version: "1236.vc3a_d1602f439"
 - artifactId: "jsch"
   source:
     version: "0.1.55.61.va_e9ee26616e7"
