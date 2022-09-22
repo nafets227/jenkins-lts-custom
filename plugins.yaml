@@ -67,7 +67,7 @@ plugins:
     version: "1.2.1"
 - artifactId: "font-awesome-api"
   source:
-    version: "6.2.0-1"
+    version: "6.2.0-2"
 - artifactId: "pipeline-model-extensions"
   source:
     version: "2.2114.v2654ca_721309"
@@ -121,7 +121,7 @@ plugins:
     version: "4.2.10-389.v93143621b_050"
 - artifactId: "jquery3-api"
   source:
-    version: "3.6.0-4"
+    version: "3.6.1-1"
 - artifactId: "okhttp-api"
   source:
     version: "4.9.3-108.v0feda04578cf"
@@ -181,7 +181,7 @@ plugins:
     version: "1199.v02b_9244f8064"
 - artifactId: "bootstrap5-api"
   source:
-    version: "5.2.0-3"
+    version: "5.2.1-2"
 - artifactId: "authentication-tokens"
   source:
     version: "1.4"
