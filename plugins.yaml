@@ -22,7 +22,7 @@ plugins:
     version: "1695.v88de84e9f6b_9"
 - artifactId: "snakeyaml-api"
   source:
-    version: "1.31-84.ve43da_fb_49d0b"
+    version: "1.32-86.ve3f030a_75631"
 - artifactId: "trilead-api"
   source:
     version: "2.72.v2a_3236754f73"
@@ -67,7 +67,7 @@ plugins:
     version: "1.2.1"
 - artifactId: "font-awesome-api"
   source:
-    version: "6.2.0-2"
+    version: "6.2.0-3"
 - artifactId: "pipeline-model-extensions"
   source:
     version: "2.2114.v2654ca_721309"
