@@ -232,7 +232,7 @@ plugins:
     version: "0.11.5-77.v646c772fddb_0"
 - artifactId: "ionicons-api"
   source:
-    version: "24.va_745a_b_a_97fc3"
+    version: "27.v279d55cd3289"
 - artifactId: "envinject"
   source:
     version: "2.881.v37c62073ff97"
