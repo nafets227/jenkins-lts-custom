@@ -46,7 +46,7 @@ plugins:
     version: "2.17.0"
 - artifactId: "git-client"
   source:
-    version: "3.12.0"
+    version: "3.12.1"
 - artifactId: "scm-api"
   source:
     version: "621.vda_a_b_055e58f7"
@@ -76,7 +76,7 @@ plugins:
     version: "1.35.0"
 - artifactId: "kubernetes-credentials-provider"
   source:
-    version: "1.196.va_55f5e31e3c2"
+    version: "1.199.v4a_1d1f5d074f"
 - artifactId: "pipeline-groovy-lib"
   source:
     version: "612.v84da_9c54906d"
