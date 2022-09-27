@@ -265,6 +265,7 @@ agent:
   privileged: false
   runAsUser: null
   runAsGroup: null
+  hostNetworking: false
   resources:
     requests:
       cpu: "512m"
