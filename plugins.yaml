@@ -112,7 +112,7 @@ plugins:
     version: "308.v4f2b_ed62b_b_16"
 - artifactId: "lockable-resources"
   source:
-    version: "2.16"
+    version: "2.18"
 - artifactId: "pipeline-input-step"
   source:
     version: "451.vf1a_a_4f405289"
