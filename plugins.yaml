@@ -214,10 +214,10 @@ plugins:
     version: "1.303-400.v35c2d8258028"
 - artifactId: "junit"
   source:
-    version: "1144.v909f4d9978e8"
+    version: "1150.v5c2848328b_60"
 - artifactId: "echarts-api"
   source:
-    version: "5.3.3-1"
+    version: "5.4.0-1"
 - artifactId: "structs"
   source:
     version: "324.va_f5d6774f3a_d"
