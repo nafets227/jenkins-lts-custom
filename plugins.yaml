@@ -28,7 +28,7 @@ plugins:
     version: "2.72.v2a_3236754f73"
 - artifactId: "commons-text-api"
   source:
-    version: "1.9-19.v8df45c678366"
+    version: "1.10.0-27.vb_fa_3896786a_7"
 - artifactId: "workflow-multibranch"
   source:
     version: "716.vc692a_e52371b_"
@@ -85,7 +85,7 @@ plugins:
     version: "612.v84da_9c54906d"
 - artifactId: "configuration-as-code"
   source:
-    version: "1512.vb_79d418d5fc8"
+    version: "1559.v38a_b_2e3b_6b_b_7"
 - artifactId: "workflow-support"
   source:
     version: "838.va_3a_087b_4055b"
@@ -235,7 +235,7 @@ plugins:
     version: "0.11.5-77.v646c772fddb_0"
 - artifactId: "ionicons-api"
   source:
-    version: "28.va_f3a_84439e5f"
+    version: "31.v4757b_6987003"
 - artifactId: "envinject"
   source:
     version: "2.881.v37c62073ff97"
