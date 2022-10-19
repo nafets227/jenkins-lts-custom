@@ -10,7 +10,7 @@ plugins:
     version: "101.vd572fef9d926"
 - artifactId: "oic-auth"
   source:
-    version: "2.0.0"
+    version: "2.1"
 - artifactId: "jakarta-activation-api"
   source:
     version: "2.0.1-2"
@@ -79,7 +79,7 @@ plugins:
     version: "1.35.0"
 - artifactId: "kubernetes-credentials-provider"
   source:
-    version: "1.199.v4a_1d1f5d074f"
+    version: "1.201.v11b_14c7a_0772"
 - artifactId: "pipeline-groovy-lib"
   source:
     version: "612.v84da_9c54906d"
