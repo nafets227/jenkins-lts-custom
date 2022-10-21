@@ -97,7 +97,7 @@ plugins:
     version: "1.7.5"
 - artifactId: "jackson2-api"
   source:
-    version: "2.13.4-293.vee957901b_6fb"
+    version: "2.13.4.20221013-295.v8e29ea_354141"
 - artifactId: "workflow-scm-step"
   source:
     version: "400.v6b_89a_1317c9a_"
@@ -169,7 +169,7 @@ plugins:
     version: "2.26"
 - artifactId: "jaxb"
   source:
-    version: "2.3.6-2"
+    version: "2.3.7-1"
 - artifactId: "docker-commons"
   source:
     version: "1.21"
@@ -247,7 +247,7 @@ plugins:
     version: "3.12.0-36.vd97de6465d5b_"
 - artifactId: "script-security"
   source:
-    version: "1184.v85d16b_d851b_3"
+    version: "1189.vb_a_b_7c8fd5fde"
 - artifactId: "envinject-api"
   source:
     version: "1.199.v3ce31253ed13"
