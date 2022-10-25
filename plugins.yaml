@@ -34,7 +34,7 @@ plugins:
     version: "716.vc692a_e52371b_"
 - artifactId: "docker-workflow"
   source:
-    version: "521.v1a_a_dd2073b_2e"
+    version: "528.v7c193a_0b_e67c"
 - artifactId: "job-dsl"
   source:
     version: "1.81"
@@ -79,7 +79,7 @@ plugins:
     version: "1.36.0"
 - artifactId: "kubernetes-credentials-provider"
   source:
-    version: "1.201.v11b_14c7a_0772"
+    version: "1.206.v7ce2cf7b_0c8b"
 - artifactId: "pipeline-groovy-lib"
   source:
     version: "613.v9c41a_160233f"
@@ -181,7 +181,7 @@ plugins:
     version: "4.12.1"
 - artifactId: "workflow-durable-task-step"
   source:
-    version: "1206.v8a_d5f86e336b"
+    version: "1210.va_1e5d77e122b"
 - artifactId: "bootstrap5-api"
   source:
     version: "5.2.1-3"
