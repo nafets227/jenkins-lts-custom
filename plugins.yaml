@@ -1,7 +1,7 @@
 plugins:
 - artifactId: "kubernetes"
   source:
-    version: "3724.v0920c1e0ec69"
+    version: "3734.v562b_b_a_627ea_c"
 - artifactId: "role-strategy"
   source:
     version: "562.v44e9a_e828d0e"
@@ -10,7 +10,7 @@ plugins:
     version: "101.vd572fef9d926"
 - artifactId: "oic-auth"
   source:
-    version: "2.1"
+    version: "2.2"
 - artifactId: "jakarta-activation-api"
   source:
     version: "2.0.1-2"
