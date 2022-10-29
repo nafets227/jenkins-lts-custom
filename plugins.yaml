@@ -94,7 +94,7 @@ plugins:
     version: "438.v02c7f0a_12fa_4"
 - artifactId: "checks-api"
   source:
-    version: "1.7.5"
+    version: "1.8.0"
 - artifactId: "jackson2-api"
   source:
     version: "2.13.4.20221013-295.v8e29ea_354141"
