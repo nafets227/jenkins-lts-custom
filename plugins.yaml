@@ -16,7 +16,7 @@ plugins:
     version: "2.0.1-2"
 - artifactId: "jdk-tool"
   source:
-    version: "55.v1b_32b_6ca_f9ca"
+    version: "63.v62d2fd4b_4793"
 - artifactId: "github-branch-source"
   source:
     version: "1695.v88de84e9f6b_9"
