@@ -226,7 +226,7 @@ plugins:
     version: "4.5.13-138.v4e7d9a_7b_a_e61"
 - artifactId: "workflow-cps"
   source:
-    version: "2803.v1a_f77ffcc773"
+    version: "3520.va_8fc49e2f96f"
 - artifactId: "ssh-slaves"
   source:
     version: "2.854.v7fd446b_337c9"
