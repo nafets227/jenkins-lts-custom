@@ -22,7 +22,7 @@ plugins:
     version: "1696.v3a_7603564d04"
 - artifactId: "snakeyaml-api"
   source:
-    version: "1.32-86.ve3f030a_75631"
+    version: "1.33-90.v80dcb_3814d35"
 - artifactId: "trilead-api"
   source:
     version: "2.72.v2a_3236754f73"
@@ -226,7 +226,7 @@ plugins:
     version: "4.5.13-138.v4e7d9a_7b_a_e61"
 - artifactId: "workflow-cps"
   source:
-    version: "3520.va_8fc49e2f96f"
+    version: "3536.vb_8a_6628079d5"
 - artifactId: "ssh-slaves"
   source:
     version: "2.854.v7fd446b_337c9"
