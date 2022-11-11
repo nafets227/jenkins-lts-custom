@@ -253,7 +253,7 @@ plugins:
     version: "1.199.v3ce31253ed13"
 - artifactId: "branch-api"
   source:
-    version: "2.1046.v0ca_37783ecc5"
+    version: "2.1051.v9985666b_f6cc"
 - artifactId: "view-job-filters"
   source:
     version: "2.3"
