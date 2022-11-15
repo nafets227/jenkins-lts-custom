@@ -121,7 +121,7 @@ plugins:
     version: "2.13.1"
 - artifactId: "metrics"
   source:
-    version: "4.2.10-389.v93143621b_050"
+    version: "4.2.10-405.v60a_9cc74e923"
 - artifactId: "jquery3-api"
   source:
     version: "3.6.1-2"
