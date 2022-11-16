@@ -118,7 +118,7 @@ plugins:
     version: "456.vd8a_957db_5b_e9"
 - artifactId: "pipeline-utility-steps"
   source:
-    version: "2.13.1"
+    version: "2.13.2"
 - artifactId: "metrics"
   source:
     version: "4.2.10-405.v60a_9cc74e923"
@@ -214,7 +214,7 @@ plugins:
     version: "1.303-400.v35c2d8258028"
 - artifactId: "junit"
   source:
-    version: "1159.v0b_396e1e07dd"
+    version: "1160.vf1f01a_a_ea_b_7f"
 - artifactId: "echarts-api"
   source:
     version: "5.4.0-1"
@@ -247,7 +247,7 @@ plugins:
     version: "3.12.0-36.vd97de6465d5b_"
 - artifactId: "script-security"
   source:
-    version: "1189.vb_a_b_7c8fd5fde"
+    version: "1190.v65867a_a_47126"
 - artifactId: "envinject-api"
   source:
     version: "1.199.v3ce31253ed13"
