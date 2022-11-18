@@ -109,7 +109,7 @@ plugins:
     version: "2.2118.v31fd5b_9944b_5"
 - artifactId: "token-macro"
   source:
-    version: "308.v4f2b_ed62b_b_16"
+    version: "321.vd7cc1f2a_52c8"
 - artifactId: "lockable-resources"
   source:
     version: "2.18"
