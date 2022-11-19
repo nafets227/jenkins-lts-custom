@@ -3,7 +3,7 @@ annotations:
 
   artifacthub.io/links: |-
     https://github.com/nafets227/jenkinsci-lts-custom/helm-charts/tree/main/charts/jenkins
-  nafets227.github.com/basechart: 4.2.13
+  nafets227.github.com/basechart: 4.2.14
   nafets227.github.com/baseimage: jenkins/jenkins:2.361.3-jdk11
 apiVersion: v2
 appVersion: 2.361.3

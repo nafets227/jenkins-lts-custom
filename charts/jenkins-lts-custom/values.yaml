@@ -103,6 +103,7 @@ controller:
   enableRawHtmlMarkupFormatter: false
   scriptApproval: []
   initScripts: []
+  existingSecret: null
   additionalExistingSecrets: []
   additionalSecrets: []
   secretClaims: []
