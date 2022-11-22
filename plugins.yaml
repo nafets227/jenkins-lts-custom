@@ -25,7 +25,7 @@ plugins:
     version: "1.33-90.v80dcb_3814d35"
 - artifactId: "trilead-api"
   source:
-    version: "2.72.v2a_3236754f73"
+    version: "2.84.v72119de229b_7"
 - artifactId: "commons-text-api"
   source:
     version: "1.10.0-27.vb_fa_3896786a_7"
