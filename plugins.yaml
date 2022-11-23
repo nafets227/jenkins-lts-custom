@@ -10,7 +10,7 @@ plugins:
     version: "101.vd572fef9d926"
 - artifactId: "oic-auth"
   source:
-    version: "2.2"
+    version: "2.3"
 - artifactId: "jakarta-activation-api"
   source:
     version: "2.0.1-2"
@@ -70,7 +70,7 @@ plugins:
     version: "1.2.1"
 - artifactId: "font-awesome-api"
   source:
-    version: "6.2.0-3"
+    version: "6.2.1-1"
 - artifactId: "pipeline-model-extensions"
   source:
     version: "2.2118.v31fd5b_9944b_5"
