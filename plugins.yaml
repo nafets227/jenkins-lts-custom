@@ -178,7 +178,7 @@ plugins:
     version: "1.1"
 - artifactId: "git"
   source:
-    version: "4.14.0"
+    version: "4.14.1"
 - artifactId: "workflow-durable-task-step"
   source:
     version: "1217.v38306d8fa_b_5c"
