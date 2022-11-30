@@ -202,7 +202,7 @@ plugins:
     version: "2.11.6-2"
 - artifactId: "durable-task"
   source:
-    version: "501.ve5d4fc08b0be"
+    version: "503.v57154d18d478"
 - artifactId: "workflow-basic-steps"
   source:
     version: "994.vd57e3ca_46d24"
