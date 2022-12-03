@@ -34,7 +34,7 @@ plugins:
     version: "716.vc692a_e52371b_"
 - artifactId: "docker-workflow"
   source:
-    version: "528.v7c193a_0b_e67c"
+    version: "563.vd5d2e5c4007f"
 - artifactId: "job-dsl"
   source:
     version: "1.81"
@@ -151,7 +151,7 @@ plugins:
     version: "2.9.3-65.v6a_47d0f4d1fe"
 - artifactId: "instance-identity"
   source:
-    version: "116.vf8f487400980"
+    version: "142.v04572ca_5b_265"
 - artifactId: "workflow-step-api"
   source:
     version: "639.v6eca_cd8c04a_a_"
