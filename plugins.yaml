@@ -241,7 +241,7 @@ plugins:
     version: "31.v4757b_6987003"
 - artifactId: "envinject"
   source:
-    version: "2.881.v37c62073ff97"
+    version: "2.892.v25453b_80e595"
 - artifactId: "display-url-api"
   source:
     version: "2.3.6"
