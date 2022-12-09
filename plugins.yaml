@@ -142,7 +142,7 @@ plugins:
     version: "2.18"
 - artifactId: "credentials"
   source:
-    version: "1189.vf61b_a_5e2f62e"
+    version: "1214.v1de940103927"
 - artifactId: "pipeline-model-definition"
   source:
     version: "2.2118.v31fd5b_9944b_5"
@@ -193,7 +193,7 @@ plugins:
     version: "305.v8f4381501156"
 - artifactId: "cloudbees-folder"
   source:
-    version: "6.758.vfd75d09eea_a_1"
+    version: "6.800.v71307ca_b_986b"
 - artifactId: "data-tables-api"
   source:
     version: "1.12.1-4"
@@ -250,7 +250,7 @@ plugins:
     version: "3.12.0-36.vd97de6465d5b_"
 - artifactId: "script-security"
   source:
-    version: "1218.v39ca_7f7ed0a_c"
+    version: "1228.vd93135a_2fb_25"
 - artifactId: "envinject-api"
   source:
     version: "1.199.v3ce31253ed13"
