@@ -94,7 +94,7 @@ plugins:
     version: "438.v02c7f0a_12fa_4"
 - artifactId: "checks-api"
   source:
-    version: "1.8.0"
+    version: "1.8.1"
 - artifactId: "jackson2-api"
   source:
     version: "2.14.1-313.v504cdd45c18b"
@@ -229,7 +229,7 @@ plugins:
     version: "4.5.13-138.v4e7d9a_7b_a_e61"
 - artifactId: "workflow-cps"
   source:
-    version: "3565.v4b_d9b_8c29a_b_3"
+    version: "3581.v2b_e4c99c76ed"
 - artifactId: "ssh-slaves"
   source:
     version: "2.854.v7fd446b_337c9"
