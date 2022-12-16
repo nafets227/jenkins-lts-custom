@@ -52,7 +52,7 @@ plugins:
     version: "3.13.1"
 - artifactId: "scm-api"
   source:
-    version: "621.vda_a_b_055e58f7"
+    version: "631.v9143df5b_e4a_a"
 - artifactId: "variant"
   source:
     version: "59.vf075fe829ccb"
@@ -229,7 +229,7 @@ plugins:
     version: "4.5.13-138.v4e7d9a_7b_a_e61"
 - artifactId: "workflow-cps"
   source:
-    version: "3581.v2b_e4c99c76ed"
+    version: "3583.v4f58de0d78d5"
 - artifactId: "ssh-slaves"
   source:
     version: "2.854.v7fd446b_337c9"
