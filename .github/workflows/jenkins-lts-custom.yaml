@@ -83,7 +83,7 @@ jobs:
 
       - name: Set up Helm
         if: ${{ steps.autoupdate.outputs.newVersion != '' }}
-        uses: azure/setup-helm@v3.4
+        uses: azure/setup-helm@v3.5
 
       - uses: actions/setup-python@v4
         if: ${{ steps.autoupdate.outputs.newVersion != '' }}
