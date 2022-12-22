@@ -82,7 +82,7 @@ plugins:
     version: "1.206.v7ce2cf7b_0c8b"
 - artifactId: "pipeline-groovy-lib"
   source:
-    version: "621.vb_44ce045b_582"
+    version: "629.vb_5627b_ee2104"
 - artifactId: "configuration-as-code"
   source:
     version: "1569.vb_72405b_80249"
