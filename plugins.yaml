@@ -4,13 +4,13 @@ plugins:
     version: "3743.v1fa_4c724c3b_7"
 - artifactId: "role-strategy"
   source:
-    version: "569.v7476f8e4fe29"
+    version: "575.v4d286a_03e6d7"
 - artifactId: "pipeline-milestone-step"
   source:
     version: "101.vd572fef9d926"
 - artifactId: "oic-auth"
   source:
-    version: "2.3"
+    version: "2.4"
 - artifactId: "jakarta-activation-api"
   source:
     version: "2.0.1-2"
