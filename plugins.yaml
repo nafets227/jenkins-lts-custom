@@ -49,7 +49,7 @@ plugins:
     version: "2.20.0"
 - artifactId: "git-client"
   source:
-    version: "3.13.1"
+    version: "4.0.0"
 - artifactId: "scm-api"
   source:
     version: "631.v9143df5b_e4a_a"
@@ -178,7 +178,7 @@ plugins:
     version: "1.1"
 - artifactId: "git"
   source:
-    version: "4.14.3"
+    version: "5.0.0"
 - artifactId: "workflow-durable-task-step"
   source:
     version: "1217.v38306d8fa_b_5c"
