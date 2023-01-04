@@ -157,7 +157,7 @@ plugins:
     version: "639.v6eca_cd8c04a_a_"
 - artifactId: "plain-credentials"
   source:
-    version: "139.ved2b_9cf7587b"
+    version: "143.v1b_df8b_d3b_e48"
 - artifactId: "command-launcher"
   source:
     version: "90.v669d7ccb_7c31"
