@@ -359,6 +359,8 @@ backup:
   runAsUser: 1000
   fsGroup: 1000
   securityContextCapabilities: {}
+cronJob:
+  apiVersion: batch/v1
 checkDeprecation: true
 awsSecurityGroupPolicies:
   enabled: false
