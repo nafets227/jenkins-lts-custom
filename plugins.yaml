@@ -76,7 +76,7 @@ plugins:
     version: "2.2118.v31fd5b_9944b_5"
 - artifactId: "github"
   source:
-    version: "1.36.0"
+    version: "1.36.1"
 - artifactId: "kubernetes-credentials-provider"
   source:
     version: "1.206.v7ce2cf7b_0c8b"
@@ -229,7 +229,7 @@ plugins:
     version: "4.5.13-138.v4e7d9a_7b_a_e61"
 - artifactId: "workflow-cps"
   source:
-    version: "3583.v4f58de0d78d5"
+    version: "3601.v9b_36a_d99e1cc"
 - artifactId: "ssh-slaves"
   source:
     version: "2.854.v7fd446b_337c9"
