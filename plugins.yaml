@@ -1,7 +1,7 @@
 plugins:
 - artifactId: "kubernetes"
   source:
-    version: "3794.v45d9da_33d7f1"
+    version: "3802.vb_b_600831fcb_3"
 - artifactId: "role-strategy"
   source:
     version: "584.vf8e515397ecd"
@@ -79,7 +79,7 @@ plugins:
     version: "1.36.1"
 - artifactId: "kubernetes-credentials-provider"
   source:
-    version: "1.206.v7ce2cf7b_0c8b"
+    version: "1.208.v128ee9800c04"
 - artifactId: "pipeline-groovy-lib"
   source:
     version: "629.vb_5627b_ee2104"
