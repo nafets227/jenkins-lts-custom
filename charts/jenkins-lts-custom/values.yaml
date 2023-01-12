@@ -189,6 +189,8 @@ controller:
     alertingRulesAdditionalLabels: {}
     alertingrules: []
     prometheusRuleNamespace: ""
+    relabelings: []
+    metricRelabelings: []
   googlePodMonitor:
     enabled: false
     scrapeInterval: 60s
