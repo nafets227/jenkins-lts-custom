@@ -4,7 +4,7 @@ plugins:
     version: "3802.vb_b_600831fcb_3"
 - artifactId: "role-strategy"
   source:
-    version: "584.vf8e515397ecd"
+    version: "587.v2872c41fa_e51"
 - artifactId: "pipeline-milestone-step"
   source:
     version: "101.vd572fef9d926"
@@ -262,5 +262,5 @@ plugins:
     version: "2.3"
 - artifactId: "workflow-api"
   source:
-    version: "1200.v8005c684b_a_c6"
+    version: "1208.v0cc7c6e0da_9e"
 
