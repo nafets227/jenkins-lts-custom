@@ -8,6 +8,9 @@ plugins:
 - artifactId: "pipeline-milestone-step"
   source:
     version: "101.vd572fef9d926"
+- artifactId: "mina-sshd-api-core"
+  source:
+    version: "2.9.2-50.va_0e1f42659a_a"
 - artifactId: "oic-auth"
   source:
     version: "2.5"
@@ -49,7 +52,7 @@ plugins:
     version: "2.20.0"
 - artifactId: "git-client"
   source:
-    version: "4.0.0"
+    version: "4.1.0"
 - artifactId: "scm-api"
   source:
     version: "631.v9143df5b_e4a_a"
@@ -146,6 +149,9 @@ plugins:
 - artifactId: "pipeline-model-definition"
   source:
     version: "2.2118.v31fd5b_9944b_5"
+- artifactId: "mina-sshd-api-common"
+  source:
+    version: "2.9.2-50.va_0e1f42659a_a"
 - artifactId: "caffeine-api"
   source:
     version: "2.9.3-65.v6a_47d0f4d1fe"
@@ -209,9 +215,6 @@ plugins:
 - artifactId: "workflow-job"
   source:
     version: "1268.v6eb_e2ee1a_85a"
-- artifactId: "jsch"
-  source:
-    version: "0.1.55.61.va_e9ee26616e7"
 - artifactId: "github-api"
   source:
     version: "1.303-400.v35c2d8258028"
