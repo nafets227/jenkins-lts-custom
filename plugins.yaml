@@ -67,7 +67,7 @@ plugins:
     version: "6.3.1-206.v76d3b_6b_14db_b"
 - artifactId: "pipeline-stage-step"
   source:
-    version: "296.v5f6908f017a_5"
+    version: "305.ve96d0205c1c6"
 - artifactId: "folder-properties"
   source:
     version: "1.2.1"
@@ -82,7 +82,7 @@ plugins:
     version: "1.36.1"
 - artifactId: "kubernetes-credentials-provider"
   source:
-    version: "1.208.v128ee9800c04"
+    version: "1.209.v862c6e5fb_1ef"
 - artifactId: "pipeline-groovy-lib"
   source:
     version: "629.vb_5627b_ee2104"
@@ -208,7 +208,7 @@ plugins:
     version: "2.11.6-2"
 - artifactId: "durable-task"
   source:
-    version: "503.v57154d18d478"
+    version: "504.vb10d1ae5ba2f"
 - artifactId: "workflow-basic-steps"
   source:
     version: "994.vd57e3ca_46d24"
@@ -253,7 +253,7 @@ plugins:
     version: "3.12.0-36.vd97de6465d5b_"
 - artifactId: "script-security"
   source:
-    version: "1228.vd93135a_2fb_25"
+    version: "1229.v4880b_b_e905a_6"
 - artifactId: "envinject-api"
   source:
     version: "1.199.v3ce31253ed13"
