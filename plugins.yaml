@@ -1,7 +1,7 @@
 plugins:
 - artifactId: "kubernetes"
   source:
-    version: "3839.v43e9e4931ccb"
+    version: "3842.v7ff395ed0cf3"
 - artifactId: "role-strategy"
   source:
     version: "587.v2872c41fa_e51"
@@ -115,7 +115,7 @@ plugins:
     version: "321.vd7cc1f2a_52c8"
 - artifactId: "lockable-resources"
   source:
-    version: "1113.vf66761f17f1e"
+    version: "1117.v157231b_03882"
 - artifactId: "pipeline-input-step"
   source:
     version: "466.v6d0a_5df34f81"
