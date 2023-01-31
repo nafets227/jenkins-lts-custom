@@ -100,7 +100,7 @@ plugins:
     version: "1.8.1"
 - artifactId: "jackson2-api"
   source:
-    version: "2.14.1-313.v504cdd45c18b"
+    version: "2.14.2-319.v37853346a_229"
 - artifactId: "workflow-scm-step"
   source:
     version: "400.v6b_89a_1317c9a_"
