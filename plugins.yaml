@@ -175,7 +175,7 @@ plugins:
     version: "2.27"
 - artifactId: "jaxb"
   source:
-    version: "2.3.7-1"
+    version: "2.3.8-1"
 - artifactId: "docker-commons"
   source:
     version: "1.21"
