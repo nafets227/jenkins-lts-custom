@@ -1,7 +1,7 @@
 plugins:
 - artifactId: "kubernetes"
   source:
-    version: "3845.va_9823979a_744"
+    version: "3852.v41ea_166a_ed1b_"
 - artifactId: "role-strategy"
   source:
     version: "587.v2872c41fa_e51"
@@ -34,7 +34,7 @@ plugins:
     version: "1.10.0-27.vb_fa_3896786a_7"
 - artifactId: "workflow-multibranch"
   source:
-    version: "716.vc692a_e52371b_"
+    version: "733.v109046189126"
 - artifactId: "docker-workflow"
   source:
     version: "563.vd5d2e5c4007f"
