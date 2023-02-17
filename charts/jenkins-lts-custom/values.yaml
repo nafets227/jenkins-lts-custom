@@ -325,11 +325,13 @@ serviceAccount:
   create: true
   name: null
   annotations: {}
+  extraLabels: {}
   imagePullSecretName: null
 serviceAccountAgent:
   create: false
   name: null
   annotations: {}
+  extraLabels: {}
   imagePullSecretName: null
 backup:
   enabled: false
