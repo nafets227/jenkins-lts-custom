@@ -1,7 +1,7 @@
 plugins:
 - artifactId: "kubernetes"
   source:
-    version: "3872.v760b_4a_6c126b_"
+    version: "3883.v4d70a_a_a_df034"
 - artifactId: "role-strategy"
   source:
     version: "587.v2872c41fa_e51"
@@ -25,7 +25,7 @@ plugins:
     version: "1701.v00cc8184df93"
 - artifactId: "snakeyaml-api"
   source:
-    version: "1.33-90.v80dcb_3814d35"
+    version: "1.33-95.va_b_a_e3e47b_fa_4"
 - artifactId: "trilead-api"
   source:
     version: "2.84.v72119de229b_7"
