@@ -79,7 +79,7 @@ plugins:
     version: "2.2118.v31fd5b_9944b_5"
 - artifactId: "github"
   source:
-    version: "1.36.1"
+    version: "1.37.0"
 - artifactId: "kubernetes-credentials-provider"
   source:
     version: "1.209.v862c6e5fb_1ef"
