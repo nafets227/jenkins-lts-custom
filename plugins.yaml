@@ -142,7 +142,7 @@ plugins:
     version: "590.v6a_d052e5a_a_b_5"
 - artifactId: "pipeline-build-step"
   source:
-    version: "2.18.1"
+    version: "486.vd08f550cceee"
 - artifactId: "credentials"
   source:
     version: "1214.v1de940103927"
@@ -226,7 +226,7 @@ plugins:
     version: "324.va_f5d6774f3a_d"
 - artifactId: "apache-httpcomponents-client-4-api"
   source:
-    version: "4.5.13-138.v4e7d9a_7b_a_e61"
+    version: "4.5.14-150.v7a_b_9d17134a_5"
 - artifactId: "workflow-cps"
   source:
     version: "3624.v43b_a_38b_62b_b_7"
