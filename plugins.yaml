@@ -115,7 +115,7 @@ plugins:
     version: "321.vd7cc1f2a_52c8"
 - artifactId: "lockable-resources"
   source:
-    version: "1123.v4002ee23c671"
+    version: "1131.vb_7c3d377e723"
 - artifactId: "pipeline-input-step"
   source:
     version: "466.v6d0a_5df34f81"
@@ -229,7 +229,7 @@ plugins:
     version: "4.5.14-150.v7a_b_9d17134a_5"
 - artifactId: "workflow-cps"
   source:
-    version: "3624.v43b_a_38b_62b_b_7"
+    version: "3629.v8177e69e359a_"
 - artifactId: "ssh-slaves"
   source:
     version: "2.854.v7fd446b_337c9"
