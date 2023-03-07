@@ -372,3 +372,7 @@ awsSecurityGroupPolicies:
     - name: ""
       securityGroupIds: []
       podSelector: {}
+helmtest:
+  bats:
+    image: "bats/bats"
+    tag: "1.2.1"
