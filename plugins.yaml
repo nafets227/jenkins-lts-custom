@@ -139,7 +139,7 @@ plugins:
     version: "0.10.0"
 - artifactId: "workflow-aggregator"
   source:
-    version: "590.v6a_d052e5a_a_b_5"
+    version: "596.v8c21c963d92d"
 - artifactId: "pipeline-build-step"
   source:
     version: "486.vd08f550cceee"
