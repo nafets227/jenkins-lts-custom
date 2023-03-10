@@ -178,7 +178,7 @@ plugins:
     version: "2.3.8-1"
 - artifactId: "docker-commons"
   source:
-    version: "1.21"
+    version: "419.v8e3cd84ef49c"
 - artifactId: "git"
   source:
     version: "5.0.0"
@@ -229,7 +229,7 @@ plugins:
     version: "4.5.14-150.v7a_b_9d17134a_5"
 - artifactId: "workflow-cps"
   source:
-    version: "3635.vedb_8602eefa_c"
+    version: "3637.v63b_c17e0ed5b_"
 - artifactId: "ssh-slaves"
   source:
     version: "2.877.v365f5eb_a_b_eec"
