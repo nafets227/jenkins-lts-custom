@@ -49,7 +49,7 @@ plugins:
     version: "1.2.0-6"
 - artifactId: "plugin-util-api"
   source:
-    version: "2.20.0"
+    version: "3.1.0"
 - artifactId: "git-client"
   source:
     version: "4.1.0"
@@ -73,7 +73,7 @@ plugins:
     version: "1.2.1"
 - artifactId: "font-awesome-api"
   source:
-    version: "6.2.1-1"
+    version: "6.3.0-1"
 - artifactId: "pipeline-model-extensions"
   source:
     version: "2.2118.v31fd5b_9944b_5"
@@ -127,7 +127,7 @@ plugins:
     version: "4.2.13-420.vea_2f17932dd6"
 - artifactId: "jquery3-api"
   source:
-    version: "3.6.1-2"
+    version: "3.6.3-1"
 - artifactId: "okhttp-api"
   source:
     version: "4.10.0-125.v3593b_a_f8c97b_"
@@ -187,7 +187,7 @@ plugins:
     version: "1234.v019404b_3832a"
 - artifactId: "bootstrap5-api"
   source:
-    version: "5.2.1-3"
+    version: "5.2.2-1"
 - artifactId: "authentication-tokens"
   source:
     version: "1.4"
@@ -199,10 +199,7 @@ plugins:
     version: "6.815.v0dd5a_cb_40e0e"
 - artifactId: "data-tables-api"
   source:
-    version: "1.12.1-4"
-- artifactId: "popper2-api"
-  source:
-    version: "2.11.6-2"
+    version: "1.13.3-1"
 - artifactId: "durable-task"
   source:
     version: "504.vb10d1ae5ba2f"
@@ -220,7 +217,7 @@ plugins:
     version: "1177.v90374a_ef4d09"
 - artifactId: "echarts-api"
   source:
-    version: "5.4.0-1"
+    version: "5.4.0-2"
 - artifactId: "structs"
   source:
     version: "324.va_f5d6774f3a_d"
