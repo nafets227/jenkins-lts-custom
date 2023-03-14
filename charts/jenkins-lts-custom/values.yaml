@@ -28,6 +28,7 @@ controller:
     limits:
       cpu: "2000m"
       memory: "4096Mi"
+  shareProcessNamespace: false
   usePodSecurityContext: true
   runAsUser: 1000
   fsGroup: 1000
@@ -199,6 +200,7 @@ controller:
   httpsKeyStore:
     jenkinsHttpsJksSecretName: ''
     enable: false
+    disableSecretMount: false
     httpPort: 8081
     path: "/var/jenkins_keystore"
     fileName: "keystore.jks"
