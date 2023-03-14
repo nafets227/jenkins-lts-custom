@@ -40,7 +40,7 @@ plugins:
     version: "563.vd5d2e5c4007f"
 - artifactId: "job-dsl"
   source:
-    version: "1.81"
+    version: "1.81.1"
 - artifactId: "pipeline-stage-tags-metadata"
   source:
     version: "2.2118.v31fd5b_9944b_5"
@@ -130,7 +130,7 @@ plugins:
     version: "3.6.3-1"
 - artifactId: "okhttp-api"
   source:
-    version: "4.10.0-125.v3593b_a_f8c97b_"
+    version: "4.10.0-127.vf711b_27a_f7fe"
 - artifactId: "credentials-binding"
   source:
     version: "523.vd859a_4b_122e6"
@@ -199,7 +199,7 @@ plugins:
     version: "6.815.v0dd5a_cb_40e0e"
 - artifactId: "data-tables-api"
   source:
-    version: "1.13.3-1"
+    version: "1.13.3-2"
 - artifactId: "durable-task"
   source:
     version: "504.vb10d1ae5ba2f"
