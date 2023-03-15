@@ -1,7 +1,7 @@
 plugins:
 - artifactId: "kubernetes"
   source:
-    version: "3893.v73d36f3b_9103"
+    version: "3896.v19b_160fd9589"
 - artifactId: "role-strategy"
   source:
     version: "587.v2872c41fa_e51"
@@ -130,7 +130,7 @@ plugins:
     version: "3.6.3-1"
 - artifactId: "okhttp-api"
   source:
-    version: "4.10.0-127.vf711b_27a_f7fe"
+    version: "4.10.0-132.v7a_7b_91cef39c"
 - artifactId: "credentials-binding"
   source:
     version: "523.vd859a_4b_122e6"
@@ -145,7 +145,7 @@ plugins:
     version: "486.vd08f550cceee"
 - artifactId: "credentials"
   source:
-    version: "1214.v1de940103927"
+    version: "1224.vc23ca_a_9a_2cb_0"
 - artifactId: "pipeline-model-definition"
   source:
     version: "2.2118.v31fd5b_9944b_5"
@@ -208,7 +208,7 @@ plugins:
     version: "1010.vf7a_b_98e847c1"
 - artifactId: "workflow-job"
   source:
-    version: "1282.ve6d865025906"
+    version: "1284.v2fe8ed4573d4"
 - artifactId: "github-api"
   source:
     version: "1.303-417.ve35d9dd78549"
