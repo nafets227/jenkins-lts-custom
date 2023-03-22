@@ -4,7 +4,7 @@ plugins:
     version: "3896.v19b_160fd9589"
 - artifactId: "role-strategy"
   source:
-    version: "587.v2872c41fa_e51"
+    version: "587.588.v850a_20a_30162"
 - artifactId: "pipeline-milestone-step"
   source:
     version: "111.v449306f708b_7"
@@ -43,7 +43,7 @@ plugins:
     version: "1.82"
 - artifactId: "pipeline-stage-tags-metadata"
   source:
-    version: "2.2118.v31fd5b_9944b_5"
+    version: "2.2121.vd87fb_6536d1e"
 - artifactId: "javax-activation-api"
   source:
     version: "1.2.0-6"
@@ -76,7 +76,7 @@ plugins:
     version: "6.3.0-1"
 - artifactId: "pipeline-model-extensions"
   source:
-    version: "2.2118.v31fd5b_9944b_5"
+    version: "2.2121.vd87fb_6536d1e"
 - artifactId: "github"
   source:
     version: "1.37.0"
@@ -109,7 +109,7 @@ plugins:
     version: "2.0.1-3"
 - artifactId: "pipeline-model-api"
   source:
-    version: "2.2118.v31fd5b_9944b_5"
+    version: "2.2121.vd87fb_6536d1e"
 - artifactId: "token-macro"
   source:
     version: "321.vd7cc1f2a_52c8"
@@ -148,7 +148,7 @@ plugins:
     version: "1224.vc23ca_a_9a_2cb_0"
 - artifactId: "pipeline-model-definition"
   source:
-    version: "2.2118.v31fd5b_9944b_5"
+    version: "2.2121.vd87fb_6536d1e"
 - artifactId: "mina-sshd-api-common"
   source:
     version: "2.9.2-50.va_0e1f42659a_a"
@@ -256,7 +256,7 @@ plugins:
     version: "2.1071.v1a_188a_562481"
 - artifactId: "view-job-filters"
   source:
-    version: "2.3"
+    version: "348.v620601c2ca_ed"
 - artifactId: "workflow-api"
   source:
     version: "1208.v0cc7c6e0da_9e"
