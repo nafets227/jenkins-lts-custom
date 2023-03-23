@@ -1,7 +1,7 @@
 plugins:
 - artifactId: "kubernetes"
   source:
-    version: "3896.v19b_160fd9589"
+    version: "3900.va_dce992317b_4"
 - artifactId: "role-strategy"
   source:
     version: "587.588.v850a_20a_30162"
@@ -40,7 +40,7 @@ plugins:
     version: "563.vd5d2e5c4007f"
 - artifactId: "job-dsl"
   source:
-    version: "1.82"
+    version: "1.83"
 - artifactId: "pipeline-stage-tags-metadata"
   source:
     version: "2.2121.vd87fb_6536d1e"
@@ -103,7 +103,7 @@ plugins:
     version: "2.14.2-319.v37853346a_229"
 - artifactId: "workflow-scm-step"
   source:
-    version: "400.v6b_89a_1317c9a_"
+    version: "408.v7d5b_135a_b_d49"
 - artifactId: "jakarta-mail-api"
   source:
     version: "2.0.1-3"
@@ -256,7 +256,7 @@ plugins:
     version: "2.1071.v1a_188a_562481"
 - artifactId: "view-job-filters"
   source:
-    version: "348.v620601c2ca_ed"
+    version: "364.v48a_33389553d"
 - artifactId: "workflow-api"
   source:
     version: "1208.v0cc7c6e0da_9e"
