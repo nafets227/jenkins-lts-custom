@@ -43,7 +43,7 @@ plugins:
     version: "1.83"
 - artifactId: "pipeline-stage-tags-metadata"
   source:
-    version: "2.2121.vd87fb_6536d1e"
+    version: "2.2123.va_31cb_3b_80ef8"
 - artifactId: "javax-activation-api"
   source:
     version: "1.2.0-6"
@@ -76,19 +76,19 @@ plugins:
     version: "6.3.0-1"
 - artifactId: "pipeline-model-extensions"
   source:
-    version: "2.2121.vd87fb_6536d1e"
+    version: "2.2123.va_31cb_3b_80ef8"
 - artifactId: "github"
   source:
     version: "1.37.0"
 - artifactId: "kubernetes-credentials-provider"
   source:
-    version: "1.209.v862c6e5fb_1ef"
+    version: "1.211.vc236a_f5a_2f3c"
 - artifactId: "pipeline-groovy-lib"
   source:
     version: "629.vb_5627b_ee2104"
 - artifactId: "configuration-as-code"
   source:
-    version: "1569.vb_72405b_80249"
+    version: "1613.vb_e54b_445ed6f"
 - artifactId: "workflow-support"
   source:
     version: "839.v35e2736cfd5c"
@@ -109,7 +109,7 @@ plugins:
     version: "2.0.1-3"
 - artifactId: "pipeline-model-api"
   source:
-    version: "2.2121.vd87fb_6536d1e"
+    version: "2.2123.va_31cb_3b_80ef8"
 - artifactId: "token-macro"
   source:
     version: "321.vd7cc1f2a_52c8"
@@ -148,7 +148,7 @@ plugins:
     version: "1224.vc23ca_a_9a_2cb_0"
 - artifactId: "pipeline-model-definition"
   source:
-    version: "2.2121.vd87fb_6536d1e"
+    version: "2.2123.va_31cb_3b_80ef8"
 - artifactId: "mina-sshd-api-common"
   source:
     version: "2.9.2-50.va_0e1f42659a_a"
