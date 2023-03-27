@@ -49,7 +49,7 @@ plugins:
     version: "1.2.0-6"
 - artifactId: "plugin-util-api"
   source:
-    version: "3.1.0"
+    version: "3.2.0"
 - artifactId: "git-client"
   source:
     version: "4.2.0"
@@ -73,7 +73,7 @@ plugins:
     version: "1.2.1"
 - artifactId: "font-awesome-api"
   source:
-    version: "6.3.0-1"
+    version: "6.3.0-2"
 - artifactId: "pipeline-model-extensions"
   source:
     version: "2.2125.vddb_a_44a_d605e"
@@ -187,7 +187,7 @@ plugins:
     version: "1234.v019404b_3832a"
 - artifactId: "bootstrap5-api"
   source:
-    version: "5.2.2-1"
+    version: "5.2.2-2"
 - artifactId: "authentication-tokens"
   source:
     version: "1.4"
@@ -199,7 +199,7 @@ plugins:
     version: "6.815.v0dd5a_cb_40e0e"
 - artifactId: "data-tables-api"
   source:
-    version: "1.13.3-2"
+    version: "1.13.3-3"
 - artifactId: "durable-task"
   source:
     version: "504.vb10d1ae5ba2f"
@@ -217,7 +217,7 @@ plugins:
     version: "1189.v1b_e593637fa_e"
 - artifactId: "echarts-api"
   source:
-    version: "5.4.0-2"
+    version: "5.4.0-3"
 - artifactId: "structs"
   source:
     version: "324.va_f5d6774f3a_d"
