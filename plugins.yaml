@@ -184,7 +184,7 @@ plugins:
     version: "5.0.0"
 - artifactId: "workflow-durable-task-step"
   source:
-    version: "1234.v019404b_3832a"
+    version: "1241.v1a_63e465f943"
 - artifactId: "bootstrap5-api"
   source:
     version: "5.2.2-2"
@@ -226,7 +226,7 @@ plugins:
     version: "4.5.14-150.v7a_b_9d17134a_5"
 - artifactId: "workflow-cps"
   source:
-    version: "3641.vf58904a_b_b_5d8"
+    version: "3651.ve2e99a_4f4a_e5"
 - artifactId: "ssh-slaves"
   source:
     version: "2.877.v365f5eb_a_b_eec"
