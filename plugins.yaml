@@ -190,7 +190,7 @@ plugins:
     version: "5.2.2-2"
 - artifactId: "authentication-tokens"
   source:
-    version: "1.4"
+    version: "1.53.v1c90fd9191a_b_"
 - artifactId: "ssh-credentials"
   source:
     version: "305.v8f4381501156"
