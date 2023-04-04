@@ -88,7 +88,7 @@ plugins:
     version: "629.vb_5627b_ee2104"
 - artifactId: "configuration-as-code"
   source:
-    version: "1616.v11393eccf675"
+    version: "1625.v27444588cc3d"
 - artifactId: "workflow-support"
   source:
     version: "839.v35e2736cfd5c"
