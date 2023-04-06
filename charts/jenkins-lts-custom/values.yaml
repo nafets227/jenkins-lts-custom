@@ -378,4 +378,4 @@ awsSecurityGroupPolicies:
 helmtest:
   bats:
     image: "bats/bats"
-    tag: "1.2.1"
+    tag: "1.9.0"
