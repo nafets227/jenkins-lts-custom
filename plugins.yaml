@@ -142,7 +142,7 @@ plugins:
     version: "596.v8c21c963d92d"
 - artifactId: "pipeline-build-step"
   source:
-    version: "487.va_823138eee8b_"
+    version: "488.v8993df156e8d"
 - artifactId: "credentials"
   source:
     version: "1224.vc23ca_a_9a_2cb_0"
