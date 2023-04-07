@@ -1,7 +1,7 @@
 plugins:
 - artifactId: "kubernetes"
   source:
-    version: "3900.va_dce992317b_4"
+    version: "3909.v1f2c633e8590"
 - artifactId: "role-strategy"
   source:
     version: "587.588.v850a_20a_30162"
