@@ -133,7 +133,7 @@ controller:
   sidecars:
     configAutoReload:
       enabled: true
-      image: kiwigrid/k8s-sidecar:1.15.0
+      image: kiwigrid/k8s-sidecar:1.23.1
       imagePullPolicy: IfNotPresent
       resources: {}
       reqRetryConnect: 10
@@ -261,7 +261,7 @@ agent:
   maxRequestsPerHostStr: "32"
   namespace: null
   image: "jenkins/inbound-agent"
-  tag: "4.11.2-4"
+  tag: "3107.v665000b_51092-5"
   workingDir: "/home/jenkins/agent"
   nodeUsageMode: "NORMAL"
   customJenkinsLabels: []
