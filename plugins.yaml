@@ -85,7 +85,7 @@ plugins:
     version: "1.211.vc236a_f5a_2f3c"
 - artifactId: "pipeline-groovy-lib"
   source:
-    version: "629.vb_5627b_ee2104"
+    version: "656.va_a_ceeb_6ffb_f7"
 - artifactId: "configuration-as-code"
   source:
     version: "1625.v27444588cc3d"
