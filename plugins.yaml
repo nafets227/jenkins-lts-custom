@@ -1,7 +1,7 @@
 plugins:
 - artifactId: "kubernetes"
   source:
-    version: "3909.v1f2c633e8590"
+    version: "3910.ve59cec5e33ea_"
 - artifactId: "role-strategy"
   source:
     version: "587.588.v850a_20a_30162"
@@ -133,7 +133,7 @@ plugins:
     version: "4.10.0-132.v7a_7b_91cef39c"
 - artifactId: "credentials-binding"
   source:
-    version: "523.vd859a_4b_122e6"
+    version: "604.vb_64480b_c56ca_"
 - artifactId: "kubernetes-credentials"
   source:
     version: "0.10.0"
