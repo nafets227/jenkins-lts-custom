@@ -184,7 +184,7 @@ plugins:
     version: "5.0.0"
 - artifactId: "workflow-durable-task-step"
   source:
-    version: "1241.v1a_63e465f943"
+    version: "1244.vee71f675dee6"
 - artifactId: "bootstrap5-api"
   source:
     version: "5.2.2-2"
