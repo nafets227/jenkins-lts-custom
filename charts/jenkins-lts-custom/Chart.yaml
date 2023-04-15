@@ -5,7 +5,7 @@ annotations:
   artifacthub.io/license: Apache-2.0
   artifacthub.io/links: |-
     https://github.com/nafets227/jenkinsci-lts-custom/helm-charts/tree/main/charts/jenkins
-  nafets227.github.com/basechart: 4.3.20
+  nafets227.github.com/basechart: 4.3.22
   nafets227.github.com/baseimage: jenkins/jenkins:2.387.2-jdk11
 apiVersion: v2
 appVersion: 2.387.2
