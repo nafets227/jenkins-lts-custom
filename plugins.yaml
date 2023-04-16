@@ -1,10 +1,10 @@
 plugins:
 - artifactId: "kubernetes"
   source:
-    version: "3910.ve59cec5e33ea_"
+    version: "3923.v294a_d4250b_91"
 - artifactId: "role-strategy"
   source:
-    version: "587.588.v850a_20a_30162"
+    version: "623.vd82f51a_21937"
 - artifactId: "pipeline-milestone-step"
   source:
     version: "111.v449306f708b_7"
