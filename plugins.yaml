@@ -247,7 +247,7 @@ plugins:
     version: "3.12.0-36.vd97de6465d5b_"
 - artifactId: "script-security"
   source:
-    version: "1229.v4880b_b_e905a_6"
+    version: "1244.ve463715a_f89c"
 - artifactId: "envinject-api"
   source:
     version: "1.199.v3ce31253ed13"
