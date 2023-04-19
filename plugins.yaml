@@ -214,7 +214,7 @@ plugins:
     version: "1.303-417.ve35d9dd78549"
 - artifactId: "junit"
   source:
-    version: "1189.v1b_e593637fa_e"
+    version: "1196.vb_4cf28b_c7724"
 - artifactId: "echarts-api"
   source:
     version: "5.4.0-3"
