@@ -112,7 +112,7 @@ plugins:
     version: "2.2125.vddb_a_44a_d605e"
 - artifactId: "token-macro"
   source:
-    version: "321.vd7cc1f2a_52c8"
+    version: "359.vb_cde11682e0c"
 - artifactId: "lockable-resources"
   source:
     version: "1141.v7c5f8f31d2ee"
@@ -226,7 +226,7 @@ plugins:
     version: "4.5.14-150.v7a_b_9d17134a_5"
 - artifactId: "workflow-cps"
   source:
-    version: "3653.v07ea_433c90b_4"
+    version: "3659.v582dc37621d8"
 - artifactId: "ssh-slaves"
   source:
     version: "2.877.v365f5eb_a_b_eec"
