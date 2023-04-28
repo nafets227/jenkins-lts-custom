@@ -34,7 +34,7 @@ plugins:
     version: "1.10.0-36.vc008c8fcda_7b_"
 - artifactId: "workflow-multibranch"
   source:
-    version: "733.v109046189126"
+    version: "746.v05814d19c001"
 - artifactId: "docker-workflow"
   source:
     version: "563.vd5d2e5c4007f"
@@ -55,7 +55,7 @@ plugins:
     version: "4.2.0"
 - artifactId: "scm-api"
   source:
-    version: "631.v9143df5b_e4a_a"
+    version: "667.v8b_6e07cdc7f2"
 - artifactId: "variant"
   source:
     version: "59.vf075fe829ccb"
@@ -118,7 +118,7 @@ plugins:
     version: "1150.v59db_2b_994618"
 - artifactId: "pipeline-input-step"
   source:
-    version: "466.v6d0a_5df34f81"
+    version: "468.va_5db_051498a_4"
 - artifactId: "pipeline-utility-steps"
   source:
     version: "2.15.2"
@@ -142,7 +142,7 @@ plugins:
     version: "596.v8c21c963d92d"
 - artifactId: "pipeline-build-step"
   source:
-    version: "488.v8993df156e8d"
+    version: "490.v7df200b_9b_ef3"
 - artifactId: "credentials"
   source:
     version: "1224.vc23ca_a_9a_2cb_0"
@@ -166,7 +166,7 @@ plugins:
     version: "143.v1b_df8b_d3b_e48"
 - artifactId: "command-launcher"
   source:
-    version: "90.v669d7ccb_7c31"
+    version: "100.v2f6722292ee8"
 - artifactId: "matrix-project"
   source:
     version: "789.v57a_725b_63c79"
@@ -181,10 +181,10 @@ plugins:
     version: "419.v8e3cd84ef49c"
 - artifactId: "git"
   source:
-    version: "5.0.0"
+    version: "5.0.1"
 - artifactId: "workflow-durable-task-step"
   source:
-    version: "1244.vee71f675dee6"
+    version: "1246.v5524618ea_097"
 - artifactId: "bootstrap5-api"
   source:
     version: "5.2.2-2"
@@ -205,10 +205,10 @@ plugins:
     version: "504.vb10d1ae5ba2f"
 - artifactId: "workflow-basic-steps"
   source:
-    version: "1010.vf7a_b_98e847c1"
+    version: "1017.vb_45b_302f0cea_"
 - artifactId: "workflow-job"
   source:
-    version: "1289.vd1c337fd5354"
+    version: "1292.v27d8cc3e2602"
 - artifactId: "github-api"
   source:
     version: "1.303-417.ve35d9dd78549"
