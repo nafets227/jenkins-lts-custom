@@ -187,7 +187,7 @@ plugins:
     version: "1246.v5524618ea_097"
 - artifactId: "bootstrap5-api"
   source:
-    version: "5.2.2-2"
+    version: "5.2.2-3"
 - artifactId: "authentication-tokens"
   source:
     version: "1.53.v1c90fd9191a_b_"
