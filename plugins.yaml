@@ -115,7 +115,7 @@ plugins:
     version: "359.vb_cde11682e0c"
 - artifactId: "lockable-resources"
   source:
-    version: "1150.v59db_2b_994618"
+    version: "1156.v5e9f897ece02"
 - artifactId: "pipeline-input-step"
   source:
     version: "468.va_5db_051498a_4"
@@ -145,7 +145,7 @@ plugins:
     version: "491.v1fec530da_858"
 - artifactId: "credentials"
   source:
-    version: "1236.v31e44e6060c0"
+    version: "1254.vb_96f366e7b_a_d"
 - artifactId: "pipeline-model-definition"
   source:
     version: "2.2131.vb_9788088fdb_5"
