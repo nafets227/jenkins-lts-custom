@@ -49,7 +49,7 @@ plugins:
     version: "1.2.0-6"
 - artifactId: "plugin-util-api"
   source:
-    version: "3.2.0"
+    version: "3.2.1"
 - artifactId: "git-client"
   source:
     version: "4.2.0"
@@ -181,7 +181,7 @@ plugins:
     version: "419.v8e3cd84ef49c"
 - artifactId: "git"
   source:
-    version: "5.0.1"
+    version: "5.0.2"
 - artifactId: "workflow-durable-task-step"
   source:
     version: "1246.v5524618ea_097"
