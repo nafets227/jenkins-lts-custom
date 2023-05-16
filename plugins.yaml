@@ -10,7 +10,7 @@ plugins:
     version: "111.v449306f708b_7"
 - artifactId: "mina-sshd-api-core"
   source:
-    version: "2.9.2-62.v199162f0a_2f8"
+    version: "2.10.0-69.v28e3e36d18eb_"
 - artifactId: "oic-auth"
   source:
     version: "2.5"
@@ -151,7 +151,7 @@ plugins:
     version: "2.2131.vb_9788088fdb_5"
 - artifactId: "mina-sshd-api-common"
   source:
-    version: "2.9.2-62.v199162f0a_2f8"
+    version: "2.10.0-69.v28e3e36d18eb_"
 - artifactId: "caffeine-api"
   source:
     version: "3.1.6-115.vb_8b_b_328e59d8"
@@ -211,7 +211,7 @@ plugins:
     version: "1292.v27d8cc3e2602"
 - artifactId: "github-api"
   source:
-    version: "1.303-417.ve35d9dd78549"
+    version: "1.314-431.v78d72a_3fe4c3"
 - artifactId: "junit"
   source:
     version: "1202.v79a_986785076"
