@@ -121,7 +121,7 @@ plugins:
     version: "468.va_5db_051498a_4"
 - artifactId: "pipeline-utility-steps"
   source:
-    version: "2.15.2"
+    version: "2.15.3"
 - artifactId: "metrics"
   source:
     version: "4.2.13-420.vea_2f17932dd6"
@@ -202,13 +202,13 @@ plugins:
     version: "1.13.3-3"
 - artifactId: "durable-task"
   source:
-    version: "506.v1b_3e14b_6f5da_"
+    version: "507.v050055d0cb_dd"
 - artifactId: "workflow-basic-steps"
   source:
     version: "1017.vb_45b_302f0cea_"
 - artifactId: "workflow-job"
   source:
-    version: "1292.v27d8cc3e2602"
+    version: "1295.v395eb_7400005"
 - artifactId: "github-api"
   source:
     version: "1.314-431.v78d72a_3fe4c3"
@@ -253,7 +253,7 @@ plugins:
     version: "1.199.v3ce31253ed13"
 - artifactId: "branch-api"
   source:
-    version: "2.1071.v1a_188a_562481"
+    version: "2.1092.vda_3c2a_a_f0c11"
 - artifactId: "view-job-filters"
   source:
     version: "364.v48a_33389553d"
