@@ -55,7 +55,7 @@ plugins:
     version: "4.2.0"
 - artifactId: "scm-api"
   source:
-    version: "667.v8b_6e07cdc7f2"
+    version: "672.v64378a_b_20c60"
 - artifactId: "variant"
   source:
     version: "59.vf075fe829ccb"
@@ -100,7 +100,7 @@ plugins:
     version: "2.0.0"
 - artifactId: "jackson2-api"
   source:
-    version: "2.15.0-334.v317a_165f9b_7c"
+    version: "2.15.1-344.v6eb_55303dc3e"
 - artifactId: "workflow-scm-step"
   source:
     version: "408.v7d5b_135a_b_d49"
