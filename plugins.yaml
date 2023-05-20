@@ -127,7 +127,7 @@ plugins:
     version: "4.2.13-420.vea_2f17932dd6"
 - artifactId: "jquery3-api"
   source:
-    version: "3.6.4-1"
+    version: "3.7.0-1"
 - artifactId: "okhttp-api"
   source:
     version: "4.10.0-132.v7a_7b_91cef39c"
@@ -187,7 +187,7 @@ plugins:
     version: "1246.v5524618ea_097"
 - artifactId: "bootstrap5-api"
   source:
-    version: "5.2.2-3"
+    version: "5.2.2-4"
 - artifactId: "authentication-tokens"
   source:
     version: "1.53.v1c90fd9191a_b_"
@@ -199,7 +199,7 @@ plugins:
     version: "6.815.v0dd5a_cb_40e0e"
 - artifactId: "data-tables-api"
   source:
-    version: "1.13.3-3"
+    version: "1.13.3-4"
 - artifactId: "durable-task"
   source:
     version: "507.v050055d0cb_dd"
@@ -217,7 +217,7 @@ plugins:
     version: "1202.v79a_986785076"
 - artifactId: "echarts-api"
   source:
-    version: "5.4.0-3"
+    version: "5.4.0-4"
 - artifactId: "structs"
   source:
     version: "324.va_f5d6774f3a_d"
