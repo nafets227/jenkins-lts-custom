@@ -26,4 +26,4 @@ sources:
   - https://github.com/maorfr/kube-tasks
   - https://github.com/jenkinsci/configuration-as-code-plugin
   - https://github.com/nafets227/jenkins-lts-custom
-version: 1.4.88
+version: 1.4.89
