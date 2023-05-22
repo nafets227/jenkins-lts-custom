@@ -11,6 +11,38 @@ entries:
       nafets227.github.com/baseimage: jenkins/jenkins:2.387.3-jdk11
     apiVersion: v2
     appVersion: 2.387.3
+    created: "2023-05-22T00:53:03.208159044Z"
+    description: Jenkins with custom plugins autoupdated
+    digest: d549e687cbedff5cd4f2a4c93a9bdf96621b3ac3898da0387ceb048afe8ce8dd
+    home: https://github.com/nafets227/jenkins-lts-custom
+    icon: https://get.jenkins.io/art/jenkins-logo/logo.svg
+    keywords:
+    - jenkins
+    - ci
+    - devops
+    maintainers:
+    - email: nafets227@users.noreply.github.com
+      name: nafets227
+    name: jenkins-lts-custom
+    sources:
+    - https://github.com/jenkinsci/jenkins
+    - https://github.com/jenkinsci/docker-inbound-agent
+    - https://github.com/maorfr/kube-tasks
+    - https://github.com/jenkinsci/configuration-as-code-plugin
+    - https://github.com/nafets227/jenkins-lts-custom
+    urls:
+    - https://github.com/nafets227/jenkins-lts-custom/releases/download/v1.4.89/jenkins-lts-custom-1.4.89.tgz
+    version: 1.4.89
+  - annotations:
+      artifacthub.io/category: integration-delivery
+      artifacthub.io/images: |2+
+
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: https://github.com/nafets227/jenkinsci-lts-custom/helm-charts/tree/main/charts/jenkins
+      nafets227.github.com/basechart: 4.3.23
+      nafets227.github.com/baseimage: jenkins/jenkins:2.387.3-jdk11
+    apiVersion: v2
+    appVersion: 2.387.3
     created: "2023-05-20T00:48:12.874790518Z"
     description: Jenkins with custom plugins autoupdated
     digest: df90c55824a68a941329be41051fde00a41d4ff308bbe4947ff48c31ba0f5b53
@@ -8054,4 +8086,4 @@ entries:
     urls:
     - https://github.com/nafets227/jenkins-lts-custom/releases/download/v0.0.2-chartsubmodule.20211221200019/jenkins-lts-custom-0.0.2-chartsubmodule.20211221200019.tgz
     version: 0.0.2-chartsubmodule.20211221200019
-generated: "2023-05-20T00:48:12.875961318Z"
+generated: "2023-05-22T00:53:03.20924127Z"
