@@ -235,7 +235,7 @@ plugins:
     version: "0.11.5-77.v646c772fddb_0"
 - artifactId: "ionicons-api"
   source:
-    version: "45.vf54fca_5d2154"
+    version: "55.vdc6562f64de3"
 - artifactId: "envinject"
   source:
     version: "2.901.v0038b_6471582"
