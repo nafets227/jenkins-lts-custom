@@ -187,7 +187,7 @@ plugins:
     version: "1246.v5524618ea_097"
 - artifactId: "bootstrap5-api"
   source:
-    version: "5.2.2-4"
+    version: "5.2.2-5"
 - artifactId: "authentication-tokens"
   source:
     version: "1.53.v1c90fd9191a_b_"
@@ -226,7 +226,7 @@ plugins:
     version: "4.5.14-150.v7a_b_9d17134a_5"
 - artifactId: "workflow-cps"
   source:
-    version: "3659.v582dc37621d8"
+    version: "3668.v1763b_b_6ccffd"
 - artifactId: "ssh-slaves"
   source:
     version: "2.877.v365f5eb_a_b_eec"
