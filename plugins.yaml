@@ -43,7 +43,7 @@ plugins:
     version: "1.83"
 - artifactId: "pipeline-stage-tags-metadata"
   source:
-    version: "2.2131.vb_9788088fdb_5"
+    version: "2.2133.ve46a_6113dfc3"
 - artifactId: "javax-activation-api"
   source:
     version: "1.2.0-6"
@@ -76,7 +76,7 @@ plugins:
     version: "6.3.0-2"
 - artifactId: "pipeline-model-extensions"
   source:
-    version: "2.2131.vb_9788088fdb_5"
+    version: "2.2133.ve46a_6113dfc3"
 - artifactId: "github"
   source:
     version: "1.37.1"
@@ -109,7 +109,7 @@ plugins:
     version: "2.0.1-3"
 - artifactId: "pipeline-model-api"
   source:
-    version: "2.2131.vb_9788088fdb_5"
+    version: "2.2133.ve46a_6113dfc3"
 - artifactId: "token-macro"
   source:
     version: "359.vb_cde11682e0c"
@@ -148,7 +148,7 @@ plugins:
     version: "1254.vb_96f366e7b_a_d"
 - artifactId: "pipeline-model-definition"
   source:
-    version: "2.2131.vb_9788088fdb_5"
+    version: "2.2133.ve46a_6113dfc3"
 - artifactId: "mina-sshd-api-common"
   source:
     version: "2.10.0-69.v28e3e36d18eb_"
@@ -187,7 +187,7 @@ plugins:
     version: "1246.v5524618ea_097"
 - artifactId: "bootstrap5-api"
   source:
-    version: "5.2.2-5"
+    version: "5.2.2-6"
 - artifactId: "authentication-tokens"
   source:
     version: "1.53.v1c90fd9191a_b_"
@@ -208,7 +208,7 @@ plugins:
     version: "1017.vb_45b_302f0cea_"
 - artifactId: "workflow-job"
   source:
-    version: "1295.v395eb_7400005"
+    version: "1301.v054d9cea_9593"
 - artifactId: "github-api"
   source:
     version: "1.314-431.v78d72a_3fe4c3"
