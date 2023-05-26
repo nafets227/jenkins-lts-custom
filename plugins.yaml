@@ -94,7 +94,7 @@ plugins:
     version: "839.v35e2736cfd5c"
 - artifactId: "mailer"
   source:
-    version: "448.v5b_97805e3767"
+    version: "457.v3f72cb_e015e5"
 - artifactId: "checks-api"
   source:
     version: "2.0.0"
@@ -253,7 +253,7 @@ plugins:
     version: "1.199.v3ce31253ed13"
 - artifactId: "branch-api"
   source:
-    version: "2.1092.vda_3c2a_a_f0c11"
+    version: "2.1105.v472604208c55"
 - artifactId: "view-job-filters"
   source:
     version: "364.v48a_33389553d"
