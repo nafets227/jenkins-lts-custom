@@ -52,7 +52,7 @@ plugins:
     version: "3.2.1"
 - artifactId: "git-client"
   source:
-    version: "4.2.0"
+    version: "4.3.0"
 - artifactId: "scm-api"
   source:
     version: "672.v64378a_b_20c60"
@@ -184,7 +184,7 @@ plugins:
     version: "5.0.2"
 - artifactId: "workflow-durable-task-step"
   source:
-    version: "1246.v5524618ea_097"
+    version: "1247.v7f9dfea_b_4fd0"
 - artifactId: "bootstrap5-api"
   source:
     version: "5.2.2-6"
@@ -214,7 +214,7 @@ plugins:
     version: "1.314-431.v78d72a_3fe4c3"
 - artifactId: "junit"
   source:
-    version: "1202.v79a_986785076"
+    version: "1207.va_09d5100410f"
 - artifactId: "echarts-api"
   source:
     version: "5.4.0-4"
@@ -226,7 +226,7 @@ plugins:
     version: "4.5.14-150.v7a_b_9d17134a_5"
 - artifactId: "workflow-cps"
   source:
-    version: "3668.v1763b_b_6ccffd"
+    version: "3673.v5b_dd74276262"
 - artifactId: "ssh-slaves"
   source:
     version: "2.877.v365f5eb_a_b_eec"
