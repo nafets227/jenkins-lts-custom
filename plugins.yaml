@@ -88,7 +88,7 @@ plugins:
     version: "656.va_a_ceeb_6ffb_f7"
 - artifactId: "configuration-as-code"
   source:
-    version: "1625.v27444588cc3d"
+    version: "1646.v98b_72d209775"
 - artifactId: "workflow-support"
   source:
     version: "839.v35e2736cfd5c"
@@ -121,7 +121,7 @@ plugins:
     version: "468.va_5db_051498a_4"
 - artifactId: "pipeline-utility-steps"
   source:
-    version: "2.15.3"
+    version: "2.15.4"
 - artifactId: "metrics"
   source:
     version: "4.2.18-438.v0ede325a_4c68"
