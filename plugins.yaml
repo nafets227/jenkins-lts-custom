@@ -40,7 +40,7 @@ plugins:
     version: "563.vd5d2e5c4007f"
 - artifactId: "job-dsl"
   source:
-    version: "1.83"
+    version: "1.84"
 - artifactId: "pipeline-stage-tags-metadata"
   source:
     version: "2.2133.ve46a_6113dfc3"
@@ -73,7 +73,7 @@ plugins:
     version: "1.2.1"
 - artifactId: "font-awesome-api"
   source:
-    version: "6.3.0-2"
+    version: "6.4.0-1"
 - artifactId: "pipeline-model-extensions"
   source:
     version: "2.2133.ve46a_6113dfc3"
@@ -187,7 +187,7 @@ plugins:
     version: "1247.v7f9dfea_b_4fd0"
 - artifactId: "bootstrap5-api"
   source:
-    version: "5.2.3-1"
+    version: "5.3.0-1"
 - artifactId: "authentication-tokens"
   source:
     version: "1.53.v1c90fd9191a_b_"
@@ -199,7 +199,7 @@ plugins:
     version: "6.815.v0dd5a_cb_40e0e"
 - artifactId: "data-tables-api"
   source:
-    version: "1.13.3-4"
+    version: "1.13.4-1"
 - artifactId: "durable-task"
   source:
     version: "507.v050055d0cb_dd"
@@ -208,7 +208,7 @@ plugins:
     version: "1017.vb_45b_302f0cea_"
 - artifactId: "workflow-job"
   source:
-    version: "1301.v054d9cea_9593"
+    version: "1308.v58d48a_763b_31"
 - artifactId: "github-api"
   source:
     version: "1.314-431.v78d72a_3fe4c3"
@@ -217,7 +217,7 @@ plugins:
     version: "1207.va_09d5100410f"
 - artifactId: "echarts-api"
   source:
-    version: "5.4.0-4"
+    version: "5.4.0-5"
 - artifactId: "structs"
   source:
     version: "324.va_f5d6774f3a_d"
