@@ -130,7 +130,7 @@ plugins:
     version: "3.7.0-1"
 - artifactId: "okhttp-api"
   source:
-    version: "4.10.0-136.v1d8ce1b_1db_72"
+    version: "4.11.0-145.vcb_8de402ef81"
 - artifactId: "credentials-binding"
   source:
     version: "604.vb_64480b_c56ca_"
