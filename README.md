@@ -1,3 +1,6 @@
+# DISCONTINUED
+This repository is discontinued since 8.6.2023
+
 # jenkins-lts-custom
 Jenkins with custom plugins autoupdated. It consists of 
 Helm Chart and docker image for jenkins with custom plugins.
