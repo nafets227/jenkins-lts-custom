@@ -34,7 +34,7 @@ plugins:
     version: "1.10.0-36.vc008c8fcda_7b_"
 - artifactId: "workflow-multibranch"
   source:
-    version: "746.v05814d19c001"
+    version: "756.v891d88f2cd46"
 - artifactId: "docker-workflow"
   source:
     version: "563.vd5d2e5c4007f"
@@ -52,7 +52,7 @@ plugins:
     version: "3.3.0"
 - artifactId: "git-client"
   source:
-    version: "4.3.0"
+    version: "4.4.0"
 - artifactId: "scm-api"
   source:
     version: "672.v64378a_b_20c60"
@@ -103,7 +103,7 @@ plugins:
     version: "2.15.2-350.v0c2f3f8fc595"
 - artifactId: "workflow-scm-step"
   source:
-    version: "408.v7d5b_135a_b_d49"
+    version: "415.v434365564324"
 - artifactId: "jakarta-mail-api"
   source:
     version: "2.0.1-3"
@@ -181,7 +181,7 @@ plugins:
     version: "419.v8e3cd84ef49c"
 - artifactId: "git"
   source:
-    version: "5.0.2"
+    version: "5.1.0"
 - artifactId: "workflow-durable-task-step"
   source:
     version: "1247.v7f9dfea_b_4fd0"
@@ -226,7 +226,7 @@ plugins:
     version: "4.5.14-150.v7a_b_9d17134a_5"
 - artifactId: "workflow-cps"
   source:
-    version: "3673.v5b_dd74276262"
+    version: "3691.v28b_14c465a_b_b_"
 - artifactId: "ssh-slaves"
   source:
     version: "2.877.v365f5eb_a_b_eec"
@@ -253,7 +253,7 @@ plugins:
     version: "1.199.v3ce31253ed13"
 - artifactId: "branch-api"
   source:
-    version: "2.1105.v472604208c55"
+    version: "2.1109.vdf225489a_16d"
 - artifactId: "view-job-filters"
   source:
     version: "364.v48a_33389553d"
